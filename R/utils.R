@@ -356,13 +356,15 @@ function(format, year.abb = getOption("chron.year.abb"), ...)
     else {
         ## full format (month names)
         abb <- FALSE
-        sep <- gsub("[[:alpha:]]+([^[:alpha:]]).*", "\\1", format)
+        sep <- gsub("^[[:alpha:]]+([^[:alpha:]]).*", "\\1", format)
+        if(sep == format)
+            stop(paste("unrecognized format", format))
         fmt <- unlist(unpaste(format, sep = sep))
         mon.abb <- if(any(fmt == "month")) FALSE else TRUE
     }
     periods <- substring(tolower(fmt), 1, 1) # m, d, & y in right order
     return(list(abb = abb, sep = sep, periods = periods, 
-	      mon.abb = mon.abb, year.abb = year.abb))
+                mon.abb = mon.abb, year.abb = year.abb))
 }
 
 "unpaste" <-
