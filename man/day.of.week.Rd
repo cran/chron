@@ -12,8 +12,8 @@
   year, month, and day within the month.
 }
 \usage{
-\method{julian}{default}(m, d, y, origin = c(month = 1, day = 1, year = 1970))
-month.day.year(jul, origin = c(month = 1, day = 1, year = 1970))
+\method{julian}{default}(m, d, y, origin. = c(month = 1, day = 1, year = 1970))
+month.day.year(jul, origin. = c(month = 1, day = 1, year = 1970))
 leap.year(y)
 day.of.week(month, day, year)
 }
@@ -22,14 +22,14 @@ day.of.week(month, day, year)
   \item{d}{vector of day numbers.}
   \item{y}{vector of years.}
   \item{jul}{vector of Julian Dates, i.e., number of days since
-    \code{origin}.}
-  \item{origin}{vector specifying the origin as month, day, and year.
+    \code{origin.}.}
+  \item{origin.}{vector specifying the origin as month, day, and year.
     If missing, it defaults to \code{getOption("chron.origin")} if this
     is non-null, otherwise
     \code{c(month = 1, day = 1, year = 1970)}.}
 }
 \value{
-  A vector of Julian dates (number of days since \code{origin}) when
+  A vector of Julian dates (number of days since \code{origin.}) when
   \code{julian()} is called, or a list with members \code{month},
   \code{day}, \code{year} corresponding to the input Julian dates if
   \code{month.day.year()} is called.  \code{leap.year()} returns a
@@ -40,7 +40,7 @@ day.of.week(month, day, year)
 
   These functions were taken from Becker, Chambers, and Wilks (1988),
   and were slightly modified to take \code{chron} and \code{dates}
-  objects; some also take the extra argument \code{origin}.
+  objects; some also take the extra argument \code{origin.}.
   %The original functions are stored in the \code{library(example)}.
 }
 \seealso{

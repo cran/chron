@@ -14,16 +14,16 @@
   Create chrononogical objects which represent dates and times of day.
 }
 \usage{
-chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
+chron(dates., times., format = c("m/d/y","h:m:s"), out.format, origin.)
 }
 \arguments{
-  \item{dates}{character or numeric vector specifying dates.  If
-    character, \code{dates} are assumed to be in one of the date formats
-    below; if numeric, \code{dates} are assumed to be Julian dates,
-    i.e., number of days since \code{origin}.}
-  \item{times}{optional character or numeric vector specifying times of
-    day.  If character, \code{times} are assumed to be in one of the
-    time formats below; if numeric, \code{times} are assumed to be
+  \item{dates.}{character or numeric vector specifying dates.  If
+    character, \code{dates.} are assumed to be in one of the date
+    formats below; if numeric, \code{dates.} are assumed to be Julian
+    dates, i.e., number of days since \code{origin.}.}
+  \item{times.}{optional character or numeric vector specifying times of
+    day.  If character, \code{times.} are assumed to be in one of the
+    time formats below; if numeric, \code{times.} are assumed to be
     fractions of a day.}
   \item{format}{vector or list specifying the input format of the input.
     The format can be either strings specifying one of the recognized
@@ -44,7 +44,7 @@ chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
     default is \code{"h:m:s"}.}
   \item{out.format}{vector or list specifying date and time format for
     printing and output.  Default is same as \code{format}.}
-  \item{origin}{a vector specifying the date with respect to which
+  \item{origin.}{a vector specifying the date with respect to which
     Julian dates are computed.  Default is
     \code{c(month = 1, day = 1, year = 1970)};
     you may set the option \code{chron.origin} to specify your own
@@ -52,10 +52,10 @@ chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
     \code{options(chron.origin = c(month=1, day=1, year=1990))}.}
 }
 \value{
-  An object of class \code{times} if only \code{times} were specified,
-  \code{dates} if only \code{dates}, or \code{chron} if both
-  \code{dates = } and \code{times = } were supplied.
-  All these inherit from class \code{times}.
+  An object of class \code{"times"} if only \code{times.} were
+  specified, \code{"dates"} if only \code{dates.}, or \code{"chron"} if
+  both \code{dates.} and \code{times.} were supplied.  All these inherit
+  from class \code{"times"}.
 
   These objects represent dates and times of day, and allow the
   following arithmetic and summaries:  subtraction \code{d1-d2},
