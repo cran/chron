@@ -5,15 +5,18 @@
 \title{
   Return Hours, Minutes, or Seconds from a Times Object
 }
+\description{
+  Given a chron or times object, extract the hours, minutes or seconds
+  of the time it represents.
+}
 \usage{
 hours(x)
 minutes(x)
 seconds(x)
 }
 \arguments{
-\item{x}{
-  an object inheriting from class "times".
-}}
+  \item{x}{an object inheriting from class \code{"times"}.}
+}
 \value{
   the corresponding time period as an ordered factor.
 }

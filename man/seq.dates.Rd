@@ -3,24 +3,20 @@
 \title{
   Generate Chron or Dates Sequences
 }
+\description{
+  Generate a regular sequence of dates.
+}
 \usage{
 seq.dates(from, to, by = "days", length.)
 }
 \arguments{
-  \item{from}{
-    starting date; it can be a chron or dates objet, a character string,
-    e.g., "05/23/91", or a Julian date.
-  }
-  \item{to}{
-    ending date, like \code{from}.
-  }
-  \item{by}{
-    either a numeric value or one of the valid strings \code{"days"},
-    \code{"weeks"}, \code{"months"}, or \code{"years"}.
-  }
-  \item{length.}{
-    optional number of elements in the sequence.
-}}
+  \item{from}{starting date; it can be a chron or dates object, a
+    character string, e.g., \code{"05/23/91"}, or a Julian date.}
+  \item{to}{ending date, like \code{from}.}
+  \item{by}{either a numeric value or one of the valid strings
+    \code{"days"}, \code{"weeks"}, \code{"months"}, or \code{"years"}.}
+  \item{length.}{optional number of elements in the sequence.}
+}
 \value{a sequence with values (\code{form}, \code{from + by},
   \code{from + 2*by}, \code{\dots{}}, \code{to}) of class
   \code{class(from)} and origin \code{origin(from)}. 

@@ -1,3 +1,15 @@
+Sun Jul  2 10:47:12 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-4.
+ 	(License): Under GPL now.
+
+	* src/chron_strs.c: Use R.h API (use Sint where appropriate).
+
+	* src/unpaste.c: Use R.h API.
+
+	* man/*.Rd: Provide \description{} entries.  Use \code where
+	language elements are referred.
+
 Wed Jun 28 16:14:43 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-3.

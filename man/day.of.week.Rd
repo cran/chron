@@ -6,6 +6,11 @@
 \title{
   Convert between Julian and Calendar Dates
 }
+\description{
+  Utility functions to convert between Julian dates (numbers of days
+  since an origin, by default 1970-01-01) and calendar dates given by
+  year, month, and day within the month.
+}
 \usage{
 julian(m, d, y, origin = c(month = 1, day = 1, year = 1970))
 month.day.year(jul, origin = c(month = 1, day = 1, year = 1970))
@@ -13,23 +18,16 @@ leap.year(y)
 day.of.week(month, day, year)
 }
 \arguments{
-  \item{m}{
-    vector of month numbers.
-  }
-  \item{d}{
-    vector of day numbers.
-  }
-  \item{y}{
-    vector of years.
-  }
-  \item{jul}{
-    vector of Julian Dates, i.e., number of days since \code{origin}.
-  }
-  \item{origin}{
-    vector specifying the origin as month, day, and year.  If missing,
-    it defaults to \code{options(chron.origin)} if this is non-null,
-    otherwise \code{c(month = 1, day = 1, year = 1970)}. 
-}}
+  \item{m}{vector of month numbers.}
+  \item{d}{vector of day numbers.}
+  \item{y}{vector of years.}
+  \item{jul}{vector of Julian Dates, i.e., number of days since
+    \code{origin}.}
+  \item{origin}{vector specifying the origin as month, day, and year.
+    If missing, it defaults to \code{getOption("chron.origin")} if this
+    is non-null, otherwise
+    \code{c(month = 1, day = 1, year = 1970)}.}
+}
 \value{
   A vector of Julian dates (number of days since \code{origin}) when
   \code{julian()} is called, or a list with members \code{month},

@@ -7,6 +7,11 @@
 \title{
   Return Various Periods from a Chron or Dates Object
 }
+\description{
+  Given a chron or dates object, extract the year, quarter, month, day
+  (within the month) or weekday (days within the week) of the date it
+  represents.
+}
 \usage{
 days(x)
 weekdays(x, abb = TRUE)

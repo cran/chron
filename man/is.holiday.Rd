@@ -1,22 +1,26 @@
 \name{is.holiday}
 \alias{is.holiday}
 \alias{is.weekend}
+\alias{.Holidays}
 \title{
   Find Weekends and Holidays in a Chron or Dates Object
+}
+\description{
+  Determine the date represented by a chron or dates object is a weekend
+  or a holiday.
 }
 \usage{
 is.weekend(x)
 is.holiday(x, holidays)
+.Holidays
 }
 \arguments{
-  \item{x}{
-    an object inheriting from \code{dates}.
-  }
-  \item{holidays}{
-    optional \code{chron} or \code{dates} object listing holidays.  If
-    argument \code{holidays} is missing, either the value of the object
-    \code{.Holidays} (if it exists) or \code{NULL} will be used.
-}}
+  \item{x}{an object inheriting from \code{"dates"}.}
+  \item{holidays}{optional \code{"chron"} or \code{"dates"} object
+    listing holidays.  If argument \code{holidays} is missing, either
+    the value of the object \code{.Holidays} (if it exists) or
+    \code{NULL} will be used.}
+}
 \value{
   a logical object indicating whether the corresponding date is a
   weekend in the case of \code{is.weekend()} or a holiday in the case of

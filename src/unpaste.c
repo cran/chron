@@ -1,13 +1,13 @@
-#include "S.h"
-#include "Rinternals.h"
+#include <R.h>
+#include <Rinternals.h>
 
 #define BUF_SIZ 4096
 
 void
-unpaste(char **strings, long *nstrings, char **sep, long *whitespace,
-	long *nfields, SEXP *output)
+unpaste(char **strings, Sint *nstrings, char **sep, Sint *whitespace,
+	Sint *nfields, SEXP *output)
 {
-    long i, j, k;
+    Sint i, j, k;
     char *s, buffer[BUF_SIZ];
     int	c;
 
@@ -22,9 +22,9 @@ unpaste(char **strings, long *nstrings, char **sep, long *whitespace,
 	j = k = 0;
 	while(1) {
 	    c = *s;
-	    if ((c == '\0') ||
-		(*whitespace && isspace(c)) ||
-		(!*whitespace && c == **sep)) {
+	    if((c == '\0')
+	       || (*whitespace && isspace(c))
+	       || (!*whitespace && c == **sep)) {
 		buffer[j++] = '\0';
 		STRING(output[k])[i] = allocString(j);
 		strcpy(CHAR(STRING(output[k])[i]), buffer);

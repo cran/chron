@@ -1,54 +1,53 @@
 \name{chron}
 \alias{chron}
+\alias{as.chron}
+\alias{is.chron}
 \alias{as.data.frame.chron}
 \alias{format.chron}
 \alias{print.chron}
 \title{
   Create a Chronological Object 
 }
+\description{
+  Create chrononogical objects which represent dates and times of day.
+}
 \usage{
 chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
 }
 \arguments{
-  \item{dates}{
-    character or numeric vector specifying dates.
-    If character, \code{dates} are assumed to be in one of the date
-    formats below; if numeric, \code{dates} are assumed to be Julian
-    dates, i.e., number of days since \code{origin}. 
-  }
-  \item{times}{
-    optional character or numeric vector specifying times of day.
-    If character, \code{times} are assumed to be in one of the time
-    formats below; if numeric, \code{times} are assumed to be fractions
-    of a day.
-  }
-  \item{format}{
-    vector or list specifying the input format of the input.
+  \item{dates}{character or numeric vector specifying dates.  If
+    character, \code{dates} are assumed to be in one of the date formats
+    below; if numeric, \code{dates} are assumed to be Julian dates,
+    i.e., number of days since \code{origin}.}
+  \item{times}{optional character or numeric vector specifying times of
+    day.  If character, \code{times} are assumed to be in one of the
+    time formats below; if numeric, \code{times} are assumed to be
+    fractions of a day.}
+  \item{format}{vector or list specifying the input format of the input.
     The format can be either strings specifying one of the recognized
     formats below or a list of user-supplied functions to convert dates
     from character into Julian dates and vice versa.
 
-    The dates format can be any permutation of the characters "d", "m",
-    or "y" delimited by a separator (possibly null), e.g., "m/d/y",
-    "d-m-y", "ymd", are all valid; the format can also be permutations
-    of the words "day" "month" and "year", which produces the month
-    name, e.g., "month day year" produces "April 20 1992", "day mon
-    year" produces "20 Apr 1992".
+    The dates format can be any permutation of the characters
+    \code{"d"}, \code{"m"}, or \code{"y"} delimited by a separator
+    (possibly null), e.g., \code{"m/d/y"}, \code{"d-m-y"}, \code{"ymd"},
+    are all valid; the format can also be permutations of the words
+    \code{"day"}, \code{"month"} and \code{"year"}, which produces the
+    month name, e.g., \code{"month day year"} produces
+    \code{"April 20 1992"}, \code{"day mon year"} produces
+    \code{"20 Apr 1992"}.
 
-    The times format can be any permutation of "h", "m", and "s"
-    separated by any one non-special character.  The default is "h:m:s".
-  }
-  \item{out.format}{
-    vector or list specifying date and time format for printing and
-    output. Default is same as \code{format}.
-  }
-  \item{origin}{
-    a vector specifying the date with respect to which Julian dates
-    are computed. Default is \code{c(month = 1, day = 1, year = 1970)};
+    The times format can be any permutation of \code{"h"}, \code{"m"},
+    and \code{"s"} separated by any one non-special character.  The
+    default is \code{"h:m:s"}.}
+  \item{out.format}{vector or list specifying date and time format for
+    printing and output.  Default is same as \code{format}.}
+  \item{origin}{a vector specifying the date with respect to which
+    Julian dates are computed.  Default is
+    \code{c(month = 1, day = 1, year = 1970)};
     you may set the option \code{chron.origin} to specify your own
     default, e.g.,
-    \code{options(chron.origin = c(month=1, day=1, year=1990))}. 
-  }
+    \code{options(chron.origin = c(month=1, day=1, year=1990))}.}
 }
 \value{
   An object of class \code{times} if only \code{times} were specified,
