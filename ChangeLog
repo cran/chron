@@ -1,3 +1,32 @@
+Wed Jun 28 16:14:43 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-3.
+
+	* R/chron.R: Get options via getOption().
+ 	Replace T/F by TRUE/FALSE.
+	Split into 4 files.
+
+Sun Jun 25 17:06:07 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* src/chron_strs.c (to_lower): Remove.
+
+	* R/chron.R: Comment lower.case().
+	Add as.data.frame() methods for classes `chron', `dates' and
+	`times'.
+
+	* R/y2k.R: Get options via getOption().
+  	Replace lower.case() by	tolower().
+	(year.expand): Only expand the 2-digit specifications, leaving
+	everything else intact.
+
+	* man/*.Rd: Add `\keyword{chron}'.
+
+	* man/chron.Rd: Add aliases for methods for objects of class
+	`chron'.
+
+	* man/dates.Rd: Add aliases for methods for objects of class
+	`dates' or `times'.
+
 Sun Jan 23 15:35:51 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-2.

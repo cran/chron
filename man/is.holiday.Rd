@@ -23,7 +23,15 @@ is.holiday(x, holidays)
   \code{is.holiday()}.
 }
 \seealso{
-  days, weekdays, months, quarters, years
+  \code{\link{days}},
+  \code{\link{weekdays}},
+  \code{\link{months}},
+  \code{\link{quarters}},
+  \code{\link{years}};
+  \code{\link{chron}},
+  \code{\link{dates}},
+  \code{\link{cut.dates}},
+  \code{\link{seq.dates}}
 }
 \examples{
 dts <- dates("01/01/98") + trunc(365 * runif(50))
@@ -34,10 +42,5 @@ table(is.weekend(dts))
 # 01/01/92 05/25/92 07/04/92  09/07/92     11/26/92  12/25/92
 # NOTE:  Only these 6 holidays from 1992 are defined by default!
 }
-\seealso{
-  \code{\link{chron}},
-  \code{\link{dates}},
-  \code{\link{cut.dates}},
-  \code{\link{seq.dates}}
-}
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

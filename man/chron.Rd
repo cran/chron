@@ -1,5 +1,8 @@
 \name{chron}
 \alias{chron}
+\alias{as.data.frame.chron}
+\alias{format.chron}
+\alias{print.chron}
 \title{
   Create a Chronological Object 
 }
@@ -45,7 +48,8 @@ chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
     you may set the option \code{chron.origin} to specify your own
     default, e.g.,
     \code{options(chron.origin = c(month=1, day=1, year=1990))}. 
-}}
+  }
+}
 \value{
   An object of class \code{times} if only \code{times} were specified,
   \code{dates} if only \code{dates}, or \code{chron} if both
@@ -75,7 +79,11 @@ chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
   time zones nor daylight savings time.
 }
 \seealso{
-dates, times, cut.dates, seq.dates
+  \code{\link{dates}},
+  \code{\link{times}},
+  \code{\link{julian}},
+  \code{\link{cut.dates}},
+  \code{\link{seq.dates}}.
 }
 \examples{
 dts <- dates(c("02/27/92", "02/27/92", "01/14/92",
@@ -120,10 +128,5 @@ diff(x)
 sort(dts)[1:3]
 # [1] 01/14/92 02/01/92 02/27/92
 }
-\seealso{
-  \code{\link{dates}}
-  \code{\link{times}}
-  \code{\link{julian}}
-  \code{\link{cut}}
-}
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

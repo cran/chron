@@ -15,5 +15,6 @@ function (lib, pkg) {
     ##    options(chron.year.abb = TRUE,
     ##            chron.year.expand = "year.expand")
 
-    options(chron.year.abb = TRUE, chron.year.expand = "year.expand")
+    options(chron.year.abb = TRUE,
+            chron.year.expand = "year.expand")
 }

@@ -44,3 +44,4 @@ end.of.the.month
   \code{\link{cut.dates}}
 }
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

@@ -30,3 +30,4 @@ boxplot(y ~ h)
   \code{\link{times}}
 }
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

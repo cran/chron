@@ -1,6 +1,38 @@
 \name{dates}
 \alias{dates}
 \alias{times}
+\alias{Math.dates}
+\alias{Ops.dates}
+\alias{Summary.dates}
+\alias{[<-.dates}
+\alias{all.equal.dates}
+\alias{as.data.frame.dates}
+\alias{c.dates}
+\alias{format.dates}
+\alias{print.dates}
+\alias{trunc.dates}
+\alias{Math.times}
+\alias{Ops.times}
+\alias{Summary.times}
+\alias{[.times}
+\alias{[<-.times}
+\alias{[[.times}
+\alias{as.character.times}
+\alias{as.data.frame.times}
+\alias{axis.times}
+\alias{c.times}
+\alias{diff.times}
+\alias{format.times}
+\alias{hist.times}
+\alias{identify.times}
+\alias{is.na.times}
+\alias{lines.times}
+\alias{mean.times}
+\alias{plot.times}
+\alias{points.times}
+\alias{print.times}
+\alias{quantile.times}
+\alias{summary.times}
 \title{
   Generate Dates and Times Components from Input
 }
@@ -45,3 +77,4 @@ dates(x)
   \code{\link{cut.dates}}
 }
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

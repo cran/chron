@@ -34,3 +34,4 @@ plot(weekdays(dts))
 plot(months(dts))
 }
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

@@ -59,3 +59,4 @@ unlist(month.day.year(0))
 }
 \keyword{chron}
 % Converted by Sd2Rd version 0.2-a3.
+\keyword{chron}

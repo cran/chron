@@ -1,26 +1,6 @@
 #include <ctype.h>
 #include "S.h"
 
-void
-to_lower(strings, nstrings)	/* convert to lower case */
-     char	**strings;
-     long	*nstrings;	
-{
-  char	*s;
-  int	c;
-  long	i, n = *nstrings;
-
-  for(i=0; i<n; ++i){
-    s = strings[i];
-    while( (c = *s) != '\0'){
-      if(isalpha(c) && isupper(c))
-	*s = tolower(c);
-      s++;
-    }
-  }
-  return;
-}
-
 /* count fields in vector of strings */
 void
 cnt_flds_str(strings, nstrings, sep, white_space, counts)
