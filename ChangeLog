@@ -1,3 +1,13 @@
+2004-11-06  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-33.
+
+	* R/dates.R (seq.dates): seq.dates(by = "months") was wrong for
+	end of month dates.  Spotted by Ciprian_Marin@ssga.com, fix by
+	Gabor Grothendieck <ggrothendieck@myway.com>.  See also message
+	2004-November/058829.html in the r-help mail archive at
+	https://www.stat.math.ethz.ch/pipermail/r-help/.
+
 2004-09-15  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-32.

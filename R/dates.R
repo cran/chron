@@ -476,6 +476,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
         ## be careful when "from" is in the tail of the month!
         nxt.day <- month.day.year(as.numeric(from + 1))$month
         end.of.the.month <- frm.mdy$month != nxt.day
+        if(end.of.the.month) x <- c(x, x[length(x)] + 1)
         mdy <- month.day.year(x, origin = org)
         dys <- mdy$day
         if(frm.mdy$day <= 28)
