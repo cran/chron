@@ -1,3 +1,10 @@
+2001-06-15  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-14.
+
+	* R/y2k.R: In year.expand(), do not try to expand NAs (problem
+	reported by B.Rowlingson@lancaster.ac.uk.
+
 2001-06-02  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-13.
