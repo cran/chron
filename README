@@ -1,0 +1,84 @@
+This directory contains code and help for an R port of CHRON, an S-PLUS
+package for working with chronological objects (times and dates).
+
+The original was downloaded from
+  http://netlib.bell-labs.com/cm/ms/departments/sia/project/misc/chron.html
+See the file `PORTING' for the changes made for the R version.
+
+The original `README' is appended below.  See `COPYING' for copyright
+information.
+
+KH <Kurt.Hornik@ci.tuwien.ac.at> 1998/02/13
+
+*** Original README **************************************************
+
+This directory contains S functions to work with chron objects. These
+objects handle dates and times. For the time being issues relating to 
+time-zones, daylight savings time, etc. are being put aside.
+
+NOTE: To use chron objects you need library(statistics) in S.
+      In S-PLUS you need library(chron, first = T)
+
+For source and details, see
+
+	http://cm.bell-labs.com/ms/departments/sia/dj/chron.html
+
+The following methods and functions are available for chron objects:
+
+function	description
+----------	-----------------------------------------------------
+chron		createas a chron object; it takes either julian dates
+		or character dates. See help(chron).
+dates		creates a dates object (simply invokes chron)
+times		creates a times object (simply inoveks chron)
+
+as.numeric	returns a vector of julian dates + fraction of day (times)
+as.character	returns a character representation of dates/times
+is.na
+
+print		print dates and times nicely 
+plot		plot with time axis
+hist		histogram with time axis
+identify	identify points in scatterplot
+lines, points	add lines/points
+axis.times	add time axis to plot
+cut		make ordered factors from dates (e.g., by month, week)
+seq		generate a sequence of dates
+
+min, max, 	numeric summaries
+range, summary		
+sort, order
+trunc, ceiling,
+round, signif,
+diff
+
+[.times		selects, e.g., dates[ dates > "02/20/92" ], or
+		lathe.date[ start.date > min(scan.date) ]
+
+[<-.times	replacement
+c		combines chrons
+
+days, months, 	extact day, month, year, quarter number, etc.
+years, quarters		
+weekdays,
+hours, minutes, 
+seconds
+is.holiday
+is.weekend
+
+month.day.year 	date conversion (modified from the S "blue" book) 
+julian,
+day.of.week
+
+UNDOCUMENTED FEATURES:
+----------------------
+	1. Chron matrices can be created from chron objects by using dim() 
+	   (can't use matrix() nor array())
+	   > dim(x) <- c(20,3)
+	   > x[2,3] <- "03/28/90"	 # replaces a cell
+
+	2. The c() method takes anything that can be coerced to chrons:
+	   y <- c(x, "03/21/92", 8123)
+	   but a bug(?) in the S evaluator makes it necessary to 
+	   specify the chron object first, i.e., c("03/28/90", x) does not
+	   dispath the c.dates() method.

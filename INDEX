@@ -1,0 +1,26 @@
+chron			Create a Chronological Object
+cut.dates		Create a Factor from a chron or dates Object
+dates			Generate Dates Component from Input
+day.of.week		Return a Number Between 0 and 6 to Specify the
+			Day of the Week
+julian			Convert from Calendar to Julian Date
+leap.year		Indicate Leap Years
+month.day.year		Convert from Julian to Calendar Date
+seq.dates		Generate chron or dates Sequences
+times			Generate Times Component from Input
+
+days
+months
+quarters
+weekdays
+years			Return Corresponding Periods from a chron or dates
+			Object
+
+is.holiday
+is.weekend		Find Weekends and Holidays in a chron or dates 
+			Object
+
+hours
+minutes
+seconds			Return Hours, Minutes, or Seconds from a times 
+			Object

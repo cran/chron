@@ -1,0 +1,45 @@
+Sat Apr 10 13:08:59 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.1-6.
+	* R/chron.R (leap.year): Fix typo.
+	(format<-, format<-.times, origin<-): Replace `val' by `value'.
+	* PORTING: Document this.
+
+Sun Mar 28 10:53:43 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.1-5.
+
+	* R/chron.R (c.dates): Add `recursive = FALSE' argument.
+	* R/chron.R (c.times): Add `recursive = FALSE' argument.
+	* PORTING: Document this.
+
+Sun Dec  6 11:43:51 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.1-4.
+
+	* TODO: New file.
+
+Fri Nov 27 23:23:30 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.1-3.
+
+	* R/chron.R: Comment load.if.needed().
+	* man/load.if.needed.Rd: Removed.
+
+	* src/chron_strs.c: Add `#include <ctype.h>'.
+
+	* src-c: Removed.
+
+Fri Mar 13 08:02:50 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.1-2.
+
+	* README: Changed to new (?) URL for chron.
+
+Wed Feb 18 23:43:24 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* R/zzz.R: Use .First.lib() for dynloading.
+
+	* DESCRIPTION: New file.
+
+	* ChangeLog: Finally started, current version is 2.1-1.

@@ -1,0 +1,89 @@
+* Use the UNIX versions of the string functions, as we don't have a
+valid definition for vector etc in S.h (?)  Hence, put the unpaste part
+of chron_strs.c in a separate file, and put the code for unpaste() from
+strings.inUX into chron_strs.R.
+
+* Copy ALL.FUNCTIONS -> chron.R.
+
+* In chron.R, replace all occurrences of
+	!length(something)
+by
+	!as.logical(length(something))
+In Emacs, you can do
+	(query-replace-regexp 
+	 "!length(\\([a-z\.]*\\))" "!as.logical(length(\\1))" nil)
+
+* The same problem (`!' only defined for logical arguments) occurs in
+cut.dates():
+	if(!(i <- pmatch(breaks[1], valid, 0)))
+seq.dates():
+	if(!(i <- pmatch(by, valid, 0)))
+=> add `as.logical' after the `!'.
+
+* In Ops.dates,
+	if(any(o1 != o2))
+does not work in R if one of the origins is NULL.  Change to
+	if(any(o1 - o2))
+
+* Change .Machine$single.eps to .Machine$double.eps
+
+* Change .Options to options()
+
+* In julian(), replace
+	if(missing(origin.))
+by
+	if(missing(origin.) || is.null(origin.))
+
+* Change occurences of
+	UseMethod(generic, object, ...)
+to
+	UseMethod(generic)
+
+* Make the following functions generic in the R distribution:
+	cut diff hist mean quantile seq trunc
+Comment the corresponding definitions for the generic funs and their
+default methods.
+
+* In cut.dates(), it seems that R's cut.default() which uses intervals
+closed on the right by default produces results which are one off.
+Adding `right = FALSE' to the call to cut.default() seems to fix this.
+
+* character(n=0) in R is character(length=0) in S;  fix chron.R
+accordingly
+
+* In c.dates() and c.times(), add `recursive = FALSE' argument.
+
+* In leap.year(), fix typo.
+
+* In format<-(), format<-.times() and origin<-(), replace `val' by
+`value'.
+
+* DOCUMENTATION FIXES (after conversion via Sd2Rd):
+
+chron.Rd:
+  Add alias.
+cut.dates.Rd:  
+  Add alias.
+dates.Rd:
+  Fix \name.
+  Add aliases (dates, times).
+  Delete 1st \seealso.
+day.of.week.Rd:
+  Add aliases (day.of.week, julian, leap.year, month.day.year).
+  REMOVE julian.Rd, leap.year.Rd, month.day.year.Rd.
+days.Rd:
+  Fix \name.
+  Add aliases (days, months, quarters, weekdays, years).
+  Merge in all \seealso{}'s (dates chron is.holiday is.weekend cut.dates
+    seq.dates).
+  REMOVE months.Rd quarters.Rd weekdays.Rd years.Rd.
+hours.Rd:
+  Fix \name.
+  Add aliases (hours minutes seconds).
+is.holiday.Rd:
+  Add aliases (is.holiday is.weekend).
+  REMOVE is.weekend.Rd.
+seq.dates.Rd:
+  Add alias.    
+
+Fix examples everywhere!
