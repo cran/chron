@@ -40,6 +40,7 @@ dts <- dates(c("02/27/92", "02/27/92", "01/14/92",
                "02/28/92", "02/01/92"))
 cut(dts, "months")
 # [1] Feb 92 Feb 92 Jan 92 Feb 92 Feb 92
-boxplot(runif(5) ~ cut(dts, "months")) 
+boxplot(runif(5) ~ cut(dts, "months"))
+}
 % Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}
