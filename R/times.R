@@ -315,7 +315,7 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
             lab <- par("lab")
         if(is.null(mgp <- dots$mgp))
             mgp <- par("mgp")
-        if(is.null(tck <- dots$tck)) tck <- par("tck")	
+        if(is.null(tcl <- dots$tcl)) tcl <- par("tcl")	
         ## do we plot x axis
         if(is.null(axes <- dots$axes))
             axes <- TRUE
@@ -329,14 +329,14 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
             if(horiz) {
                 if(xaxt != "n")
                     axis(1, adj = adj, cex = cex, font = font, 
-                         las = las, lab = lab, mgp = mgp, tck = tck)
+                         las = las, lab = lab, mgp = mgp, tcl = tcl)
             }
             else if(yaxt != "n")
                 axis(2, adj = adj, cex = cex, font = font, las
-                     = las, lab = lab, mgp = mgp, tck = tck)
+                     = las, lab = lab, mgp = mgp, tcl = tcl)
             axis(horiz + 1, at = tt$breaks, labels = lbl, adj = adj,
                  cex = cex, font = font, las = las, lab = lab, 
-                 mgp = mgp, tck = tck)
+                 mgp = mgp, tcl = tcl)
         }
     }
     invisible(tt)
@@ -444,7 +444,7 @@ function(x, y, ...,
         lab <- par("lab")
     if(is.null(mgp <- dots$mgp))
         mgp <- par("mgp")
-    if(is.null(tck <- dots$tck)) tck <- par("tck")	
+    if(is.null(tcl <- dots$tcl)) tcl <- par("tcl")	
     ## for some plot types we need to sort according to x
     if(!is.null(type <- dots$type))
         if(any(type == c("l", "b", "o"))) {
@@ -476,20 +476,19 @@ function(x, y, ...,
         else if(x.times)
             axis.times(1, x, simplify = simplify, labels = TRUE,
                        adj = adj, col = col, cex = cex, font = font,
-                       las = las, lab = lab, mgp = mgp, tck = tck)
+                       las = las, lab = lab, mgp = mgp, tcl = tcl)
         if(req.yaxt == "n")
             par(yaxt = "n")
         else if(y.times)
             axis.times(2, y, simplify = simplify, srt = 90, labels
                        = TRUE, adj = adj, col = col, cex = cex,
                        font = font, las = las, lab = lab, mgp = mgp,
-                       tck = tck)
+                       tcl = tcl)
     }
     invisible(list(x = x, y = y))
 }
 
-"points.times" <-
-function(x, y, ...) {
+points.times <- function(x, y, ...) {
     xtmp <- x
     ytmp <- y
     x <- as.numeric(x)
@@ -498,25 +497,24 @@ function(x, y, ...) {
     invisible(list(x = xtmp, y = ytmp))
 }
 
-"print.times" <-
-function(x, digits, quote = FALSE, prefix = "", simplify) {
+print.times <- function(x, digits, quote = FALSE, prefix = "", simplify) {
     if(!as.logical(length(x))) {
         cat("times(0)\n")
         return(invisible(x))
     }
-    if(missing(simplify)
-       && is.null(simplify <- getOption("chron.simplify")))
+    if(missing(simplify) &&
+       is.null(simplify <- getOption("chron.simplify")))
         simplify <- FALSE
+    xo <- x
     ## print whole days (no fraction) as regular integers
     if(all(is.na(x)) || any(x[!is.na(x)] > 1))
         cat("Time in days:\n")
     x <- format.times(x, simplify = simplify)
-    out <- NextMethod("print", quote = quote)
-    invisible(out)
+    NextMethod("print", quote = quote)
+    invisible(xo)
 }
 
-"quantile.times" <-
-function(x, ...) {
+quantile.times <- function(x, ...) {
     fmt <- attr(x, "format")
     orig <- attr(x, "origin")
     cl <- class(x)

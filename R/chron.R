@@ -203,18 +203,19 @@ function(x, new.origin = c(1, 1, 1970),
     else class(x) <- c("dates", "times")
     x
 }
-"print.chron"<-
+print.chron <-
 function(x, digits = NULL, quote = FALSE, prefix = "", sep = " ",
          enclosed = c("(", ")"), simplify) {
     if(!as.logical(length(x))) {
         cat("chron(0)\n")
         return(invisible(x))
     }
-    if(missing(simplify))
-        if(is.null(simplify <- getOption("chron.simplify")))
+    if(missing(simplify) &&
+       is.null(simplify <- getOption("chron.simplify")))
             simplify <- FALSE
+    xo <- x
     x <- format.chron(x, sep = sep, enclosed = enclosed, simplify = 
                       simplify)
-    out <- print.default(x, quote = quote)
-    invisible(out)
+    print.default(x, quote = quote)
+    invisible(xo)
 }

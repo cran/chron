@@ -389,23 +389,20 @@ function(x, format = "m/d/y", origin., simplify = FALSE, ...) {
     y
 }
 
-"print.dates"<-
-function(x, digits = NULL, quote = FALSE, prefix = "", simplify)
+print.dates <- function(x, digits = NULL, quote = FALSE, prefix = "", simplify)
 {
     if(!as.logical(length(x))) {
         cat("dates(0)\n")
         return(invisible(x))
     }
-    if(missing(simplify))
-        if(is.null(simplify <- getOption("chron.simplify")))
+    if(missing(simplify) &&
+       is.null(simplify <- getOption("chron.simplify")))
             simplify <- FALSE
-    out <- format.dates(x, simplify = simplify)
-    out <- print.default(out, quote = quote)
-    invisible(out)
+    print.default(format.dates(x, simplify = simplify), quote = quote)
+    invisible(x)
 }
 
-"seq.dates"<-
-function(from, to, by = "days", length.) {
+seq.dates <- function(from, to, by = "days", length.) {
     if(missing(from))
         stop("argument \"from\" must be specified")
     if(!inherits(from, "dates")) from <- chron(from[1])	

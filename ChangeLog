@@ -1,3 +1,18 @@
+Sat Jul 22 11:41:45 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-6.
+
+	* R/chron.R (print.chron): Return argument `x'.
+	* R/dates.R (print.dates): Return argument `x'.
+	* R/times.R (print.times): Return argument `x'.
+	Changes suggested by M Maechler <maechler@stat.math.ethz.ch>.
+
+Sun Jul 16 21:54:53 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-5.
+
+	* R/times.R: Use graphics parameter `tcl' instead of `tck'.
+
 Sun Jul  2 10:47:12 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-4.
