@@ -134,7 +134,7 @@ function(x, ..., value)
 function(..., tolerance = 1/(10 * 24 * 60 * 60))
     NextMethod("all.equal", ..., tolerance = tolerance)
 
-as.data.frame.dates <- .Alias(as.data.frame.vector)
+as.data.frame.dates <- as.data.frame.vector
 
 "c.dates" <-
 function(..., recursive = FALSE)

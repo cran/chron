@@ -1,3 +1,12 @@
+2001-11-27  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2.19.
+
+	* R/chron.R:
+	* R/dates.R:
+	* R/times.R:
+	.Alias() is gone in R 1.4.0, hence remove.
+
 2001-09-18  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-18.

@@ -147,7 +147,7 @@ as.chron.POSIXt <- function(x, offset = 0, ...)
 function(x)
     inherits(x, "chron")
 
-as.data.frame.chron <- .Alias(as.data.frame.vector)
+as.data.frame.chron <- as.data.frame.vector
 
 "convert.chron" <-
 function(x, format = c(dates = "m/d/y", times = "h:m:s"), origin.,

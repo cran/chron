@@ -101,7 +101,7 @@ function(x, ..., drop = TRUE)
 function(x, ...)
     format(x, ...)
 
-as.data.frame.times <- .Alias(as.data.frame.vector)
+as.data.frame.times <- as.data.frame.vector
 
 "axis.times"<-
 function(n, x, add = TRUE, labels, simplify = TRUE, ...)
