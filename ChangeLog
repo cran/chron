@@ -1,3 +1,25 @@
+Sun Jan 23 15:35:51 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-2.
+
+	* Rename `year.abb' and `year.expand' to `chron.year.abb' and
+	`chron.year.expand', respectively.
+
+Tue Jan  4 21:42:01 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-1.
+
+	* Y2K: New file.
+
+	* PORTING: Document Y2K improvements.
+
+	* R/zzz.R: Set new options `year.abb' and `year.expand' to allos
+	2-digit abbreviations and (kind of) guess the actual year.
+	* R/y2k.R: New file with replacements for the commented funs and
+	new functions year.expand() and year.strict().
+	* R/chron.R: Comment convert.dates(), format.dates(), and
+	parse.format().
+
 Thu Jul 29 10:48:16 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.1-7.

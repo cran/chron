@@ -57,6 +57,10 @@ accordingly
 * In format<-(), format<-.times() and origin<-(), replace `val' by
 `value'.
 
+* Y2K update: comment convert.dates(), format.dates(), parse.format(),
+and replace by updated functions by David James.
+
+
 * DOCUMENTATION FIXES (after conversion via Sd2Rd):
 
 chron.Rd:
