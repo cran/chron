@@ -183,10 +183,7 @@ function(f)
 "is.holiday" <-
 function(x, holidays)
 {
-    if(!inherits(x, "dates"))
-        if(is.character(x) || is.numeric(x))
-            x <- dates(x)
-        else stop("x must inherit from dates")
+    if(!inherits(x, "dates")) x <- as.chron(x)
     if(missing(holidays))
         if(exists(".Holidays"))
             holidays <- .Holidays
@@ -201,10 +198,7 @@ function(x, holidays)
 "is.weekend" <-
 function(x)
 {
-    if(!inherits(x, "dates"))
-        if(is.character(x) || is.numeric(x))
-            x <- chron(x)
-        else stop("x must inherit from dates")
+    if(!inherits(x, "dates")) x <- as.chron(x)
     v <- month.day.year(as.numeric(x), origin = origin(x))
     out <- day.of.week(v$month, v$day, v$year) + 1	
     ## recall out is between 1 (Sunday) and 7 (Saturday)

@@ -15,7 +15,8 @@ is.holiday(x, holidays)
 .Holidays
 }
 \arguments{
-  \item{x}{an object inheriting from \code{"dates"}.}
+  \item{x}{an object inheriting from \code{"dates"}, or coercible to
+    \code{"chron"}.}
   \item{holidays}{optional \code{"chron"} or \code{"dates"} object
     listing holidays.  If argument \code{holidays} is missing, either
     the value of the object \code{.Holidays} (if it exists) or

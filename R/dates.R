@@ -14,7 +14,7 @@ function(x, ...)
                  FALSE)
     if(!ok)
         stop(paste(.Generic, "not defined for dates objects"))
-    cl <- class(x)
+    cl <- oldClass(x)
     class(x) <- NULL
     out <- NextMethod(.Generic)
     class(out) <- cl
@@ -70,7 +70,7 @@ function(e1, e2)
         return(val)                     # make sure origin wasn't dropped
     if(!inherits(val, "dates")) {
         attr(val, "origin") <- if(dates.flg[1]) o1 else o2
-        class(val) <- c(.Class, class(val))
+        class(val) <- unique(c(.Class, class(val)))
     }
     tms <- as.vector(val)
     tmp <- tms - trunc(tms)	
@@ -121,7 +121,7 @@ function(x, ..., value)
         value <- chron(value, format = fmt, origin = ox)
     else if(any(ox != origin(value)))
         origin(value) <- ox
-    cl <- class(x)
+    cl <- oldClass(x)
     class(x) <- class(value) <- NULL
     x <- NextMethod(.Generic)
     attr(x, "format") <- fmt
@@ -505,7 +505,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
 "trunc.dates" <-
 function(x)
 {
-    cl <- class(x)
+    cl <- oldClass(x)
     class(x) <- NULL
     out <- NextMethod("trunc")
     class(out) <- cl[!as.logical(match(cl, "chron", 0))]
