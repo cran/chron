@@ -372,7 +372,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
     ## split str into fields separated by sep or by fiels specified by
     ## start positions and field widths; output a list 
     str <- as.character(str)
-    nas <- str == "NA" | str == ""
+    nas <- is.na(str) | str == ""
     if(sep != "") {
         if(is.null(nfields)) {
             ## use a simple heuristic
@@ -411,7 +411,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         out <- vector("list", length = length(first))
         for(i in seq(along = first)) {
             out[[i]] <- substring(str, first[i], last[i])
-            out[[i]][nas] <- "NA"
+            out[[i]][nas] <- as.character(NA)
         }
     }
     names(out) <- fnames

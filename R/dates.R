@@ -202,7 +202,7 @@ function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...)
     yy <- as.numeric(out$y)
     dy <- as.numeric(out$d)
     if(all(is.na(yy) | is.na(dy) | is.na(mo)))
-        if(any(as.character(dates.) != "NA"))
+        if(any(!is.na(as.character(dates.))))
             stop(paste("format", format, "may be incorrect"))
         else 
             return(rep(NA, length(dates.)))
