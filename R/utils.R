@@ -397,14 +397,12 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         }
         n <- length(str)
         white.space <- FALSE
-        out <- .C(NAME = "unpaste",
-                  strings = as.character(str),
-                  nstrings = as.integer(n),
-                  sep = as.character(sep),
-                  white.space = as.integer(white.space),
-                  nfields = as.integer(nfields),
-                  output = vector("list", length = nfields),
-                  PACKAGE = "chron")$output
+        out <- .Call("unpaste",
+                      as.character(str),
+                      as.character(sep),
+                      as.integer(white.space),
+                      as.integer(nfields),
+                      PACKAGE = "chron")
     }
     else {
         last <- first + width - 1
