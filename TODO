@@ -1,5 +1,3 @@
-Try to adopt the C code for unpaste() for R.
-
 Apparently, the components of origin are used as positional rather than
 as named!  I.e.,
 	options(chron.origin = c(month = 1, day = 1, year = 1960))

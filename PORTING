@@ -1,7 +1,6 @@
-* Use the UNIX versions of the string functions, as we don't have a
-valid definition for vector etc in S.h (?)  Hence, put the unpaste part
-of chron_strs.c in a separate file, and put the code for unpaste() from
-strings.inUX into chron_strs.R.
+* Put the unpaste part of chron_strs.c in a separate file, and rewrite
+for R internal object handling.  Code for unpaste() from strings.inUX
+is no longer needed.
 
 * Copy ALL.FUNCTIONS -> chron.R.
 

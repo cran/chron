@@ -1,3 +1,12 @@
+Thu Jul 29 10:48:16 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.1-7.
+	* TODO: unpaste() now uses C version.
+	* R/chron_strs.R: Remove.
+	* src/Makefile: Remove.
+	* src/unpaste.c: Rewrite for R style list handling.
+	* PORTING: Document the change from R to C unpaste.
+
 Sat Apr 10 13:08:59 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.1-6.
