@@ -1,6 +1,8 @@
-"chron" <- function(dates. = NULL, times. = NULL,
-                    format = c(dates = "m/d/y", times = "h:m:s"),
-                    out.format = format, origin.) {
+"chron" <-
+function(dates. = NULL, times. = NULL,
+         format = c(dates = "m/d/y", times = "h:m:s"),
+         out.format = format, origin.)
+{
     given <- c(dates = !missing(dates.), times = !missing(times.))
     if(is.null(default.origin <- getOption("chron.origin")))
         default.origin <- c(month = 1, day = 1, year = 1970)
@@ -111,7 +113,8 @@
 }
 
 as.chron <- function(x, ...) UseMethod("as.chron")
-as.chron.default <- function (x, ...) {
+as.chron.default <- function (x, ...)
+{
     if (inherits(x, "chron"))
         return(x)
     if (is.character(x) || is.numeric(x))
@@ -120,7 +123,8 @@ as.chron.default <- function (x, ...) {
         return(x)
     stop("`x' cannot be coerced to a chron object")
 }
-as.chron.POSIXt <- function(x, offset = 0, ...) {
+as.chron.POSIXt <- function(x, offset = 0, ...)
+{
     ## offset is in hours relative to GMT
     if (!inherits(x, "POSIXt")) stop("wrong method")
     x <- unclass(as.POSIXct(x)) + 60*round(60*offset)
@@ -139,7 +143,8 @@ as.data.frame.chron <- .Alias(as.data.frame.vector)
 
 "convert.chron" <-
 function(x, format = c(dates = "m/d/y", times = "h:m:s"), origin.,
-         sep = " ", enclose = c("(", ")"), ...) {
+         sep = " ", enclose = c("(", ")"), ...)
+{
     if(is.null(x) || !as.logical(length(x)))
         return(numeric(length = 0))
     if(is.numeric(x))
@@ -160,9 +165,11 @@ function(x, format = c(dates = "m/d/y", times = "h:m:s"), origin.,
     tms <- convert.times(str[[2]], format = format[[2]], ...)
     dts + tms
 }
+
 "format.chron" <-
 function(x, format = att$format, origin. = att$origin, sep = " ",
-         simplify, enclosed = c("(", ")")) {
+         simplify, enclosed = c("(", ")"), ...)
+{
     att <- attributes(x)
     if(missing(simplify))
         if(is.null(simplify <- getOption("chron.simplify")))
@@ -176,10 +183,12 @@ function(x, format = att$format, origin. = att$origin, sep = " ",
     attributes(x) <- att
     x
 }
+
 "new.chron" <-
 function(x, new.origin = c(1, 1, 1970),
          shift = julian(new.origin[1], new.origin[2], new.origin[3],
-         c(0, 0, 0))) {
+         c(0, 0, 0)))
+{
     cl <- class(x)
     class(x) <- NULL                    # get rid of "delim" attribute
     del <- attr(x, "delim")
@@ -215,9 +224,11 @@ function(x, new.origin = c(1, 1, 1970),
     else class(x) <- c("dates", "times")
     x
 }
+
 print.chron <-
 function(x, digits = NULL, quote = FALSE, prefix = "", sep = " ",
-         enclosed = c("(", ")"), simplify) {
+         enclosed = c("(", ")"), simplify, ...)
+{
     if(!as.logical(length(x))) {
         cat("chron(0)\n")
         return(invisible(x))

@@ -1,3 +1,23 @@
+2001-08-20  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-17.
+
+	* R/chron.R:
+	* R/dates.R:
+	* R/times.R:
+	* R/utils.R:
+	* man/cut.dates.Rd:
+	* man/day.of.week.Rd:
+	* man/days.Rd:
+	* man/seq.dates.Rd:
+	Fix generic/method inconsistencies.
+
+2001-08-19  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* man/day.of.week.Rd: Document arguments of day.of.week().
+
+	* man/chron-internal.Rd: Add keyword `internal'.
+
 2001-07-14  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-16.

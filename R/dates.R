@@ -3,7 +3,8 @@ function(x, ...)
     trunc(chron(dates. = x, ...))
 
 "Math.dates" <-
-function(x, ...) {
+function(x, ...)
+{
     ok <- switch(.Generic,
                  trunc = ,
                  round = ,
@@ -21,7 +22,8 @@ function(x, ...) {
 }
 
 "Ops.dates" <-
-function(e1, e2) {
+function(e1, e2)
+{
     ok <- switch(.Generic,
                  "+" = ,
                  "-" = ,
@@ -90,7 +92,8 @@ function(e1, e2) {
 }
 
 "Summary.dates" <-
-function(x, ...) {
+function(x, ...)
+{
     ok <- switch(.Generic,
                  max = ,
                  min = ,
@@ -106,7 +109,8 @@ function(x, ...) {
 }
 
 "[<-.dates" <-
-function(x, ..., value) {
+function(x, ..., value)
+{
     if(!as.logical(length(value)))
         return(x)                       # as per p.104 in the blue book
     if(!is.numeric(value) && !is.character(value) && !all(is.na(value)))
@@ -133,7 +137,8 @@ function(..., tolerance = 1/(10 * 24 * 60 * 60))
 as.data.frame.dates <- .Alias(as.data.frame.vector)
 
 "c.dates" <-
- function(..., recursive = FALSE) {
+function(..., recursive = FALSE)
+{
     ## output will have the format and origin corresponding to the
     ## argument with earliest origin 
     dots <- list(...)
@@ -164,7 +169,8 @@ as.data.frame.dates <- .Alias(as.data.frame.vector)
 }
 
 "convert.dates" <-
-function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...) {
+function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...)
+{
     ## returns a julian vector given various types of input
     if(is.null(dates.) || !length(dates.)) 
         return(numeric(length = length.))
@@ -240,7 +246,8 @@ function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...) {
 }
 
 "cut.dates"<-
-function(x, breaks, labels, start.on.monday = TRUE) {
+function(x, breaks, labels, start.on.monday = TRUE, ...)
+{
     if(!inherits(x, "dates"))
         x <- chron(x)
     n <- length(breaks)                 # dates breaks may be either
@@ -307,7 +314,8 @@ function(x, breaks, labels, start.on.monday = TRUE) {
 }
 
 "format.dates" <-
-function(x, format = "m/d/y", origin., simplify = FALSE, ...) {
+function(x, format = "m/d/y", origin., simplify = FALSE, ...)
+{
     if(!all(is.na(x)) && !is.numeric(x))
         stop(paste("couldn't extract julian dates from object", 
                    deparse(substitute(x))))
@@ -387,7 +395,8 @@ function(x, format = "m/d/y", origin., simplify = FALSE, ...) {
     y
 }
 
-print.dates <- function(x, digits = NULL, quote = FALSE, prefix = "", simplify)
+print.dates <-
+function(x, digits = NULL, quote = FALSE, prefix = "", simplify, ...)
 {
     if(!as.logical(length(x))) {
         cat("dates(0)\n")
@@ -400,7 +409,8 @@ print.dates <- function(x, digits = NULL, quote = FALSE, prefix = "", simplify)
     invisible(x)
 }
 
-seq.dates <- function(from, to, by = "days", length.) {
+seq.dates <- function(from, to, by = "days", length., ...)
+{
     if(missing(from))
         stop("argument \"from\" must be specified")
     if(!inherits(from, "dates")) from <- chron(from[1])	
@@ -493,7 +503,8 @@ seq.dates <- function(from, to, by = "days", length.) {
 }
 
 "trunc.dates" <-
-function(x) {
+function(x)
+{
     cl <- class(x)
     class(x) <- NULL
     out <- NextMethod("trunc")

@@ -8,7 +8,7 @@
   and code the values in \code{x} according to which interval they fall.
 }
 \usage{
-cut.dates(x, breaks, labels, start.on.monday = TRUE)
+\method{cut}{dates}(x, breaks, labels, start.on.monday = TRUE, \dots)
 }
 \arguments{
   \item{x}{chron or dates object (see \code{chron}), character dates
@@ -25,6 +25,7 @@ cut.dates(x, breaks, labels, start.on.monday = TRUE)
     Sundays; for other days of the week specify the corresponding
     number: Sunday == 0, Monday == 1, Tuesday == 2, \dots{}, Saturday ==
     6.}
+  \item{\dots}{further arguments to be passed to or from methods.}
 }
 \value{an ordered factor whose levels represent the various time
   intervals.}

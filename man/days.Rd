@@ -14,16 +14,16 @@
 }
 \usage{
 days(x)
-\method{weekdays}{default}(x, abb = TRUE)
-\method{months}{default}(x, abb = TRUE)
-\method{quarters}{default}(x, abb = TRUE)
+\method{weekdays}{default}(x, abbreviate = TRUE)
+\method{months}{default}(x, abbreviate = TRUE)
+\method{quarters}{default}(x, abbreviate = TRUE)
 years(x)
 }
 \arguments{
   \item{x}{
     a dates object.
   }
-  \item{abb}{
+  \item{abbreviate}{
     should abbreviated names be returned? Default is \code{TRUE}.
 }}
 \value{

@@ -3,7 +3,8 @@ function(x, ...)
     chron(times. = x, ...)
 
 "Math.times" <-
-function(x, ...) {
+function(x, ...)
+{
     cl <- class(x)
     class(x) <- NULL
     out <- NextMethod(.Generic)
@@ -12,7 +13,8 @@ function(x, ...) {
 }
 
 "Ops.times" <-
-function(e1, e2) {
+function(e1, e2)
+{
     if(nargs() == 1) {
         ## unary operators
         val <- switch(.Generic,
@@ -42,7 +44,8 @@ function(e1, e2) {
 }
 
 "Summary.times" <-
- function(x, ...) {
+ function(x, ...)
+{
     val <- NextMethod(.Generic)
     if(.Generic == "all" || .Generic == "any")
         return(as.logical(val))
@@ -52,7 +55,8 @@ function(e1, e2) {
 }
 
 "[.times" <-
-function(x, ..., drop = TRUE) {
+function(x, ..., drop = TRUE)
+{
     cl <- class(x)
     class(x) <- NULL
     val <- NextMethod("[")
@@ -63,7 +67,8 @@ function(x, ..., drop = TRUE) {
 }
 
 "[<-.times" <-
-function(x, ..., value) {
+function(x, ..., value)
+{
     if(!as.logical(length(value)))
         return(x)                       # as per p.104 in the blue book
     if(!is.numeric(value) && !is.character(value) && !all(is.na(value)))
@@ -81,7 +86,8 @@ function(x, ..., value) {
 }
 
 "[[.times" <-
-function(x, ..., drop = TRUE) {
+function(x, ..., drop = TRUE)
+{
     cl <- class(x)
     class(x) <- NULL
     val <- NextMethod("[[")
@@ -98,7 +104,8 @@ function(x, ...)
 as.data.frame.times <- .Alias(as.data.frame.vector)
 
 "axis.times"<-
-function(n, x, add = TRUE, labels, simplify = TRUE, ...) {
+function(n, x, add = TRUE, labels, simplify = TRUE, ...)
+{
     if(!inherits(x, "times"))
         x <- chron(x)
     bad <- is.na(x) | abs(as.vector(x)) == Inf
@@ -127,7 +134,8 @@ function(n, x, add = TRUE, labels, simplify = TRUE, ...) {
 }
 
 "c.times" <-
-function(..., recursive = FALSE) {
+function(..., recursive = FALSE)
+{
     dots <- list(...)
     is.tms <- unlist(lapply(dots, inherits, "times"))
     n <- length(dots)
@@ -146,7 +154,8 @@ function(..., recursive = FALSE) {
 }
 
 "convert.times"<-
-function(times = NULL, format = "h:m:s", length. = 0, ...) {
+function(times = NULL, format = "h:m:s", length. = 0, ...)
+{
     ## convert time in hours, min and secs into fraction of days
     if(is.null(times) || !as.logical(length(times)))
         return(numeric(length = length.))
@@ -190,7 +199,8 @@ function(times = NULL, format = "h:m:s", length. = 0, ...) {
 }
 
 "diff.times"<-
-function(x, lag = 1, differences = 1) {
+function(x, lag = 1, differences = 1, ...)
+{
     ## delete references to time-series
     if(lag < 1 | differences < 1)
         stop("Bad value for lag or differences")
@@ -204,7 +214,8 @@ function(x, lag = 1, differences = 1) {
 }
 
 "format.times"<-
-function(x, format. = "h:m:s", simplify = FALSE, ...) {
+function(x, format. = "h:m:s", simplify = FALSE, ...)
+{
     if(!as.logical(length(x)))
         return("")
     if(all(is.na(x)))
@@ -271,7 +282,8 @@ function(x, format. = "h:m:s", simplify = FALSE, ...) {
 }
 
 "format<-.times" <-
-function(x, ..., value) {
+function(x, ..., value)
+{
     ok <- switch(mode(value),
                  character = ,
                  name = ,
@@ -287,7 +299,8 @@ function(x, ..., value) {
 
 "hist.times" <-
 function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
-         xlab = deparse(substitute(x)), simplify = TRUE) {
+         xlab = deparse(substitute(x)), simplify = TRUE)
+{
     if(!inherits(x, "times"))
         stop(paste(deparse(substitute(x)), "must be of class chron"))
     cl <- class(x)
@@ -343,7 +356,8 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
 }
 
 "identify.times" <-
-function(x, y, ...) {
+function(x, y, ...)
+{
     if(inherits(x, "times"))
         x <- as.numeric(x)
     if(!missing(y) && inherits(y, "times"))
@@ -352,13 +366,15 @@ function(x, y, ...) {
 }
 
 "is.na.times" <-
-function(x, ...) {
+function(x, ...)
+{
     x <- as.numeric(x)
     NextMethod("is.na")
 }
 
 "lines.times" <-
-function(x, y, ...) {
+function(x, y, ...)
+{
     nas <- is.na(x)
     xtmp <- x <- x[!nas]
     ytmp <- y <- y[!nas]
@@ -371,7 +387,8 @@ function(x, y, ...) {
 }
 
 "mean.times"<-
-function(x, trim = 0, weight = rep(1, length(x)), na.ok = TRUE) {
+function(x, trim = 0, weight = rep(1, length(x)), na.ok = TRUE, ...)
+{
     if(!missing(weight) && length(weight) != length(x))
         stop(paste("weights must have same length as",
                    deparse(substitute(x))))
@@ -408,7 +425,8 @@ function(x, trim = 0, weight = rep(1, length(x)), na.ok = TRUE) {
 "plot.times" <-
 function(x, y, ...,
          xlab = deparse(substitute(x)), ylab = deparse(substitute(y)),
-         simplify) {
+         simplify)
+{
     if(missing(simplify))
         if(is.null(simplify <- getOption("chron.simplify")))
             simplify <- TRUE
@@ -489,7 +507,8 @@ function(x, y, ...,
     invisible(list(x = x, y = y))
 }
 
-points.times <- function(x, y, ...) {
+points.times <- function(x, y, ...)
+{
     xtmp <- x
     ytmp <- y
     x <- as.numeric(x)
@@ -498,7 +517,9 @@ points.times <- function(x, y, ...) {
     invisible(list(x = xtmp, y = ytmp))
 }
 
-print.times <- function(x, digits, quote = FALSE, prefix = "", simplify) {
+print.times <-
+function(x, digits, quote = FALSE, prefix = "", simplify, ...)
+{
     if(!as.logical(length(x))) {
         cat("times(0)\n")
         return(invisible(x))
@@ -515,7 +536,8 @@ print.times <- function(x, digits, quote = FALSE, prefix = "", simplify) {
     invisible(xo)
 }
 
-quantile.times <- function(x, ...) {
+quantile.times <- function(x, ...)
+{
     fmt <- attr(x, "format")
     orig <- attr(x, "origin")
     cl <- class(x)
@@ -526,12 +548,13 @@ quantile.times <- function(x, ...) {
 }
 
 "summary.times"<-
-function(x, digits = 12, ...) {
-    if(!as.logical(length(x)))
-        return(x)
-    att <- attributes(x)
-    class(x) <- NULL
-    y <- as.numeric(x)
+function(object, digits = 12, ...)
+{
+    if(!as.logical(length(object)))
+        return(object)
+    att <- attributes(object)
+    class(object) <- NULL
+    y <- as.numeric(object)
     z <- unclass(summary.default(y, digits = digits, ...))
     tmp <- structure(z[1:6], format = att$format, origin = att$origin, 
                      class = att$class)

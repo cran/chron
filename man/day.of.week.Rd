@@ -12,21 +12,22 @@
   year, month, and day within the month.
 }
 \usage{
-\method{julian}{default}(m, d, y, origin. = c(month = 1, day = 1, year = 1970))
+\method{julian}{default}(x, d, y, origin. = c(month = 1, day = 1, year = 1970), \dots)
 month.day.year(jul, origin. = c(month = 1, day = 1, year = 1970))
 leap.year(y)
 day.of.week(month, day, year)
 }
 \arguments{
-  \item{m}{vector of month numbers.}
-  \item{d}{vector of day numbers.}
-  \item{y}{vector of years.}
+  \item{x, month}{vector of month numbers.}
+  \item{d, day}{vector of day numbers.}
+  \item{y, year}{vector of years.}
   \item{jul}{vector of Julian Dates, i.e., number of days since
     \code{origin.}.}
   \item{origin.}{vector specifying the origin as month, day, and year.
     If missing, it defaults to \code{getOption("chron.origin")} if this
     is non-null, otherwise
     \code{c(month = 1, day = 1, year = 1970)}.}
+  \item{\dots}{further arguments to be passed to or from methods.}
 }
 \value{
   A vector of Julian dates (number of days since \code{origin.}) when

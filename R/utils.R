@@ -1,21 +1,23 @@
 ".Holidays" <-
-structure(.Data = c(8035, 8180, 8220, 8285, 8365, 8394),
-          format = structure(.Data = "m/d/y", .Names = "dates"),
-          origin = structure(.Data = c(1, 1, 1970),
-          .Names = c("month", "day", "year")),
-          class = c("dates", "times"),
-          .Names = c("New Year's Day", "Memorial Day",
-          "Independence Day", "Labor Day", "Thanksgiving", "Christmas"))
+    structure(.Data = c(8035, 8180, 8220, 8285, 8365, 8394),
+              format = structure(.Data = "m/d/y", .Names = "dates"),
+              origin = structure(.Data = c(1, 1, 1970),
+              .Names = c("month", "day", "year")),
+              class = c("dates", "times"),
+              .Names = c("New Year's Day", "Memorial Day",
+              "Independence Day", "Labor Day", "Thanksgiving",
+              "Christmas"))
 "day.abb" <-
-c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    c("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 "day.name" <-
-c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-  "Saturday")
+    c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
+      "Saturday")
 "month.length"<-
-c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+    c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 
 "days"<-
-function(x) {
+function(x)
+{
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
@@ -26,7 +28,8 @@ function(x) {
     d
 }
 "hours"<-
-function(x) {
+function(x)
+{
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
@@ -34,7 +37,8 @@ function(x) {
     h
 }
 "minutes"<-
-function(x) {
+function(x)
+{
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
@@ -43,7 +47,8 @@ function(x) {
     m
 }
 "seconds"<-
-function(x) {
+function(x)
+{
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
@@ -52,14 +57,15 @@ function(x) {
 }
 
 "quarters.default"<-
-function(x, abb = TRUE) {
+function(x, abbreviate = TRUE)
+{
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
     v <- month.day.year(trunc(as.numeric(x)))$month
     out <- (v - 1) %/% 3 + 1
-    lbl <- if(abb)
+    lbl <- if(abbreviate)
         c("1Q", "2Q", "3Q", "4Q")
     else
         c("I", "II", "III", "IV")
@@ -67,30 +73,35 @@ function(x, abb = TRUE) {
     ordered(out, levels = lbl, labels = lbl)
 }
 "months.default"<-
-function(x, abb = TRUE) {
+function(x, abbreviate = TRUE)
+{
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
     out <- month.day.year(as.numeric(x), origin = origin(x))$month
-    lbl <- if(abb) month.abb else month.name
+    lbl <- if(abbreviate) month.abb else month.name
     out <- lbl[out]
     ordered(out, levels = lbl, labels = lbl)
 }
+
 "weekdays.default" <-
-function(x, abb = TRUE) {
+function(x, abbreviate = TRUE)
+{
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else stop("x must inherit from dates")
     v <- month.day.year(as.numeric(x), origin = origin(x))
     out <- day.of.week(v$month, v$day, v$year) + 1
-    lbl <- if(abb) day.abb else day.name
+    lbl <- if(abbreviate) day.abb else day.name
     out <- lbl[out]
     ordered(out, levels = lbl, labels = lbl)
 }
+
 "years" <-
-function(x) {
+function(x)
+{
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
@@ -102,7 +113,8 @@ function(x) {
 
 
 "clock2frac" <-
-function(str) {
+function(str)
+{
     h <- as.numeric(substring(str, 1, 2))
     m <- as.numeric(substring(str, 4, 5))
     w <- substring(str, 6, 7)
@@ -119,7 +131,8 @@ function(x, by)
     table(cut(x, breaks = by))
 
 "count.fields.str" <-
-function(str, sep = "") {
+function(str, sep = "")
+{
     n <- length(str)
     white.space <- missing(sep) || sep == ""
     ## load.if.needed("chron_strs.o")
@@ -133,7 +146,8 @@ function(str, sep = "") {
 }
 
 "day.of.week" <-
-function(month, day, year) {
+function(month, day, year)
+{
     ix <- year + trunc((month - 14)/12)
     jx <- (trunc((13 * (month + 10 - (month + 10) %/% 13 * 12) - 1)/5)
            + day + 77 + (5 * (ix - (ix %/% 100) * 100)) %/% 4
@@ -146,7 +160,8 @@ function(x, ..., value)
     UseMethod("format<-")
 
 "frac2clock" <-
-function(f) {
+function(f)
+{
     sec.per.day <- 24 * 3600
     secs <- f * sec.per.day
     h <- secs %/% 3600
@@ -166,7 +181,8 @@ function(f) {
 }
 
 "is.holiday" <-
-function(x, holidays) {
+function(x, holidays)
+{
     if(!inherits(x, "dates"))
         if(is.character(x) || is.numeric(x))
             x <- dates(x)
@@ -183,7 +199,8 @@ function(x, holidays) {
 }
 
 "is.weekend" <-
-function(x) {
+function(x)
+{
     if(!inherits(x, "dates"))
         if(is.character(x) || is.numeric(x))
             x <- chron(x)
@@ -195,14 +212,15 @@ function(x) {
 }
 
 "julian.default" <-
-function(m, d, y, origin.) {
-    only.origin <- all(missing(m), missing(d), missing(y))
-    if(only.origin) m <- d <- y <- NULL	# return days since origin
+function(x, d, y, origin., ...)
+{
+    only.origin <- all(missing(x), missing(d), missing(y))
+    if(only.origin) x <- d <- y <- NULL	# return days since origin
     if(missing(origin.) || is.null(origin.))
         if(is.null(origin. <- getOption("chron.origin")))
             origin. <- c(month = 1, day = 1, year = 1970)
     nms <- names(d)
-    m <- c(origin.[1], m)               # prepend month of new origin
+    m <- c(origin.[1], x)               # prepend month of new origin
     d <- c(origin.[2], d)               # prepend day of new origin
     y <- c(origin.[3], y)               # prepend year of new origin
     ##
@@ -227,7 +245,8 @@ function(m, d, y, origin.) {
 }
 
 "julian2mine" <-
-function(x) {
+function(x)
+{
     v <- month.day.year(x)
     d <- as.character(v$day)
     i <- nchar(d) == 1
@@ -239,14 +258,16 @@ function(x) {
 }
 
 "leap.year" <-
-function(y) {
+function(y)
+{
     if(inherits(y, "dates"))
         y <- month.day.year(as.numeric(y), origin = origin(y))$year
     y %% 4 == 0 & (y %% 100 != 0 | y %% 400 == 0)
 }
 
 "mine2julian" <-
-function(str) {
+function(str)
+{
     d <- substring(str, 1, 2)
     m <- substring(str, 3, 5)
     y <- substring(str, 6, 7)
@@ -255,7 +276,8 @@ function(str) {
 }
 
 "month.day.year" <-
-function(jul, origin.) {
+function(jul, origin.)
+{
     if(missing(origin.) || is.null(origin.))
         if(is.null(origin. <- getOption("chron.origin")))
             origin. <- c(month = 1, day = 1, year = 1970)
@@ -280,7 +302,8 @@ function(jul, origin.) {
 }
 
 "my.axis" <-
-function(x, simplify = TRUE, ...) {
+function(x, simplify = TRUE, ...)
+{
     ## put date labels in one line plus time lables on second line
     px <- pretty(x)
     xx <- chron(px, format = attr(x, "format"), origin = origin(x))
@@ -293,7 +316,8 @@ function(x, simplify = TRUE, ...) {
 function(x)
     attr(x, "origin")
 "origin<-" <-
-function(x, value) {
+function(x, value)
+{
     if (length(value) != 3 || any(is.na(value)))
         stop("origin must be a month, day, year vector")
     if (value[1] < 1 || value[1] > 12)
@@ -316,7 +340,8 @@ function(x, value) {
 }
 
 "parse.format" <-
-function(format, year.abb = getOption("chron.year.abb"), ...) {
+function(format, year.abb = getOption("chron.year.abb"), ...)
+{
     ## determine order of month, day, year or hour, min, secs
     abb <- TRUE                         # short notation?
     mon.abb <- FALSE                    # should month names be abbreviated?
@@ -344,8 +369,9 @@ function(format, year.abb = getOption("chron.year.abb"), ...) {
 }
 
 "unpaste" <-
-function(str, sep = "/", fnames = NULL, nfields = NULL, first = c(1, 3, 5), 
-         width = 2) {
+function(str, sep = "/", fnames = NULL, nfields = NULL,
+         first = c(1, 3, 5), width = 2)
+{
     ## split str into fields separated by sep or by fiels specified by
     ## start positions and field widths; output a list 
     str <- as.character(str)
