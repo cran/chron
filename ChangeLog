@@ -1,3 +1,9 @@
+2001-03-24  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-9.
+
+	* R/utils.R: Add `PACKAGE' arg to FF calls.
+
 2000-12-24  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-8.

@@ -128,7 +128,8 @@ function(str, sep = "") {
        nstrings = as.integer(n),
        sep = as.character(sep),
        white.space = as.integer(white.space),
-       counts = integer(n))$count
+       counts = integer(n),
+       PACKAGE = "chron")$count
 }
 
 "day.of.week" <-
@@ -379,7 +380,8 @@ function(str, sep = "/", fnames = NULL, nfields = NULL, first = c(1, 3, 5),
                   sep = as.character(sep),
                   white.space = as.integer(white.space),
                   nfields = as.integer(nfields),
-                  output = vector("list", length = nfields))$output
+                  output = vector("list", length = nfields),
+                  PACKAGE = "chron")$output
     }
     else {
         last <- first + width - 1
