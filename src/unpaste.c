@@ -26,8 +26,13 @@ unpaste(char **strings, Sint *nstrings, char **sep, Sint *whitespace,
 	       || (*whitespace && isspace(c))
 	       || (!*whitespace && c == **sep)) {
 		buffer[j++] = '\0';
+#if R_VERSION >= R_Version(1, 2, 0)
+		SET_STRING_ELT(output[k], i, allocString(j));
+		strcpy(CHAR(STRING_ELT(output[k], i)), buffer);
+#else
 		STRING(output[k])[i] = allocString(j);
 		strcpy(CHAR(STRING(output[k])[i]), buffer);
+#endif
 		if(c=='\0')
 		    break;
 		k++;

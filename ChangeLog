@@ -1,3 +1,9 @@
+Wed Aug  9 10:53:36 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-7.
+
+	* src/unpaste.c (unpaste): Adjust for R 1.2.0 GenGC changes.
+
 Sat Jul 22 11:41:45 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-6.
