@@ -1,3 +1,9 @@
+2003-07-16  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-27.
+	(Depends): Need R 1.6.0 or better, as src/init.c uses
+	R_NativePrimitiveArgType.
+
 2003-06-28  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-26.
