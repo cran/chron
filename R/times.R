@@ -164,7 +164,7 @@ function(times = NULL, format = "h:m:s", length. = 0, ...)
     if(!is.character(format)) {
         ## format may be a function
         FUN <- switch(mode(format),
-                      name = get(format, mode = "function"),
+                      name = get(as.character(format), mode = "function"),
                       functions = format,
                       stop(paste("unrecognized format mode",
                                  as.character(format))))

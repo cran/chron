@@ -1,8 +1,16 @@
 "chron" <-
 function(dates. = NULL, times. = NULL,
          format = c(dates = "m/d/y", times = "h:m:s"),
-         out.format = format, origin.)
+         out.format, origin.)
 {
+    if(is.null(format))
+        format <- c(dates = "m/d/y", times = "h:m:s")
+    if(missing(out.format)){
+        if(is.character(format))
+            out.format <- format
+        else
+            stop('must specify the "out.format" argument')
+    }
     given <- c(dates = !missing(dates.), times = !missing(times.))
     if(is.null(default.origin <- getOption("chron.origin")))
         default.origin <- c(month = 1, day = 1, year = 1970)

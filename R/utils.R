@@ -251,10 +251,7 @@ function(x)
     d <- as.character(v$day)
     i <- nchar(d) == 1
     d[i] <- paste("0", d[i], sep = "")
-    m <- substring(month.name[v$month], 1, 3)
-    y <- v$year - 1900
-    out <- paste(d, m, y, sep = "")
-    out
+    paste(d, month.abb[v$month], v$year, sep = "")
 }
 
 "leap.year" <-
@@ -270,9 +267,9 @@ function(str)
 {
     d <- substring(str, 1, 2)
     m <- substring(str, 3, 5)
-    y <- substring(str, 6, 7)
-    m <- match(m, substring(month.name, 1, 3), nomatch = NA)
-    julian(m, as.numeric(d), as.numeric(y) + 1900)
+    y <- substring(str, 6, 9)
+    m <- match(m, month.abb, nomatch = NA)
+    julian(m, as.numeric(d), as.numeric(y))
 }
 
 "month.day.year" <-
@@ -284,7 +281,7 @@ function(jul, origin.)
     if(all(origin. == 0)) shift <- 0 else shift <- julian(origin = origin.)
     ## relative origin
     ## "absolute" origin
-    j <- jul + shift
+    j <- as.integer(trunc(jul)) + as.integer(shift)
     j <- j - 1721119
     y <- (4 * j - 1) %/% 146097
     j <- 4 * j - 1 - 146097 * y

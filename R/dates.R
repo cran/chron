@@ -182,7 +182,7 @@ function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...)
     if(!is.character(format)) {
         ## format may be a function or fun name
         FUN <- switch(mode(format),
-                      name = get(format, mode = "function"),
+                      name = get(as.character(format), mode = "function"),
                       "function" = format,
                       stop(paste("unrecognized date format",
                                  as.character(format))))

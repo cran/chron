@@ -1,3 +1,20 @@
+2001-09-18  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-18.
+
+	* R/chron.R (chron): the default for the argument `out.format' was
+	wrong if the argument `format' was a function or R symbol (in
+	these cases `out.format' now is not set and we stop).  As the
+	current code does not always preserve format slots, we need to
+	make a NULL format correspond to the default.
+	* R/dates.R (convert.dates): now correctly handles formats given
+	as R symbols.
+	* R/times.R (convert.times): now correctly handles formats given
+	as R symbols.
+	* R/utils.R (month.day.year): now coerces its argument to be
+	integer since the algorithm requires integer arithmetic.
+	All fixes by David James.
+
 2001-08-20  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-17.
