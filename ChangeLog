@@ -1,3 +1,12 @@
+2003-06-28  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-26.
+
+	* man/chron.Rd: Explicitly say that for day/month/year format
+	specifications, the separator must be non-null.  Thanks to Jerome
+	Asselin <jerome@hivnet.ubc.ca> for the suggestion and the PRs for
+	the previous release.
+
 2003-06-25  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-25.

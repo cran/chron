@@ -34,10 +34,10 @@ chron(dates., times., format = c("m/d/y","h:m:s"), out.format, origin.)
     \code{"d"}, \code{"m"}, or \code{"y"} delimited by a separator
     (possibly null), e.g., \code{"m/d/y"}, \code{"d-m-y"}, \code{"ymd"},
     are all valid; the format can also be permutations of the words
-    \code{"day"}, \code{"month"} and \code{"year"}, which produces the
-    month name, e.g., \code{"month day year"} produces
-    \code{"April 20 1992"}, \code{"day mon year"} produces
-    \code{"20 Apr 1992"}.
+    \code{"day"}, \code{"month"} and \code{"year"} (with non-null
+    separator), which produces the month name, e.g., \code{"month day
+      year"} produces \code{"April 20 1992"}, \code{"day mon year"}
+      produces \code{"20 Apr 1992"}.
 
     The times format can be any permutation of \code{"h"}, \code{"m"},
     and \code{"s"} separated by any one non-special character.  The
