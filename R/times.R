@@ -241,7 +241,7 @@ function(x, format. = "h:m:s", simplify = FALSE, ...) {
         attributes(x) <- att
         return(format(x))
     }
-    sec <- 24 * 3600 * abs(x)
+    sec <- round(24 * 3600 * abs(x))
     hh <- sec %/% 3600
     mm <- (sec - hh * 3600) %/% 60
     ss <- trunc(sec - hh * 3600 - 60 * mm)

@@ -1,3 +1,20 @@
+2001-05-10  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-11.
+
+	* R/zzz.R:
+	* R/utils.R:
+	* man/day.of.week.Rd:
+	* man/days.Rd:
+	julian(), weekdays(), months() and quarters() are generic in R
+	1.3.0.  Functions in chron are now default methods for these.
+
+	* R/times.R: format.times() needs to round its calculation of
+	sec (suggested by BDR).
+
+	* R/chron.R: as.chron() is now generic, with a method for class
+	"POSIXt" and a default one.
+
 2001-04-06  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-10.

@@ -28,9 +28,9 @@ is.holiday(x, holidays)
 }
 \seealso{
   \code{\link{days}},
-  \code{\link{weekdays}},
-  \code{\link{months}},
-  \code{\link{quarters}},
+  \code{\link{weekdays.default}},
+  \code{\link{months.default}},
+  \code{\link{quarters.default}},
   \code{\link{years}};
   \code{\link{chron}},
   \code{\link{dates}},

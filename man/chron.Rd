@@ -1,6 +1,8 @@
 \name{chron}
 \alias{chron}
 \alias{as.chron}
+\alias{as.chron.default}
+\alias{as.chron.POSIXt}
 \alias{is.chron}
 \alias{as.data.frame.chron}
 \alias{format.chron}
@@ -80,7 +82,7 @@ chron(dates, times, format = c("m/d/y","h:m:s"), out.format, origin)
 \seealso{
   \code{\link{dates}},
   \code{\link{times}},
-  \code{\link{julian}},
+  \code{\link{julian.default}},
   \code{\link{cut.dates}},
   \code{\link{seq.dates}}.
 }

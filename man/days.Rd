@@ -1,8 +1,8 @@
 \name{days}
 \alias{days}
-\alias{months}
-\alias{quarters}
-\alias{weekdays}
+\alias{months.default}
+\alias{quarters.default}
+\alias{weekdays.default}
 \alias{years}
 \title{
   Return Various Periods from a Chron or Dates Object
@@ -14,9 +14,9 @@
 }
 \usage{
 days(x)
-weekdays(x, abb = TRUE)
-months(x, abb = TRUE)
-quarters(x, abb = TRUE)
+\method{weekdays}{default}(x, abb = TRUE)
+\method{months}{default}(x, abb = TRUE)
+\method{quarters}{default}(x, abb = TRUE)
 years(x)
 }
 \arguments{

@@ -51,7 +51,7 @@ function(x) {
     trunc(secs) %% 60
 }
 
-"quarters"<-
+"quarters.default"<-
 function(x, abb = TRUE) {
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
@@ -66,7 +66,7 @@ function(x, abb = TRUE) {
     out <- lbl[out]
     ordered(out, levels = lbl, labels = lbl)
 }
-"months"<-
+"months.default"<-
 function(x, abb = TRUE) {
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
@@ -77,7 +77,7 @@ function(x, abb = TRUE) {
     out <- lbl[out]
     ordered(out, levels = lbl, labels = lbl)
 }
-"weekdays" <-
+"weekdays.default" <-
 function(x, abb = TRUE) {
     if(!inherits(x, "dates"))
         if((is.character(x) || is.numeric(x)))
@@ -194,7 +194,7 @@ function(x) {
     out == 1 | out == 7
 }
 
-"julian" <-
+"julian.default" <-
 function(m, d, y, origin.) {
     only.origin <- all(missing(m), missing(d), missing(y))
     if(only.origin) m <- d <- y <- NULL	# return days since origin

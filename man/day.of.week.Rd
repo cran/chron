@@ -1,6 +1,6 @@
 \name{day.of.week}
 \alias{day.of.week}
-\alias{julian}
+\alias{julian.default}
 \alias{leap.year}
 \alias{month.day.year}
 \title{
@@ -12,7 +12,7 @@
   year, month, and day within the month.
 }
 \usage{
-julian(m, d, y, origin = c(month = 1, day = 1, year = 1970))
+\method{julian}{default}(m, d, y, origin = c(month = 1, day = 1, year = 1970))
 month.day.year(jul, origin = c(month = 1, day = 1, year = 1970))
 leap.year(y)
 day.of.week(month, day, year)

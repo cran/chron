@@ -110,15 +110,27 @@
     return(x)
 }
 
-"as.chron" <-
-function(x, ...) {
-    if(inherits(x, "chron"))
+as.chron <- function(x, ...) UseMethod("as.chron")
+as.chron.default <- function (x, ...) {
+    if (inherits(x, "chron"))
         return(x)
-    if(is.character(x) || is.numeric(x))
+    if (is.character(x) || is.numeric(x))
         return(chron(x, ...))
-    if(all(is.na(x)))
-        return(x)                       # all na's
+    if (all(is.na(x)))
+        return(x)
+    stop("`x' cannot be coerced to a chron object")
 }
+as.chron.POSIXt <- function(x, offset = 0, ...) {
+    ## offset is in hours relative to GMT
+    if (!inherits(x, "POSIXt")) stop("wrong method")
+    x <- unclass(as.POSIXct(x)) + 60*round(60*offset)
+    tm <- x %% 86400
+    if (any(tm != 0))
+        chron(dates. = x %/% 86400, times. = tm/86400, ...)
+    else
+        chron(dates. = x %/% 86400, ...)
+}
+
 "is.chron" <-
 function(x)
     inherits(x, "chron")
