@@ -421,11 +421,12 @@ seq.dates <- function(from, to, by = "days", length., ...)
         cl <- class(from)
         from <- as.numeric(from)
         if(!missing(to)) {
+            if(!inherits(to, "dates")) to <- chron(to[1])
             if(!is.null(to.org <- origin(to)) && any(to.org != org))
                 origin(to) <- org
             to <- as.numeric(to)
         }
-        x <- NextMethod("seq")	
+        x <- seq.default(from, to, by)
 	## preserve full chrons (i.e., don't round x)
         if(all(cl != "chron"))
             x <- round(x, 0)

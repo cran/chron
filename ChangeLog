@@ -1,3 +1,11 @@
+2005-02-26  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New versionis 2.2-34.
+
+	* R/dates.R (seq.dates): Two patches suggested by Steve Su
+	<s.su@qut.edu.au> and relayed by Martyn Plummer
+	<plummer@iarc.fr>.
+
 2004-11-06  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-33.
