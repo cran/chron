@@ -1,5 +1,5 @@
 Package: chron
-Version: 2.2-14
+Version: 2.2-15
 Author: S original by David James <dj@research.bell-labs.com>,
   R port by Kurt Hornik <Kurt.Hornik@ci.tuwien.ac.at>.
 Maintainer: Kurt Hornik <Kurt.Hornik@ci.tuwien.ac.at>

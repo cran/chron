@@ -448,6 +448,7 @@ function(x, y, ...,
     ## for some plot types we need to sort according to x
     if(!is.null(type <- dots$type))
         if(any(type == c("l", "b", "o"))) {
+            xlab; ylab                  # force promises
             nas <- is.na(x)
             o <- order(x[!nas])
             x <- x[!nas][o]
