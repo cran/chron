@@ -489,6 +489,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
             x <- sort(c(x1, x2))
         }
         ## simple case
+        if(!missing(length.)) x <- x[seq(length = length.)]
         return(chron(x, format = fmt, origin = org))
     }
     if(by == "years") {
@@ -498,6 +499,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
             x <- x[mdy$day == 1 & mdy$month == 3] - 1
         else
             x <- x[mdy$day == frm.mdy$day & mdy$month == frm.mdy$month]
+        if(!missing(length.)) x <- x[seq(length = length.)]
         return(chron(x, format = fmt, origin = org))
     }
 }
