@@ -182,7 +182,7 @@ function(times = NULL, format = "h:m:s", length. = 0, ...)
             stop(paste("format", format, "may be incorrect"))
         else return(rep(NA, length(times)))
     i <- (hh[ok] < 0 | hh[ok] > 23 | mm[ok] < 0 | mm[ok] > 59 |
-          ss[ok] < 0 | ss[ok] > 59)
+          ss[ok] < 0 | ss[ok] >= 60)
     bad <- seq(along = hh)[ok][i]
     if(n.bad <- length(bad)) {
         if(n.bad > 10)
