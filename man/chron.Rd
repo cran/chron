@@ -14,7 +14,8 @@
   Create chrononogical objects which represent dates and times of day.
 }
 \usage{
-chron(dates., times., format = c("m/d/y","h:m:s"), out.format, origin.)
+chron(dates., times., format = c(dates = "m/d/y", times = "h:m:s"),
+      out.format, origin.)
 }
 \arguments{
   \item{dates.}{character or numeric vector specifying dates.  If

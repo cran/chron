@@ -12,8 +12,8 @@
   year, month, and day within the month.
 }
 \usage{
-\method{julian}{default}(x, d, y, origin. = c(month = 1, day = 1, year = 1970), \dots)
-month.day.year(jul, origin. = c(month = 1, day = 1, year = 1970))
+\method{julian}{default}(x, d, y, origin., \dots)
+month.day.year(jul, origin.)
 leap.year(y)
 day.of.week(month, day, year)
 }
