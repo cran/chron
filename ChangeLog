@@ -1,4 +1,13 @@
+2003-01-16  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-23.
+
+	* R/utils.R (parse.format): Allow for arbitrary (non-alpha)
+	separators in format specs (PR#2458).
+
 2002-12-15  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-22.
 
 	* TITLE: Removed.
 

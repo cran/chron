@@ -356,7 +356,7 @@ function(format, year.abb = getOption("chron.year.abb"), ...)
     else {
         ## full format (month names)
         abb <- FALSE
-        sep <- " "
+        sep <- gsub("[[:alpha:]]+([^[:alpha:]]).*", "\\1", format)
         fmt <- unlist(unpaste(format, sep = sep))
         mon.abb <- if(any(fmt == "month")) FALSE else TRUE
     }
