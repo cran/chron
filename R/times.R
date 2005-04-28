@@ -122,7 +122,7 @@ function(n, x, add = TRUE, labels, simplify = TRUE, ...)
         if(!inherits(x, "dates")) {
             at.x[c(1, length(at.x))] <- range(x)
             if(max(at.x) == 1)
-                labels <- format(at.x - trunc(at.x), simplify = simplify)
+                labels <- format(at.x - floor(at.x), simplify = simplify)
             else
                 labels <- format(at.x, simplify = simplify)
         }
@@ -246,7 +246,7 @@ function(x, format. = "h:m:s", simplify = FALSE, ...)
     else format. <- rev(format.)[1]	
     ## times greater than 1 day  should format like numerics
     nas <- is.na(x)
-    days <- abs(trunc(x))
+    days <- abs(floor(x))
     att$class <- att$format <- att$origin <- NULL
     if(any(days[!nas] > 0)) {
         attributes(x) <- att

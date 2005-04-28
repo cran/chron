@@ -22,7 +22,7 @@ function(x)
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
-    d <- month.day.year(trunc(as.numeric(x)), origin = origin(x))$day	
+    d <- month.day.year(floor(as.numeric(x)), origin = origin(x))$day
     ## use paste to avoid bug in ordered() as in beta release 8/92
     d <- ordered(paste(d), paste(1:31))
     d
@@ -33,7 +33,7 @@ function(x)
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
-    h <- trunc(24 * (x - trunc(x)))
+    h <- floor(24 * (x - floor(x)))
     h
 }
 "minutes"<-
@@ -42,8 +42,8 @@ function(x)
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
-    secs <- 24 * 60 * (x - trunc(x))
-    m <- trunc(secs) %% 60
+    secs <- 24 * 60 * (x - floor(x))
+    m <- floor(secs) %% 60
     m
 }
 "seconds"<-
@@ -52,8 +52,8 @@ function(x)
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
-    secs <- 24 * 3600 * (x - trunc(x))
-    trunc(secs) %% 60
+    secs <- 24 * 3600 * (x - floor(x))
+    floor(secs) %% 60
 }
 
 "quarters.default"<-
@@ -63,7 +63,7 @@ function(x, abbreviate = TRUE)
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
-    v <- month.day.year(trunc(as.numeric(x)))$month
+    v <- month.day.year(floor(as.numeric(x)))$month
     out <- (v - 1) %/% 3 + 1
     lbl <- if(abbreviate)
         c("1Q", "2Q", "3Q", "4Q")
@@ -191,7 +191,7 @@ function(x, holidays)
     orig.x <- origin(x)
     if(!is.null(orig.h <- origin(holidays)) && any(orig.x != orig.h))
         origin(holidays) <- orig.x
-    out <- match(trunc(x), trunc(holidays), 0)
+    out <- match(floor(x), floor(holidays), 0)
     as.logical(out)
 }
 
@@ -275,7 +275,7 @@ function(jul, origin.)
     if(all(origin. == 0)) shift <- 0 else shift <- julian(origin = origin.)
     ## relative origin
     ## "absolute" origin
-    j <- as.integer(trunc(jul)) + as.integer(shift)
+    j <- as.integer(floor(jul)) + as.integer(shift)
     j <- j - 1721119
     y <- (4 * j - 1) %/% 146097
     j <- 4 * j - 1 - 146097 * y

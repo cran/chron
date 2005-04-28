@@ -8,6 +8,7 @@
 \alias{all.equal.dates}
 \alias{as.data.frame.dates}
 \alias{c.dates}
+\alias{floor.dates}
 \alias{format.dates}
 \alias{print.dates}
 \alias{trunc.dates}

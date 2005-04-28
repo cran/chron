@@ -1,6 +1,21 @@
+2005-04-28  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.2-35.
+
+	* R/chron.R:
+	* R/dates.R:
+	* R/times.R:
+	* R/utils.R:	
+	As spotted by David Harte <david@statsresearch.co.nz>, there is a
+	problem with dates before the origin: 
+	  R> chron(dates.="12/31/1969", times.="18:00:00")
+          [1] (01/01/70 -06:00:00)
+	(Most likely not as intended.)  Fix by changing trunc() to floor()
+	when extracting dates and times parts.
+
 2005-02-26  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
-	* DESCRIPTION (Version): New versionis 2.2-34.
+	* DESCRIPTION (Version): New version is 2.2-34.
 
 	* R/dates.R (seq.dates): Two patches suggested by Steve Su
 	<s.su@qut.edu.au> and relayed by Martyn Plummer

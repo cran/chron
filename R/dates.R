@@ -1,6 +1,6 @@
 "dates"<-
 function(x, ...)
-    trunc(chron(dates. = x, ...))
+    floor(chron(dates. = x, ...))
 
 "Math.dates" <-
 function(x, ...)
@@ -73,7 +73,7 @@ function(e1, e2)
         class(val) <- unique(c(.Class, class(val)))
     }
     tms <- as.vector(val)
-    tmp <- tms - trunc(tms)	
+    tmp <- tms - floor(tms)	
     ## If a fractional scalar operand, then dates become chrons
     if(scalar && length(tmp <- tmp[!is.na(tmp)]) && any(tmp != 0)) {
         if(length(fmt.val <- attr(val, "format")) < 2)
@@ -345,7 +345,7 @@ function(x, format = "m/d/y", origin., simplify = FALSE, ...)
                                  as.character(format))))
         return(FUN(unclass(x), ...))
     }
-    v <- month.day.year(trunc(unclass(x)), origin = origin.)
+    v <- month.day.year(floor(unclass(x)), origin = origin.)
     v$day <- substring(paste("0", v$day, sep = ""), 
                        first = nchar(paste(v$day)))
     if(simplify) {
@@ -512,6 +512,16 @@ function(x)
     cl <- oldClass(x)
     class(x) <- NULL
     out <- NextMethod("trunc")
+    class(out) <- cl[!as.logical(match(cl, "chron", 0))]
+    out
+}
+
+"floor.dates" <-
+function(x)
+{
+    cl <- oldClass(x)
+    class(x) <- NULL
+    out <- NextMethod("floor")
     class(out) <- cl[!as.logical(match(cl, "chron", 0))]
     out
 }

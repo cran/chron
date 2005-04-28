@@ -38,10 +38,10 @@ function(dates. = NULL, times. = NULL,
                       NULL = c(dates = "m/d/y"),
                       stop("unrecognized format"))
         dts <- convert.dates(dates., format = fmt, origin = origin.)
-        tms <- dts - trunc(dts)	
+        tms <- dts - floor(dts)	
 	## if dates include fractions of days create a full chron
         if(!all(is.na(tms)) && any(tms[!is.na(tms)] != 0))
-            return(chron(dates. = trunc(dts), times. = tms, format
+            return(chron(dates. = floor(dts), times. = tms, format
                          = format, out.format = out.format, origin = 
                          origin.))
         ofmt <- switch(mode(out.format),
@@ -184,7 +184,7 @@ function(x, format = att$format, origin. = att$origin, sep = " ",
             simplify <- FALSE
     dts <- format.dates(x, format[[1]], origin = origin., simplify = 
                         simplify)
-    tms <- format.times(x - trunc(x), format[[2]], simplify = simplify)
+    tms <- format.times(x - floor(x), format[[2]], simplify = simplify)
     x <- paste(enclosed[1], dts, sep, tms, enclosed[2], sep = "")	
     ## output is a character object w.o class
     att$class <- att$format <- att$origin <- NULL
