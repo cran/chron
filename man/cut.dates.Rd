@@ -23,7 +23,7 @@
   \item{start.on.monday}{should  weeks be assumed to start on Mondays?
     Default is \code{TRUE}.  Set to \code{FALSE} if weeks start on
     Sundays; for other days of the week specify the corresponding
-    number: Sunday == 0, Monday == 1, Tuesday == 2, \dots{}, Saturday ==
+    number: Sunday == 0, Monday == 1, Tuesday == 2, \dots, Saturday ==
     6.}
   \item{\dots}{further arguments to be passed to or from methods.}
 }

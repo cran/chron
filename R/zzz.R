@@ -1,6 +1,5 @@
-".First.lib" <-
+".onLoad" <-
 function (lib, pkg) {
-    library.dynam("chron", pkg, lib)
 
     ## The following controls the behavior when faced w. 2-digit years.
     ##
@@ -17,13 +16,4 @@ function (lib, pkg) {
 
     options(chron.year.abb = TRUE,
             chron.year.expand = "year.expand")
-}
-
-## The following are generic in R 1.3.0.
-if(R.version$major <= 1 && R.version$minor < 3) {
-    cat("I am here\n")
-    julian <- function(x, ...) UseMethod("julian")
-    months <- function(x, abbreviate) UseMethod("months")
-    quarters <- function(x, abbreviate) UseMethod("quarters")
-    weekdays <- function(x, abbreviate) UseMethod("weekdays")
 }

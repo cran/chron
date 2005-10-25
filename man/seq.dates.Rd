@@ -19,7 +19,7 @@ seq.dates(from, to, by = "days", length., \dots)
   \item{\dots}{further arguments to be passed to or from methods.}
 }
 \value{a sequence with values (\code{form}, \code{from + by},
-  \code{from + 2*by}, \code{\dots{}}, \code{to}) of class
+  \code{from + 2*by}, \dots, \code{to}) of class
   \code{class(from)} and origin \code{origin(from)}. 
   Note that \code{from} must be less than or equal to the argument
   \code{to}.

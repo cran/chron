@@ -2,6 +2,10 @@
 function(x, ...)
     chron(times. = x, ...)
 
+"Axis.times" <- 
+function(x = NULL, at = NULL, ..., side, labels = NULL)
+    axis.times(n = side, x = x, labels = labels, ...)
+
 "Math.times" <-
 function(x, ...)
 {
@@ -450,11 +454,11 @@ function(x, y, ...,
     ## trap graphical pars in ... that affect axis() in addition to plot()
     if(is.null(adj <- dots$adj))
         adj <- par("adj")
-    if(is.null(cex <- dots$cex))
+    if(is.null(cex <- dots$cex.axis))
         cex <- par("cex")
-    if(is.null(col <- dots$col))
+    if(is.null(col <- dots$col.axis))
         col <- par("col")
-    if(is.null(font <- dots$font))
+    if(is.null(font <- dots$font.axis))
         font <- par("font")
     if(is.null(las <- dots$las))
         las <- par("las")

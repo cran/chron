@@ -1,0 +1,67 @@
+useDynLib("chron")
+
+export(".Holidays",
+       "as.chron",
+       "chron",
+       "dates", "day.of.week", "days",
+       "hours",
+       "is.chron", "is.holiday", "is.weekend",
+       "leap.year",
+       "minutes", "month.day.year",
+       "seconds", "seq.dates",
+       "times",
+       "years")
+
+## Grr ...
+export("year.expand",
+       "year.strict")
+
+S3method("as.chron", "POSIXt")
+S3method("as.chron", "default")
+S3method("julian", "default")
+S3method("months", "default")
+S3method("quarters", "default")
+S3method("weekdays", "default")
+
+S3method("as.data.frame", "chron")
+S3method("format", "chron")
+S3method("print", "chron")
+
+S3method("Math", "dates")
+S3method("Ops", "dates")
+S3method("Summary", "dates")
+S3method("[<-", "dates")
+S3method("all.equal", "dates")
+S3method("as.data.frame", "dates")
+S3method("c", "dates")
+S3method("cut", "dates")
+S3method("floor", "dates")
+S3method("format", "dates")
+S3method("print", "dates")
+S3method("trunc", "dates")
+
+if(getRversion() >= "2.3.0")
+    S3method("Axis", "times")
+S3method("Math", "times")
+S3method("Ops", "times")
+S3method("Summary", "times")
+S3method("[", "times")
+S3method("[<-", "times")
+S3method("[[", "times")
+S3method("as.character", "times")
+S3method("as.data.frame", "times")
+S3method("axis", "times")
+S3method("c", "times")
+S3method("diff", "times")
+S3method("format", "times")
+S3method("format<-", "times")
+S3method("hist", "times")
+S3method("identify", "times")
+S3method("is.na", "times")
+S3method("lines", "times")
+S3method("mean", "times")
+S3method("plot", "times")
+S3method("points", "times")
+S3method("print", "times")
+S3method("quantile", "times")
+S3method("summary", "times")

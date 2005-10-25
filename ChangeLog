@@ -1,3 +1,15 @@
+2005-10-24  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-0.
+
+	* NAMESPACE: Added.
+
+2005-07-11  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* man/cut.dates.Rd: 
+	* man/seq.dates.Rd: 
+	Rd format.
+
 2005-04-28  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-35.
