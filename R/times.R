@@ -566,3 +566,31 @@ function(object, digits = 12, ...)
     class(z) <- "table"
     z
 }
+
+## units can be "days", "hours", "minutes", "seconds" or they can
+## be of times class or they can be of a class that can be coerced 
+## to "times" class
+## e.g. trunc(times("12:13:14"), "minutes")         # same
+## e.g. trunc(times("12:13:14"), "min")             # same
+## e.g. trunc(times("12:13:14"), times("00:01:00")) # same
+## e.g. trunc(times("12:13:14"), "00:01:00")        # same
+## e.g. trunc(times("12:13:14"), 1/(24*60))         # same
+## e.g. trunc(times("12:13:14"), "00:01:30") # truncate to 90 seconds
+trunc.times <-
+function (x, units = "days")
+{
+   if (is.character(units)) {
+      idx <- pmatch(units, c("days", "hours", "minutes", "seconds"))
+      if (!is.na(idx)) {
+         values <- c(1, as.numeric(times(c("01:00:00","00:01:00","00:00:01"))))
+	 units <- values[idx]
+      }
+    } 
+    if (!inherits(units, "times")) { 
+      units <- try(times(units))
+      if (inherits(units, "try-error")) 
+         stop("cannot coerce units to class: times")
+    }
+    units <- as.numeric(units)
+    times(units * trunc(as.numeric(x) / units))
+}

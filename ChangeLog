@@ -1,6 +1,22 @@
-2005-10-24  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+2006-01-13  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* R/times.R (trunc.times): 
+	* man/trunc.times.Rd:
+	New trunc() methods for times objects, donated by Gabor
+	Grothendieck <ggrothendieck@gmail.com>.
+
+2005-10-25  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-0.
+
+	* R/times.R ("Axis.times"): New Axis() method for R 2.3.0 or
+	better, suggested by G Grothendieck <ggrothendieck@gmail.com>.
+	("plot.times"): Use 'col.axis' rather than 'col' etc for catching
+	graphical parameters in ... that affect (and are passed to)
+	axis().  Spotted by  Parlamis Franklin <fparlamis@mac.com> and
+	relayed by Marc Schwartz <MSchwartz@mn.rr.com>.
+
+2005-10-24  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* NAMESPACE: Added.
 
