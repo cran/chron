@@ -1,4 +1,16 @@
+2006-02-04  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-2.
+
+	* R/times.R (trunc.times): 
+	* man/trunc.times.Rd:
+	Add a comparison tolerance argument to address problems with
+	floating point representations, donated by Gabor Grothendieck
+	<ggrothendieck@gmail.com>.
+
 2006-01-13  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-1.
 
 	* R/times.R (trunc.times): 
 	* man/trunc.times.Rd:

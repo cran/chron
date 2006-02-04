@@ -1,17 +1,19 @@
 \name{trunc.times}
 \alias{trunc.times}
-\title{Truncate Times Objects}
+\title{Truncate times Objects}
 \description{
   Truncate times objects.
 }
 \usage{
-\method{trunc}{times}(x, units = "days")
+\method{trunc}{times}(x, units = "days", eps = 1e-10)
 }
 \arguments{
   \item{x}{a \code{"times"} object.}
-  \item{units}{can be one of \code{"days"}, \code{"hours"},
+  \item{units}{Can be one of \code{"days"}, \code{"hours"}, 
     \code{"minutes"}, \code{"seconds"} or an unambiguous abbreviated
     version of any of those.}
+  \item{eps}{Comparison tolerance.  Times are considered equal if their
+    absolute difference is less than \code{eps}.}
 }
 \details{
   The time is truncated to the second, minute, hour or day or to the
@@ -25,6 +27,7 @@
 }
 
 \examples{
+
 tt <- times(c("12:13:14", "15:46:17"))
 trunc(tt, "minutes")
 trunc(tt, "min")
