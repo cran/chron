@@ -114,24 +114,24 @@ function(n, x, add = TRUE, labels, simplify = TRUE, ...)
         x <- chron(x)
     bad <- is.na(x) | abs(as.vector(x)) == Inf
     rng <- if(n == 1 || n == 3) par("usr")[1:2] else par("usr")[3:4]
-    tmp <- pretty(c(rng, as.numeric(x[!bad])))
+    tmp <- c(rng, as.numeric(x[!bad]))
+    rng1 <- diff(range(tmp))
+    if (rng1 > 1) fctr <- 1
+    else if (rng1 > 1/24) fctr <- 24
+    else if (rng1 > 1/1440) fctr <- 1440
+    else fctr <- 86400
+    tmp <- pretty(fctr*tmp)/fctr
+    if (simplify) {
+        step <- diff(tmp[1:2])
+    	simplify <- step >= 1/1440
+    	if (inherits(x, "chron") && step >= 1) class(x) <- class(x)[-1]
+    }
+    
     att <- attributes(x)
     at.x <- structure(tmp[tmp >= rng[1] & tmp <= rng[2]], format = att$
                       format, origin = att$origin, class = att$class)
-    if(inherits(at.x, "chron")) class(at.x) <- class(at.x)[-1]	
-    ## chrons put dates labels only
-    ## force in data ends for times objects (the next block is a kludge!)
-    ## if plotting times only, fake the time 1.0 to print as midnight
-    if(missing(labels) || (is.logical(labels) && labels)) {
-        if(!inherits(x, "dates")) {
-            at.x[c(1, length(at.x))] <- range(x)
-            if(max(at.x) == 1)
-                labels <- format(at.x - floor(at.x), simplify = simplify)
-            else
-                labels <- format(at.x, simplify = simplify)
-        }
-        else labels <- format(at.x, simplify = simplify)
-    }
+    if(missing(labels) || (is.logical(labels) && labels)) 
+        labels <- format(at.x, simplify = simplify)
     if(add)
         axis(n, at = at.x, labels = labels, ...)
     invisible(list(n = n, at = at.x, labels = labels))
