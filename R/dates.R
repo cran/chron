@@ -464,16 +464,13 @@ seq.dates <- function(from, to, by = "days", length., ...)
     ## the idea is to generate all days between "form" and "to", subset
     ## out the dates we need, and finally chron them.
     x <- seq.default(from = frm, to = t0)
-    if(by == "days")
-        return(chron(x, format = fmt, origin = org))
     if(by == "weeks") {
         mdy <- month.day.year(x, origin = org)
         mdy.dow <- day.of.week(mdy$month, mdy$day, mdy$year)
         frm.dow <- day.of.week(frm.mdy$month, frm.mdy$day, frm.mdy$year)
         x <- x[mdy.dow == frm.dow]
-        return(chron(x, format = fmt, origin = org))
     }
-    if(by == "months") {
+    else if(by == "months") {
         ## be careful when "from" is in the tail of the month!
         nxt.day <- month.day.year(as.numeric(from + 1))$month
         end.of.the.month <- frm.mdy$month != nxt.day
@@ -492,9 +489,8 @@ seq.dates <- function(from, to, by = "days", length., ...)
         }
         ## simple case
         if(!missing(length.)) x <- x[seq(length = length.)]
-        return(chron(x, format = fmt, origin = org))
     }
-    if(by == "years") {
+    else if(by == "years") {
         ## be careful when "from" is Feb 29 of a leap year
         mdy <- month.day.year(x, org)
         if(leap.year(frm.mdy$year) && frm.mdy$day == 29)
@@ -502,8 +498,16 @@ seq.dates <- function(from, to, by = "days", length., ...)
         else
             x <- x[mdy$day == frm.mdy$day & mdy$month == frm.mdy$month]
         if(!missing(length.)) x <- x[seq(length = length.)]
-        return(chron(x, format = fmt, origin = org))
     }
+    ## The original code had just
+    ##   return(chron(x, format = fmt, origin = org))
+    ## As pointed out by Sebastian Luque <sluque@mun.ca>, this causes
+    ## trouble in case we have 00:00:00 time components, as in this case
+    ## chron() returns a dates-only object.  Hence:
+    if(inherits(from, "chron"))         # a full chron ...
+        chron(floor(x), x - floor(x), format = fmt, origin = org)
+    else
+        return(chron(x, format = fmt, origin = org))
 }
 
 "trunc.dates" <-

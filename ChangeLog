@@ -1,9 +1,18 @@
+2006-06-23  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-4.
+
+	* inst/CITATION: New file.
+
+	* R/dates.R (seq.dates): Do not get rid of all-zero time
+	components.  Spotted by Sebastian Luque <sluque@mun.ca>.
+
 2006-06-09  Duncan Murdoch <murdoch@stats.uwo.ca>
 
 	* DESCRIPTION (Version): New version is 2.3-3.
 	
-	* R/times.R:  Change axis.times to try harder to give unique labels at round number
-	locations
+	* R/times.R:  Change axis.times to try harder to give unique
+	labels at round number locations.
 
 2006-02-04  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 

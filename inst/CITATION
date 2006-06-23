@@ -1,0 +1,24 @@
+citHeader("To cite in publications use:")
+
+citEntry(entry = "Manual",
+	 title = {
+             paste("chron: Chronological Objects which Can Handle",
+                   "Dates and Times")
+         },
+	 author = personList(
+           person(first = "David", last = "James",
+                  email = "dj@research.bell-labs.com"),
+           person(first = "Kurt", last = "Hornik",
+                  email = "Kurt.Hornik@R-project.org")),
+         year = 2006,
+	 note = {
+             paste("R package version 2.3-4.",
+                   "S original by David James, R port by Kurt Hornik.")
+         },
+	 url = "http://CRAN.R-project.org/",
+	 textVersion = {
+             paste("David James and Kurt Hornik (2006).",
+                   "chron: Chronological Objects which Can Handle",
+                   "Dates and Times.",
+                   "R package version 2.3-4.")
+         })
