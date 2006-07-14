@@ -396,7 +396,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         out <- .Call("unpaste",
                       as.character(str),
                       as.character(sep),
-                      as.integer(white.space),
+                      as.logical(white.space),
                       as.integer(nfields),
                       PACKAGE = "chron")
     }

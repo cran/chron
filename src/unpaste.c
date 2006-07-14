@@ -15,7 +15,10 @@ unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
     int nstrings = Rf_length(s_strings);
     char *sep = CHAR(STRING_ELT(s_sep, 0));
     int nfields = INTEGER(s_nfields)[0];
-    int whitespace = LOGICAL(s_whitespace)[0];
+    Rboolean whitespace = asLogical(s_whitespace);
+
+    if(whitespace == NA_LOGICAL)
+	whitespace = FALSE;
 
     /* allocate character vectors for each field */
     PROTECT(ans = allocVector(VECSXP, nfields));

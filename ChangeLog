@@ -1,3 +1,11 @@
+2006-07-14  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-5.
+
+	* src/unpaste.c (unpaste): 
+	* R/utils.R (unpaste):
+	Improvements for strict type checking in ff calls, thanks BDR.
+
 2006-06-23  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-4.
