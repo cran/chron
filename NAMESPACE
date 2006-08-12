@@ -1,5 +1,9 @@
 useDynLib("chron")
 
+if(getRversion() >= "2.3.0")
+    importFrom("graphics", "Axis")
+importFrom("graphics", "axis", "hist", "plot")
+
 export(".Holidays",
        "as.chron",
        "chron",
