@@ -1,8 +1,11 @@
 useDynLib("chron")
 
+import("stats")
+
 if(getRversion() >= "2.3.0")
     importFrom("graphics", "Axis")
-importFrom("graphics", "axis", "hist", "plot")
+importFrom("graphics", "axis", "barplot", "hist", "par", "plot",
+           "plot.default") 
 
 export(".Holidays",
        "as.chron",
