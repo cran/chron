@@ -33,8 +33,9 @@ function(x)
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
-    h <- floor(24 * (x - floor(x)))
-    h
+    sec <- round(24 * 3600 * abs(x - floor(x)))    
+    hh <- sec %/% 3600
+    hh
 }
 "minutes"<-
 function(x)
@@ -42,9 +43,10 @@ function(x)
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
-    secs <- 24 * 60 * (x - floor(x))
-    m <- floor(secs) %% 60
-    m
+    sec <- round(24 * 3600 * abs(x - floor(x)))
+    hh <- sec %/% 3600
+    mm <- (sec - hh * 3600) %/% 60
+    mm
 }
 "seconds"<-
 function(x)
@@ -52,8 +54,11 @@ function(x)
     if(!inherits(x, "times"))
         return(NULL)
     x <- as.numeric(x)
-    secs <- 24 * 3600 * (x - floor(x))
-    floor(secs) %% 60
+    sec <- round(24 * 3600 * abs(x - floor(x)))
+    hh <- sec %/% 3600
+    mm <- (sec - hh * 3600) %/% 60
+    ss <- trunc(sec - hh * 3600 - 60 * mm)
+    ss
 }
 
 "quarters.default"<-

@@ -1,3 +1,12 @@
+2006-09-23  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-8.
+
+	* R/utils.R (hours, minutes, seconds): Sync code with what is used
+	in format.times() and more appropriate.  Thanks to Glen A Sargeant
+	<glen_sargeant@usgs.gov> and Gabor Grothendieck
+	<ggrothendieck@gmail.com> for raising the issue.
+
 2006-09-09  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-7.
