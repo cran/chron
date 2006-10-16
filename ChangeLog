@@ -1,3 +1,12 @@
+2006-10-16  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-9.
+
+	* R/chron.R:
+	* man/chron.Rd:
+	Add as.chron.factor().
+	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2006-09-23  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-8.

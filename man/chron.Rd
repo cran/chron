@@ -3,6 +3,7 @@
 \alias{as.chron}
 \alias{as.chron.default}
 \alias{as.chron.POSIXt}
+\alias{as.chron.factor}
 \alias{is.chron}
 \alias{as.data.frame.chron}
 \alias{format.chron}

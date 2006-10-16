@@ -143,6 +143,11 @@ as.chron.POSIXt <- function(x, offset = 0, ...)
         chron(dates. = x %/% 86400, ...)
 }
 
+as.chron.factor <- function(x, ...) 
+{
+    as.chron(as.character(x), ...)
+}
+
 "is.chron" <-
 function(x)
     inherits(x, "chron")
