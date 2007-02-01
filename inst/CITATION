@@ -1,5 +1,9 @@
 citHeader("To cite in publications use:")
 
+meta <- packageDescription("chron")
+year <- sub("-.*", "", meta$Date)
+note <- sprintf("R package version %s.", meta$Version)
+
 citEntry(entry = "Manual",
 	 title = {
              paste("chron: Chronological Objects which Can Handle",
@@ -10,15 +14,16 @@ citEntry(entry = "Manual",
                   email = "dj@research.bell-labs.com"),
            person(first = "Kurt", last = "Hornik",
                   email = "Kurt.Hornik@R-project.org")),
-         year = 2006,
+         year = year,
 	 note = {
-             paste("R package version 2.3-4.",
+             paste(note,
                    "S original by David James, R port by Kurt Hornik.")
          },
 	 url = "http://CRAN.R-project.org/",
 	 textVersion = {
-             paste("David James and Kurt Hornik (2006).",
+             paste("David James and Kurt Hornik",
+	           sprintf("(%s).", year),
                    "chron: Chronological Objects which Can Handle",
                    "Dates and Times.",
-                   "R package version 2.3-4.")
+		   note)
          })

@@ -1,3 +1,10 @@
+2007-02-01  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-10.
+
+	* inst/CITATION: Get date/year and version from the package
+	metadata.
+
 2006-10-16  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-9.
