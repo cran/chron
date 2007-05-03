@@ -1,3 +1,12 @@
+2007-05-03  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-11.
+
+	* man/trunc.times.Rd: 
+	* R/dates.R (trunc.dates): 
+	* R/times.R (trunc.times):
+	Add '...' argument to trunc() methods.
+
 2007-02-01  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-10.

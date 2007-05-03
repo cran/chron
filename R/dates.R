@@ -511,7 +511,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
 }
 
 "trunc.dates" <-
-function(x)
+function(x, ...)
 {
     cl <- oldClass(x)
     class(x) <- NULL

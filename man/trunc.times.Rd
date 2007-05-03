@@ -5,7 +5,7 @@
   Truncate times objects.
 }
 \usage{
-\method{trunc}{times}(x, units = "days", eps = 1e-10)
+\method{trunc}{times}(x, units = "days", eps = 1e-10, \dots)
 }
 \arguments{
   \item{x}{a \code{"times"} object.}
@@ -14,6 +14,7 @@
     version of any of those.}
   \item{eps}{Comparison tolerance.  Times are considered equal if their
     absolute difference is less than \code{eps}.}
+  \item{\dots}{further arguments to be passed to or from methods.}
 }
 \details{
   The time is truncated to the second, minute, hour or day or to the
