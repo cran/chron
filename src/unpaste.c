@@ -9,11 +9,12 @@ unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
 	SEXP s_nfields)
 {
     Sint i, j, k;
-    char *s, buffer[BUF_SIZ];
+    char buffer[BUF_SIZ];
+    const char *s;
     int	c;
     SEXP *output, ans;
     int nstrings = Rf_length(s_strings);
-    char *sep = CHAR(STRING_ELT(s_sep, 0));
+    const char *sep = CHAR(STRING_ELT(s_sep, 0));
     int nfields = INTEGER(s_nfields)[0];
     Rboolean whitespace = asLogical(s_whitespace);
 

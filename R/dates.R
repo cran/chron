@@ -1,6 +1,24 @@
+## <FIXME>
+## Need to improve consistency for preserving format and origin
+## attributes ...
+## </FIXME>
+
 "dates"<-
 function(x, ...)
-    floor(chron(dates. = x, ...))
+{
+    fmt <- attr(x, "format")
+    ## Why?
+    x <- chron(dates. = x, ...)
+    ## <NOTE>
+    ## This used to be floor.chron() ...
+    ## </NOTE>
+    cl <- oldClass(x)
+    out <- floor(unclass(x))
+    class(out) <- cl[!as.logical(match(cl, "chron", 0))]
+    cl <- oldClass(x)
+    attr(out, "format") <- fmt
+    out
+}
 
 "Math.dates" <-
 function(x, ...)
@@ -18,6 +36,7 @@ function(x, ...)
     class(x) <- NULL
     out <- NextMethod(.Generic)
     class(out) <- cl
+    attr(out, "format") <- attr(x, "format")
     out
 }
 
@@ -508,24 +527,4 @@ seq.dates <- function(from, to, by = "days", length., ...)
         chron(floor(x), x - floor(x), format = fmt, origin = org)
     else
         return(chron(x, format = fmt, origin = org))
-}
-
-"trunc.dates" <-
-function(x, ...)
-{
-    cl <- oldClass(x)
-    class(x) <- NULL
-    out <- NextMethod("trunc")
-    class(out) <- cl[!as.logical(match(cl, "chron", 0))]
-    out
-}
-
-"floor.dates" <-
-function(x)
-{
-    cl <- oldClass(x)
-    class(x) <- NULL
-    out <- NextMethod("floor")
-    class(out) <- cl[!as.logical(match(cl, "chron", 0))]
-    out
 }
