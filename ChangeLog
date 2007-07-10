@@ -1,3 +1,10 @@
+2007-07-10  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-13.
+
+	* R/times.R (print.times): Keep handling of "times greater than
+	one day" in sync with format.times().
+
 2007-06-18  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-12.
