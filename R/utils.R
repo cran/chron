@@ -22,7 +22,7 @@ function(x)
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
-    d <- month.day.year(floor(as.numeric(x)), origin = origin(x))$day
+    d <- month.day.year(floor(as.numeric(x)), origin. = origin(x))$day
     ## use paste to avoid bug in ordered() as in beta release 8/92
     d <- ordered(paste(d), paste(1:31))
     d
@@ -84,7 +84,7 @@ function(x, abbreviate = TRUE)
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
-    out <- month.day.year(as.numeric(x), origin = origin(x))$month
+    out <- month.day.year(as.numeric(x), origin. = origin(x))$month
     lbl <- if(abbreviate) month.abb else month.name
     out <- lbl[out]
     ordered(out, levels = lbl, labels = lbl)
@@ -97,7 +97,7 @@ function(x, abbreviate = TRUE)
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else stop("x must inherit from dates")
-    v <- month.day.year(as.numeric(x), origin = origin(x))
+    v <- month.day.year(as.numeric(x), origin. = origin(x))
     out <- day.of.week(v$month, v$day, v$year) + 1
     lbl <- if(abbreviate) day.abb else day.name
     out <- lbl[out]
@@ -111,7 +111,7 @@ function(x)
         if((is.character(x) || is.numeric(x)))
             x <- chron(x)
         else return(NULL)
-    y <- month.day.year(as.numeric(x), origin = origin(x))$year
+    y <- month.day.year(as.numeric(x), origin. = origin(x))$year
     y <- ordered(y)
     y
 }
@@ -147,7 +147,7 @@ function(str, sep = "")
        sep = as.character(sep),
        white.space = as.integer(white.space),
        counts = integer(n),
-       PACKAGE = "chron")$count
+       PACKAGE = "chron")$counts
 }
 
 "day.of.week" <-
@@ -204,7 +204,7 @@ function(x, holidays)
 function(x)
 {
     if(!inherits(x, "dates")) x <- as.chron(x)
-    v <- month.day.year(as.numeric(x), origin = origin(x))
+    v <- month.day.year(as.numeric(x), origin. = origin(x))
     out <- day.of.week(v$month, v$day, v$year) + 1	
     ## recall out is between 1 (Sunday) and 7 (Saturday)
     out == 1 | out == 7
@@ -257,7 +257,7 @@ function(x)
 function(y)
 {
     if(inherits(y, "dates"))
-        y <- month.day.year(as.numeric(y), origin = origin(y))$year
+        y <- month.day.year(as.numeric(y), origin. = origin(y))$year
     y %% 4 == 0 & (y %% 100 != 0 | y %% 400 == 0)
 }
 
@@ -277,7 +277,7 @@ function(jul, origin.)
     if(missing(origin.) || is.null(origin.))
         if(is.null(origin. <- getOption("chron.origin")))
             origin. <- c(month = 1, day = 1, year = 1970)
-    if(all(origin. == 0)) shift <- 0 else shift <- julian(origin = origin.)
+    if(all(origin. == 0)) shift <- 0 else shift <- julian(origin. = origin.)
     ## relative origin
     ## "absolute" origin
     j <- as.integer(floor(jul)) + as.integer(shift)
@@ -302,7 +302,7 @@ function(x, simplify = TRUE, ...)
 {
     ## put date labels in one line plus time lables on second line
     px <- pretty(x)
-    xx <- chron(px, format = attr(x, "format"), origin = origin(x))
+    xx <- chron(px, format = attr(x, "format"), origin. = origin(x))
     lbls <- format(xx, enclose = c("", ""), sep = "\n", simplify = simplify)
     axis(1, at = px, labels = lbls, ...)
     invisible(list(at = px, labels = lbls))
@@ -324,11 +324,11 @@ function(x, value)
         stop("day out of range in origin")
     cl <- class(x)
     class(x) <- NULL
-    jval <- julian(value[1], value[2], value[3], origin = c(0, 0, 0))	
+    jval <- julian(value[1], value[2], value[3], origin. = c(0, 0, 0))	
     ## adjust days for new origin (new.x + new.o == old.x + old.o)
     if (!is.null(ox <- attr(x, "origin")))
-        x <- x - jval + julian(ox[1], ox[2], ox[3], origin = c(0, 0, 0))
-    new.origin <- unlist(month.day.year(jval, origin = c(0, 0, 0)))
+        x <- x - jval + julian(ox[1], ox[2], ox[3], origin. = c(0, 0, 0))
+    new.origin <- unlist(month.day.year(jval, origin. = c(0, 0, 0)))
     attr(x, "origin") <-
         structure(new.origin, names = c("month", "day", "year"))
     class(x) <- cl
@@ -383,7 +383,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         }
         str[nas] <- paste(rep(NA, nfields), collapse = sep)
         nf <- count.fields.str(str, sep = sep)
-        bad <- seq(along = str)[nf != nfields]
+        bad <- seq(along.with = str)[nf != nfields]
         if(n.bad <- length(bad)) {
             if(n.bad > 10)
                 msg <- paste(n.bad, 
@@ -408,7 +408,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
     else {
         last <- first + width - 1
         out <- vector("list", length = length(first))
-        for(i in seq(along = first)) {
+        for(i in seq(along.with = first)) {
             out[[i]] <- substring(str, first[i], last[i])
             out[[i]][nas] <- as.character(NA)
         }

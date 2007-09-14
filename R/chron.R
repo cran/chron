@@ -37,12 +37,12 @@ function(dates. = NULL, times. = NULL,
                       "function" = format,
                       NULL = c(dates = "m/d/y"),
                       stop("unrecognized format"))
-        dts <- convert.dates(dates., format = fmt, origin = origin.)
+        dts <- convert.dates(dates., format = fmt, origin. = origin.)
         tms <- dts - floor(dts)	
 	## if dates include fractions of days create a full chron
         if(!all(is.na(tms)) && any(tms[!is.na(tms)] != 0))
             return(chron(dates. = floor(dts), times. = tms, format
-                         = format, out.format = out.format, origin = 
+                         = format, out.format = out.format, origin. = 
                          origin.))
         ofmt <- switch(mode(out.format),
                        character = ,
@@ -108,7 +108,7 @@ function(dates. = NULL, times. = NULL,
         stop("misspecified input format(s)")
     if(all(mode(out.format) != c("list", "character")))
         stop("misspecified output format(s)")
-    dts <- convert.dates(dates., format = format[[1]], origin = origin.)
+    dts <- convert.dates(dates., format = format[[1]], origin. = origin.)
     tms <- convert.times(times., format = format[[2]])
     x <- unclass(dts) + unclass(tms)
     attr(x, "format") <- out.format
@@ -173,8 +173,8 @@ function(x, format = c(dates = "m/d/y", times = "h:m:s"), origin.,
     if(any(enclose != ""))
         x <- substring(x, first = 2, last = nchar(x) - 1)
     str <- unpaste(x, sep = sep)
-    dts <- convert.dates(str[[1]], format = format[[1]], origin = origin., 
-                         ...)
+    dts <- convert.dates(str[[1]], format = format[[1]],
+                         origin. = origin., ...)
     tms <- convert.times(str[[2]], format = format[[2]], ...)
     dts + tms
 }
@@ -187,7 +187,7 @@ function(x, format = att$format, origin. = att$origin, sep = " ",
     if(missing(simplify))
         if(is.null(simplify <- getOption("chron.simplify")))
             simplify <- FALSE
-    dts <- format.dates(x, format[[1]], origin = origin., simplify = 
+    dts <- format.dates(x, format[[1]], origin. = origin., simplify = 
                         simplify)
     tms <- format.times(x - floor(x), format[[2]], simplify = simplify)
     x <- paste(enclosed[1], dts, sep, tms, enclosed[2], sep = "")	

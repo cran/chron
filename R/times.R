@@ -28,9 +28,9 @@ function(e1, e2)
         return(val)
     }
     if(is.character(e1))
-        e1 <- chron(times = e1, format = attr(e2, "format"))
+        e1 <- chron(times. = e1, format = attr(e2, "format"))
     if(is.character(e2))
-        e2 <- chron(times = e2, format = attr(e1, "format"))
+        e2 <- chron(times. = e2, format = attr(e1, "format"))
     val <- NextMethod(.Generic)
     boolean <- match(.Generic, c("==", "!=", ">", ">=", "<", "<="),
                      nomatch = 0)
@@ -79,7 +79,7 @@ function(x, ..., value)
         stop("replacement of/with times objects must be with times objects")
     fmt <- attr(x, "format")
     if(!inherits(value, "times"))
-        value <- chron(times = value, format = rev(fmt)[[1]])
+        value <- chron(times. = value, format = rev(fmt)[[1]])
     cl <- class(x)                      # ensure that dates objects have
                                         # equal origins
     class(x) <- class(value) <- NULL
@@ -187,7 +187,7 @@ function(times = NULL, format = "h:m:s", length. = 0, ...)
         else return(rep(NA, length(times)))
     i <- (hh[ok] < 0 | hh[ok] > 23 | mm[ok] < 0 | mm[ok] > 59 |
           ss[ok] < 0 | ss[ok] >= 60)
-    bad <- seq(along = hh)[ok][i]
+    bad <- seq(along.with = hh)[ok][i]
     if(n.bad <- length(bad)) {
         if(n.bad > 10)
             msg <- paste(n.bad, 
@@ -323,9 +323,9 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
         out <- barplot(tt$counts, width = tt$breaks, histo = TRUE, ..., 
                        xlab = xlab, axes = FALSE)
         if(any(cl == "dates"))
-            lbl <- format(chron(dates = tt$breaks), simplify = simplify)
+            lbl <- format(chron(dates. = tt$breaks), simplify = simplify)
         else
-            lbl <- format(chron(times = tt$breaks), simplify = simplify)
+            lbl <- format(chron(times. = tt$breaks), simplify = simplify)
         if(is.null(adj <- dots$adj))
             adj <- par("adj")
         if(is.null(cex <- dots$cex))
@@ -443,7 +443,7 @@ function(x, y, ...,
     x.times <- inherits(x, "times")	# is x a times?
     if(missing(y)) {
         x <- sort(x)                    # NA's will be ignored
-        y <- seq(along = as.vector(x))
+        y <- seq(along.with = as.vector(x))
         if(missing(ylab))
             ylab <- "Counts"
     }
