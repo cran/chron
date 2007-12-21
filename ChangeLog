@@ -1,3 +1,13 @@
+2007-12-21  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-16.
+
+	* NAMESPACE:
+	* R/chron.R:
+	* R/chron.Rd:
+	Added as.chron.Date().
+	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2007-07-12  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-14.

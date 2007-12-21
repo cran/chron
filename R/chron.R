@@ -142,6 +142,10 @@ as.chron.POSIXt <- function(x, offset = 0, ...)
     else
         chron(dates. = x %/% 86400, ...)
 }
+as.chron.Date <- function(x, ...)
+{
+    chron(unclass(x), ...)
+}
 
 as.chron.factor <- function(x, ...) 
 {

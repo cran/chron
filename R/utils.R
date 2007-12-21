@@ -274,6 +274,7 @@ function(str)
 "month.day.year" <-
 function(jul, origin.)
 {
+    if (!inherits(jul, "dates")) jul <- as.chron(jul)
     if(missing(origin.) || is.null(origin.))
         if(is.null(origin. <- getOption("chron.origin")))
             origin. <- c(month = 1, day = 1, year = 1970)
