@@ -1,3 +1,20 @@
+2008-01-30  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version s 2.3-17.
+
+	* NAMESPACE:
+	* R/chron.R:
+	* man/yearmon.Rd:
+	Added as.chron.ts(), as.chron.yearmon(), and as.chron.yearqtr().
+	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
+
+	* R/utils.R ("is.holiday"): Fixed bug for zero length holiday
+	vector.  
+	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
+
+	* man/days.Rd:
+	Document how to use the chron/default methods for Date objects.
+
 2007-12-21  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-16.

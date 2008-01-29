@@ -185,14 +185,17 @@ function(f)
     paste(h, ":", m, pm, sep = "")
 }
 
+
 "is.holiday" <-
 function(x, holidays)
 {
     if(!inherits(x, "dates")) x <- as.chron(x)
-    if(missing(holidays))
+    if(missing(holidays)) {
         if(exists(".Holidays"))
             holidays <- .Holidays
         else holidays <- NULL
+    } else if (length(holidays) == 0) holidays <- NULL
+    if (is.null(holidays)) return(rep(FALSE, length(x)))
     orig.x <- origin(x)
     if(!is.null(orig.h <- origin(holidays)) && any(orig.x != orig.h))
         origin(holidays) <- orig.x

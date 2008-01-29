@@ -21,22 +21,40 @@ years(x)
 }
 \arguments{
   \item{x}{
-    a dates object.
+    a \link{dates} object.
   }
   \item{abbreviate}{
-    should abbreviated names be returned? Default is \code{TRUE}.
-}}
+    should abbreviated names be returned?  Default is \code{TRUE}.
+  }
+}
 \value{
   an ordered factor corresponding to days, weekdays, months, quarters,
   or years of \code{x} for the respective function.
 }
+\details{
+  Note that \code{months}, \code{quarters} and \code{weekdays} are
+  generics defined in package \pkg{base} which also provides methods for
+  objects of class \code{"\link{Date}"} as generated, e.g., by
+  \code{\link{Sys.Date}}.  These methods return \link{character} rather
+  than \link{factor} variables as the default methods in \pkg{chron} do.
+  To take advantage of the latter, Date objects can be converted to
+  dates objects using \code{\link{as.chron}}, see the examples.
+}
 \seealso{
-  \code{\link{is.weekend}}, \code{\link{is.holiday}}
+  \code{\link{is.weekend}},
+  \code{\link{is.holiday}}
 }
 \examples{
 dts <- dates("07/01/78") + trunc(50 * rnorm(30))
 plot(weekdays(dts))
 plot(months(dts))
+
+## The day in the current timezone as a Date object.
+Dt <- Sys.Date()
+## Using the months method for Date objects.
+months(Dt)
+## Using the months default method.
+months(as.chron(Dt))
 }
 % Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}
