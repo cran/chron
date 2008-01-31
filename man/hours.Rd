@@ -15,7 +15,8 @@ minutes(x)
 seconds(x)
 }
 \arguments{
-  \item{x}{an object inheriting from class \code{"times"}.}
+  \item{x}{an object inheriting from class \code{"\link{times}"}, or
+    coercible to such via \code{\link{as.chron}}.}
 }
 \value{
   the corresponding time period as an ordered factor.
@@ -32,5 +33,4 @@ boxplot(y ~ h)
   \code{\link{dates}},
   \code{\link{times}}
 }
-% Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}

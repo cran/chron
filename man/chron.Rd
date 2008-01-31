@@ -132,5 +132,4 @@ diff(x)
 sort(dts)[1:3]
 # [1] 01/14/92 02/01/92 02/27/92
 }
-% Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}

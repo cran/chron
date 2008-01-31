@@ -43,5 +43,4 @@ cut(dts, "months")
 # [1] Feb 92 Feb 92 Jan 92 Feb 92 Feb 92
 boxplot(runif(5) ~ cut(dts, "months"))
 }
-% Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}

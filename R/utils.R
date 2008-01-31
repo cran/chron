@@ -19,9 +19,7 @@
 function(x)
 {
     if(!inherits(x, "dates"))
-        if((is.character(x) || is.numeric(x)))
-            x <- chron(x)
-        else return(NULL)
+        x <- as.chron(x)
     d <- month.day.year(floor(as.numeric(x)), origin. = origin(x))$day
     ## use paste to avoid bug in ordered() as in beta release 8/92
     d <- ordered(paste(d), paste(1:31))
@@ -31,7 +29,7 @@ function(x)
 function(x)
 {
     if(!inherits(x, "times"))
-        return(NULL)
+        x <- as.chron(x)        
     x <- as.numeric(x)
     sec <- round(24 * 3600 * abs(x - floor(x)))    
     hh <- sec %/% 3600
@@ -41,7 +39,7 @@ function(x)
 function(x)
 {
     if(!inherits(x, "times"))
-        return(NULL)
+        x <- as.chron(x)        
     x <- as.numeric(x)
     sec <- round(24 * 3600 * abs(x - floor(x)))
     hh <- sec %/% 3600
@@ -52,7 +50,7 @@ function(x)
 function(x)
 {
     if(!inherits(x, "times"))
-        return(NULL)
+        x <- as.chron(x)
     x <- as.numeric(x)
     sec <- round(24 * 3600 * abs(x - floor(x)))
     hh <- sec %/% 3600
@@ -108,9 +106,7 @@ function(x, abbreviate = TRUE)
 function(x)
 {
     if(!inherits(x, "dates"))
-        if((is.character(x) || is.numeric(x)))
-            x <- chron(x)
-        else return(NULL)
+        x <- as.chron(x)
     y <- month.day.year(as.numeric(x), origin. = origin(x))$year
     y <- ordered(y)
     y

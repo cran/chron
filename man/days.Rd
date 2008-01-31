@@ -20,9 +20,8 @@ days(x)
 years(x)
 }
 \arguments{
-  \item{x}{
-    a \link{dates} object.
-  }
+  \item{x}{an object inheriting from class \code{"\link{dates}"}, or
+    coercible to such via \code{\link{as.chron}}.}
   \item{abbreviate}{
     should abbreviated names be returned?  Default is \code{TRUE}.
   }
@@ -56,5 +55,4 @@ months(Dt)
 ## Using the months default method.
 months(as.chron(Dt))
 }
-% Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}

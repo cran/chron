@@ -1,6 +1,19 @@
+2008-01-31  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-18.
+
+	* R/utils.R (years, days, hours, minutes, seconds):
+	* man/days.Rd:
+	* man/hours.Rd:
+	Coerce to chron if necessary.
+
+	* R/chron.R
+	(as.chron.default): Consistenly return a chron object, or fail.
+	(as.chron.POSIXt): Add 'tz' argument (defaulting to "GMT").
+
 2008-01-30  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
-	* DESCRIPTION (Version): New version s 2.3-17.
+	* DESCRIPTION (Version): New version is 2.3-17.
 
 	* NAMESPACE:
 	* R/chron.R:

@@ -127,15 +127,13 @@ as.chron.default <- function (x, ...)
         return(x)
     if (is.character(x) || is.numeric(x))
         return(chron(x, ...))
-    if (all(is.na(x)))
-        return(x)
-    stop("`x' cannot be coerced to a chron object")
+    stop("'x' cannot be coerced to a chron object")
 }
-as.chron.POSIXt <- function(x, offset = 0, ...)
+as.chron.POSIXt <- function(x, offset = 0, tz = "GMT", ...)
 {
     ## offset is in hours relative to GMT
     if (!inherits(x, "POSIXt")) stop("wrong method")
-    x <- unclass(as.POSIXct(x)) + 60*round(60*offset)
+    x <- unclass(as.POSIXct(x, tz = tz)) + 60*round(60*offset)
     tm <- x %% 86400
     if (any(tm != 0))
         chron(dates. = x %/% 86400, times. = tm/86400, ...)
@@ -147,7 +145,9 @@ as.chron.Date <- function(x, ...)
     chron(unclass(x), ...)
 }
 
-asChronYearFreq <- function(x, frac = 0, holidays = FALSE, frequency, ...) {
+asChronYearFreq <-
+function(x, frac = 0, holidays = FALSE, frequency, ...)
+{
     stopifnot(isTRUE((12 / frequency) %% 1 == 0))
     x <- unclass(x)
     year <- floor(x + 0.001)
@@ -166,16 +166,25 @@ asChronYearFreq <- function(x, frac = 0, holidays = FALSE, frequency, ...) {
      }), ...)
 }
 
-as.chron.yearmon <- function(x, frac = 0, holidays = FALSE, ...) {
-	asChronYearFreq(x, frac = frac, holidays = holidays, frequency = 12, ...)
+as.chron.yearmon <-
+function(x, frac = 0, holidays = FALSE, ...)
+{
+    asChronYearFreq(x, frac = frac, holidays = holidays,
+                    frequency = 12, ...)
 }
 
-as.chron.yearqtr <- function(x, frac = 0, holidays = FALSE, ...) {
-	asChronYearFreq(x, frac = frac, holidays = holidays, frequency = 4, ...)
+as.chron.yearqtr <-
+function(x, frac = 0, holidays = FALSE, ...)
+{
+    asChronYearFreq(x, frac = frac, holidays = holidays,
+                    frequency = 4, ...)
 }
 
-as.chron.ts <- function(x, frac = 0, holidays = FALSE, ...) {
-	asChronYearFreq(time(x), frac = frac, holidays = holidays, frequency = frequency(x), ...)
+as.chron.ts <-
+function(x, frac = 0, holidays = FALSE, ...)
+{
+    asChronYearFreq(time(x), frac = frac, holidays = holidays,
+                    frequency = frequency(x), ...)
 }
 
 as.chron.factor <- function(x, ...) 

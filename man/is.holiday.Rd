@@ -47,5 +47,4 @@ table(is.weekend(dts))
 # 01/01/92 05/25/92 07/04/92  09/07/92     11/26/92  12/25/92
 # NOTE:  Only these 6 holidays from 1992 are defined by default!
 }
-% Converted by Sd2Rd version 0.2-a3.
 \keyword{chron}
