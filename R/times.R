@@ -187,7 +187,7 @@ function(times = NULL, format = "h:m:s", length. = 0, ...)
         else return(rep(NA, length(times)))
     i <- (hh[ok] < 0 | hh[ok] > 23 | mm[ok] < 0 | mm[ok] > 59 |
           ss[ok] < 0 | ss[ok] >= 60)
-    bad <- seq(along.with = hh)[ok][i]
+    bad <- seq_along(hh)[ok][i]
     if(n.bad <- length(bad)) {
         if(n.bad > 10)
             msg <- paste(n.bad, 
@@ -443,7 +443,7 @@ function(x, y, ...,
     x.times <- inherits(x, "times")	# is x a times?
     if(missing(y)) {
         x <- sort(x)                    # NA's will be ignored
-        y <- seq(along.with = as.vector(x))
+        y <- seq_along(as.vector(x))
         if(missing(ylab))
             ylab <- "Counts"
     }

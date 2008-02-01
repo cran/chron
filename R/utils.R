@@ -383,7 +383,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         }
         str[nas] <- paste(rep(NA, nfields), collapse = sep)
         nf <- count.fields.str(str, sep = sep)
-        bad <- seq(along.with = str)[nf != nfields]
+        bad <- seq_along(str)[nf != nfields]
         if(n.bad <- length(bad)) {
             if(n.bad > 10)
                 msg <- paste(n.bad, 
@@ -408,7 +408,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
     else {
         last <- first + width - 1
         out <- vector("list", length = length(first))
-        for(i in seq(along.with = first)) {
+        for(i in seq_along(first)) {
             out[[i]] <- substring(str, first[i], last[i])
             out[[i]][nas] <- as.character(NA)
         }

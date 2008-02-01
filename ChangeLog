@@ -1,3 +1,16 @@
+2008-02-04  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-19.
+	(Depends): Need 2.4.0 or better, as seq_len() et al are	used.
+
+	* R/dates.R (format.dates):
+	R >= 2.7.0 no longer performs partial matching in [[ by default.
+
+2008-02-01  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* R/chron.R (as.chron.POSIXt):
+	Make 'tz' work as intended.
+
 2008-01-31  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-18.

@@ -123,20 +123,21 @@ function(dates. = NULL, times. = NULL,
 as.chron <- function(x, ...) UseMethod("as.chron")
 as.chron.default <- function (x, ...)
 {
-    if (inherits(x, "chron"))
+    if(inherits(x, "chron"))
         return(x)
-    if (is.character(x) || is.numeric(x))
+    if(is.character(x) || is.numeric(x))
         return(chron(x, ...))
     stop("'x' cannot be coerced to a chron object")
 }
 as.chron.POSIXt <- function(x, offset = 0, tz = "GMT", ...)
 {
     ## offset is in hours relative to GMT
-    if (!inherits(x, "POSIXt")) stop("wrong method")
-    x <- unclass(as.POSIXct(x, tz = tz)) + 60*round(60*offset)
+    if(!inherits(x, "POSIXt")) stop("wrong method")
+    x <- unclass(as.POSIXct(as.character(x, tz = tz), tz = "GMT")) +
+        60 * round(60 * offset)
     tm <- x %% 86400
-    if (any(tm != 0))
-        chron(dates. = x %/% 86400, times. = tm/86400, ...)
+    if(any(tm != 0))
+        chron(dates. = x %/% 86400, times. = tm / 86400, ...)
     else
         chron(dates. = x %/% 86400, ...)
 }
@@ -155,15 +156,17 @@ function(x, frac = 0, holidays = FALSE, frequency, ...)
     dd.start <- as.Date(paste(year, month, 1, sep = "-"))
     nd <- 32 * 12 / frequency 
     dd.end <- dd.start + nd - as.numeric(format(dd.start + nd, "%d"))
-    if (identical(holidays, FALSE))
-      chron(((1 - frac) * as.numeric(dd.start) + frac * as.numeric(dd.end)), ...)
+    if(identical(holidays, FALSE))
+        chron(((1 - frac) * as.numeric(dd.start) +
+               frac * as.numeric(dd.end)),
+              ...)
     else
-      chron(sapply(seq_along(x), function(i) {
-         s <- unclass(seq(dd.start[i], dd.end[i], by = "days"))
-	 h <- if (isTRUE(holidays)) is.holiday(s) else is.holiday(s, holidays)
-         ss <- s[!is.weekend(s) & !h]
-         quantile(ss, probs = frac, names = FALSE)
-     }), ...)
+        chron(sapply(seq_along(x), function(i) {
+            s <- unclass(seq(dd.start[i], dd.end[i], by = "days"))
+            h <- if(isTRUE(holidays)) is.holiday(s) else is.holiday(s, holidays)
+            ss <- s[!is.weekend(s) & !h]
+            quantile(ss, probs = frac, names = FALSE)
+        }), ...)
 }
 
 as.chron.yearmon <-

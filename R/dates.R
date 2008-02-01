@@ -77,7 +77,7 @@ function(e1, e2)
     if(!scalar) {
         if(.Generic == "+")
             stop("chron objects may not be added together")
-        if(any(o1 - o2)) {
+        if(any(o1 != o2)) {
             warning("different origin in dates arithmetic")
             origin(e2) <- o2 <- o1
         }
@@ -237,7 +237,7 @@ function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...)
         yy <- fun(yy, ...)
     }
     non.na <- !is.na(mo)                # all months between 1 and 12?
-    bad <- seq(along.with = mo)[non.na][mo[non.na] < 1 | mo[non.na] > 12]
+    bad <- seq_along(mo)[non.na][mo[non.na] < 1 | mo[non.na] > 12]
     if(n.bad <- length(bad)) {
         if(n.bad > 10)
             msg <- paste(n.bad, "months out of range set to NA")
@@ -251,7 +251,7 @@ function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...)
     mon.len <- month.length[mo[non.na]]
     mon.len[leap.year(yy[non.na]) & mo[non.na] == 2] <- 29# leap years!
     ## all days in the proper range (including leap years)?
-    bad <- seq(along.with = dy)[non.na][dy[non.na] < 1 | dy[non.na] > mon.len]
+    bad <- seq_along(dy)[non.na][dy[non.na] < 1 | dy[non.na] > mon.len]
     if(n.bad <- length(bad)) {
         if(n.bad > 10)
             msg <- paste(n.bad, "days out of range set to NA")
@@ -280,7 +280,7 @@ function(x, breaks, labels, start.on.monday = TRUE, ...)
             origin(breaks) <- org
         breaks <- as.numeric(breaks)
         if(missing(labels))
-            labels <- paste("Range", seq(along.with = breaks[-1]))
+            labels <- paste("Range", seq_along(breaks[-1]))
         out <- cut.default(x, breaks = breaks, labels = labels)
         out <- ordered(as.character(out), levels = levels(out),
                        labels = labels)
@@ -315,15 +315,15 @@ function(x, breaks, labels, start.on.monday = TRUE, ...)
                    years = chron(julian(1, 1, mdy$y, origin. = orig)))
     if(from == min(x))
         from <- from - .Machine$double.eps
-    breaks <- brk <- seq(from = from, to = max(x) + bump, by = by)
+    breaks <- brk <- seq.int(from = from, to = max(x) + bump, by = by)
     breaks <- as.numeric(breaks)
     n <- length(breaks)
     x <- as.numeric(x)
     if(missing(labels)) {
         labels <-
             switch(by,
-                   days = paste("day", seq(along.with = breaks[ - n] + 1)),
-                   weeks = paste("week", seq(along.with = breaks[ - n] + 1)),
+                   days = paste("day", seq_along(breaks[ - n] + 1)),
+                   weeks = paste("week", seq_along(breaks[ - n] + 1)),
                    months = paste(as.character(months(brk[ - n] + 1)), 
                    substring(as.character(years(brk[ - n] + 1)), 3, 4)),
                    years = substring(as.character(years(brk[ - n] + 1)), 3, 4))
@@ -400,16 +400,18 @@ function(x, format = "m/d/y", origin., simplify = FALSE, ...)
         ## "Simpler" than
         ##     do.call("paste",
         ##             c(v[pmatch(perm, names(v))], list(sep = sep))
-    
+        ## Could also use [[ with exact = FALSE, of course (R >= 2.6.0).
     } else {
         ## simplify (drop year/month when all equal)
         if(drop.mon) y[] <- v$day else if(drop.year) {
             perm <- perm[perm != "y"]	# drop years
-            y[] <- paste(v[[perm[1]]], v[[perm[2]]], sep = sep)
+            ind <- pmatch(perm, names(v))
+            y[] <- paste(v[[ind[1]]], v[[ind[2]]], sep = sep)
         }
         else {
             perm <- perm[perm != "d"]	# drop days
-            y[] <- paste(v[[perm[1]]], v[[perm[2]]], sep = sep)
+            ind <- pmatch(perm, names(v))
+            y[] <- paste(v[[ind[1]]], v[[ind[2]]], sep = sep)
         }
     }
     y[is.na(x)] <- NA
@@ -451,7 +453,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
                 origin(to) <- org
             to <- as.numeric(to)
         }
-        x <- seq.default(from, to, by)
+        x <- seq.int(from, to, by)
 	## preserve full chrons (i.e., don't round x)
         if(all(cl != "chron"))
             x <- round(x, 0)
@@ -488,7 +490,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
     frm.mdy <- month.day.year(frm, origin. = org)	
     ## the idea is to generate all days between "form" and "to", subset
     ## out the dates we need, and finally chron them.
-    x <- seq.default(from = frm, to = t0)
+    x <- seq.int(from = frm, to = t0)
     if(by == "weeks") {
         mdy <- month.day.year(x, origin. = org)
         mdy.dow <- day.of.week(mdy$month, mdy$day, mdy$year)
@@ -513,7 +515,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
             x <- sort(c(x1, x2))
         }
         ## simple case
-        if(!missing(length.)) x <- x[seq(length = length.)]
+        if(!missing(length.)) x <- x[seq_len(length.)]
     }
     else if(by == "years") {
         ## be careful when "from" is Feb 29 of a leap year
@@ -522,7 +524,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
             x <- x[mdy$day == 1 & mdy$month == 3] - 1
         else
             x <- x[mdy$day == frm.mdy$day & mdy$month == frm.mdy$month]
-        if(!missing(length.)) x <- x[seq(length = length.)]
+        if(!missing(length.)) x <- x[seq_len(length.)]
     }
     ## The original code had just
     ##   return(chron(x, format = fmt, origin = org))
