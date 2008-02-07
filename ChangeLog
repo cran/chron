@@ -1,3 +1,11 @@
+2008-02-07  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-20.
+
+	* R/utils.R ("julian.default"):
+	Make recycling of x/d/y work.
+	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2008-02-04  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-19.

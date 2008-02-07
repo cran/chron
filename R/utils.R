@@ -218,9 +218,10 @@ function(x, d, y, origin., ...)
         if(is.null(origin. <- getOption("chron.origin")))
             origin. <- c(month = 1, day = 1, year = 1970)
     nms <- names(d)
-    m <- c(origin.[1], x)               # prepend month of new origin
-    d <- c(origin.[2], d)               # prepend day of new origin
-    y <- c(origin.[3], y)               # prepend year of new origin
+    xdy <- cbind(x, d, y)
+    m <- c(origin.[1], xdy[, "x"])      # prepend month of new origin
+    d <- c(origin.[2], xdy[, "d"])      # prepend day of new origin
+    y <- c(origin.[3], xdy[, "y"])      # prepend year of new origin
     ##
     ## code from julian date in the S book (p.269)
     ##
