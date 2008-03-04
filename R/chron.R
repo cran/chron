@@ -125,8 +125,15 @@ as.chron.default <- function (x, ...)
 {
     if(inherits(x, "chron"))
         return(x)
-    if(is.character(x) || is.numeric(x))
-        return(chron(x, ...))
+    if (is.numeric(x)) return(chron(x, ...))
+    if (is.character(x)) {
+        out <- suppressWarnings(try(chron(x, ...), silent = TRUE))
+        if (inherits(out, "try-error")) {
+            xx <- sub("T", " ", x)
+            out <- as.chron(as.POSIXct(xx, tz = "GMT"))
+        }
+        return(out)
+    }
     stop("'x' cannot be coerced to a chron object")
 }
 as.chron.POSIXt <- function(x, offset = 0, tz = "GMT", ...)
