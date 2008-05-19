@@ -512,7 +512,11 @@ seq.dates <- function(from, to, by = "days", length., ...)
             ## 29th or 30th of one of the 31-day months
             x1 <- x[dys == frm.mdy$day]	# all but Feb!
             x2 <- x[mdy$month == 3 & dys == 1] - 1 # Feb
-            x <- sort(c(x1, x2))
+            ## <NOTE>
+            ## Of course, leap years can have Feb 29, in which case we
+            ## get common entries in x1 and x2 ... hence, unique().
+            x <- sort(unique(c(x1, x2)))
+            ## </NOTE>
         }
         ## simple case
         if(!missing(length.)) x <- x[seq_len(length.)]
