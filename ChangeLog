@@ -1,3 +1,12 @@
+2008-07-18  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-24.
+
+	* R/chron.R (as.chron.default):
+	* man/chron.Rd:
+	Add a 'format' argument to the as.chron() default method.
+	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2008-05-20  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-23.

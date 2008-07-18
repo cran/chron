@@ -121,16 +121,26 @@ function(dates. = NULL, times. = NULL,
 }
 
 as.chron <- function(x, ...) UseMethod("as.chron")
-as.chron.default <- function (x, ...)
+as.chron.default <- function (x, format, ...)
 {
     if(inherits(x, "chron"))
         return(x)
-    if (is.numeric(x)) return(chron(x, ...))
+    if(is.numeric(x)) {
+        if (missing(format) || is.null(format)) return(chron(x, ...))
+        else return(as.chron(as.POSIXct(format(x, scientific = FALSE),
+                                        tz = "GMT", format = format),
+                             ...))
+	}
     if (is.character(x)) {
-        out <- suppressWarnings(try(chron(x, ...), silent = TRUE))
-        if (inherits(out, "try-error")) {
-            xx <- sub("T", " ", x)
-            out <- as.chron(as.POSIXct(xx, tz = "GMT"))
+        if (missing(format) || is.null(format)) {
+            out <- suppressWarnings(try(chron(x, ...), silent = TRUE))
+            if (inherits(out, "try-error")) {
+                xx <- sub("T", " ", x)
+                out <- as.chron(as.POSIXct(xx, tz = "GMT"), ...)
+            }
+        } else {
+            out <- as.chron(as.POSIXct(x, format = format, tz = "GMT"),
+                            ...)
         }
         return(out)
     }
