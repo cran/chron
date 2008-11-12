@@ -417,3 +417,21 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
     names(out) <- fnames
     return(out)
 }
+
+.str_to_ymd_list <-
+function(str, fmt)
+{
+    str <- as.character(str)
+    nas <- is.na(str) | str == ""
+    periods <- fmt$periods
+    widths <- cbind(y = nchar(str) - 4, m = 2, d = 2)
+    last <- apply(widths[, fmt$periods, drop = FALSE], 1, cumsum)
+    first <- rbind(0, last[-3, , drop = FALSE]) + 1
+    out <- vector("list", length = 3)
+    for(i in seq_along(periods)) {
+        out[[i]] <- substring(str, first[i, ], last[i, ])
+        out[[i]][nas] <- as.character(NA)
+    }
+    names(out) <- periods
+    out
+}

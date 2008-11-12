@@ -1,3 +1,10 @@
+2008-11-12  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-25.
+
+	* R/dates.R ("convert.dates"): Try making format 'ymd' work for
+	non-abbreviated year specs.
+
 2008-07-18  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-24.

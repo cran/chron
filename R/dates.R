@@ -212,8 +212,11 @@ function(dates. = NULL, format = "m/d/y", origin., length. = 0, ...)
         origin. <- c(month = 1, day = 1, year = 1970)	
     ## determine sep, order of month, day, year, etc.
     fmt <- parse.format(format)
-    out <- unpaste(dates., sep = fmt$sep, fnames = fmt$periods,
-                   nfields = 3)
+    out <- if(nzchar(fmt$sep))
+        unpaste(dates., sep = fmt$sep, fnames = fmt$periods,
+                nfields = 3)
+    else
+        .str_to_ymd_list(dates., fmt)
     if(fmt$abb)
         mo <- as.numeric(out$m)
     else mo <- match(tolower(substring(out$m, 1, 3)),
