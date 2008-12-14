@@ -543,3 +543,7 @@ seq.dates <- function(from, to, by = "days", length., ...)
     else
         return(chron(x, format = fmt, origin. = org))
 }
+
+xtfrm.dates <-
+function(x)
+    as.numeric(x)

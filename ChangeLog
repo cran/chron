@@ -1,3 +1,13 @@
+2008-12-14  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-26.
+
+	* NAMESPACE
+	* R/chron.R (xtfrm.chron):
+	* R/dates.R (xtfrm.dates):
+	* R/times.R (xtfrm.times):
+	Add xtfrm methods.
+
 2008-11-12  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-25.
@@ -83,7 +93,7 @@
 	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
 
 	* R/utils.R ("is.holiday"): Fixed bug for zero length holiday
-	vector.  
+	vector.
 	Thanks to Gabor Grothendieck <ggrothendieck@gmail.com>.
 
 	* man/days.Rd:
@@ -125,8 +135,8 @@
 
 	* DESCRIPTION (Version): New version is 2.3-11.
 
-	* man/trunc.times.Rd: 
-	* R/dates.R (trunc.dates): 
+	* man/trunc.times.Rd:
+	* R/dates.R (trunc.dates):
 	* R/times.R (trunc.times):
 	Add '...' argument to trunc() methods.
 
@@ -172,7 +182,7 @@
 
 	* DESCRIPTION (Version): New version is 2.3-5.
 
-	* src/unpaste.c (unpaste): 
+	* src/unpaste.c (unpaste):
 	* R/utils.R (unpaste):
 	Improvements for strict type checking in ff calls, thanks BDR.
 
@@ -188,7 +198,7 @@
 2006-06-09  Duncan Murdoch <murdoch@stats.uwo.ca>
 
 	* DESCRIPTION (Version): New version is 2.3-3.
-	
+
 	* R/times.R:  Change axis.times to try harder to give unique
 	labels at round number locations.
 
@@ -196,7 +206,7 @@
 
 	* DESCRIPTION (Version): New version is 2.3-2.
 
-	* R/times.R (trunc.times): 
+	* R/times.R (trunc.times):
 	* man/trunc.times.Rd:
 	Add a comparison tolerance argument to address problems with
 	floating point representations, donated by Gabor Grothendieck
@@ -206,7 +216,7 @@
 
 	* DESCRIPTION (Version): New version is 2.3-1.
 
-	* R/times.R (trunc.times): 
+	* R/times.R (trunc.times):
 	* man/trunc.times.Rd:
 	New trunc() methods for times objects, donated by Gabor
 	Grothendieck <ggrothendieck@gmail.com>.
@@ -228,8 +238,8 @@
 
 2005-07-11  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
-	* man/cut.dates.Rd: 
-	* man/seq.dates.Rd: 
+	* man/cut.dates.Rd:
+	* man/seq.dates.Rd:
 	Rd format.
 
 2005-04-28  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
@@ -239,9 +249,9 @@
 	* R/chron.R:
 	* R/dates.R:
 	* R/times.R:
-	* R/utils.R:	
+	* R/utils.R:
 	As spotted by David Harte <david@statsresearch.co.nz>, there is a
-	problem with dates before the origin: 
+	problem with dates before the origin:
 	  R> chron(dates.="12/31/1969", times.="18:00:00")
           [1] (01/01/70 -06:00:00)
 	(Most likely not as intended.)  Fix by changing trunc() to floor()
@@ -305,8 +315,8 @@
 
 	* DESCRIPTION (Version): New version is 2.2-28.
 
-	* man/chron.Rd: 
-	* man/day.of.week.Rd: 
+	* man/chron.Rd:
+	* man/day.of.week.Rd:
 	Fix codoc default value mismatch problems.
 
 2003-07-16  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
@@ -364,9 +374,9 @@
 
 	* DESCRIPTION (Version): New version is 2.2-20.
 
-	* R/utils.R (unpaste): 
-	* R/dates.R (convert.dates): 
-	* R/times.R (c.times): 
+	* R/utils.R (unpaste):
+	* R/dates.R (convert.dates):
+	* R/times.R (c.times):
 	Adjust for R 1.5.0 character NAs.
 
 2001-11-27  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
@@ -382,9 +392,9 @@
 
 	* DESCRIPTION (Version): New version is 2.2-18.
 
-	* R/chron.R (chron): the default for the argument `out.format' was
-	wrong if the argument `format' was a function or R symbol (in
-	these cases `out.format' now is not set and we stop).  As the
+	* R/chron.R (chron): the default for the argument 'out.format' was
+	wrong if the argument 'format' was a function or R symbol (in
+	these cases 'out.format' now is not set and we stop).  As the
 	current code does not always preserve format slots, we need to
 	make a NULL format correspond to the default.
 	* R/dates.R (convert.dates): now correctly handles formats given
@@ -413,7 +423,7 @@
 
 	* man/day.of.week.Rd: Document arguments of day.of.week().
 
-	* man/chron-internal.Rd: Add keyword `internal'.
+	* man/chron-internal.Rd: Add keyword 'internal'.
 
 2001-07-14  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
@@ -440,7 +450,7 @@
 	* DESCRIPTION (Version): New version is 2.2-13.
 
 	* man/chron.Rd:
-	* man/day.of.week.Rd: 
+	* man/day.of.week.Rd:
 	Codoc fixes.
 
 2001-05-12  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
@@ -477,7 +487,7 @@
 
 	* DESCRIPTION (Version): New version is 2.2-9.
 
-	* R/utils.R: Add `PACKAGE' arg to FF calls.
+	* R/utils.R: Add 'PACKAGE' arg to FF calls.
 
 2000-12-24  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
@@ -494,16 +504,16 @@ Sat Jul 22 11:41:45 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-6.
 
-	* R/chron.R (print.chron): Return argument `x'.
-	* R/dates.R (print.dates): Return argument `x'.
-	* R/times.R (print.times): Return argument `x'.
+	* R/chron.R (print.chron): Return argument 'x'.
+	* R/dates.R (print.dates): Return argument 'x'.
+	* R/times.R (print.times): Return argument 'x'.
 	Changes suggested by M Maechler <maechler@stat.math.ethz.ch>.
 
 Sun Jul 16 21:54:53 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-5.
 
-	* R/times.R: Use graphics parameter `tcl' instead of `tck'.
+	* R/times.R: Use graphics parameter 'tcl' instead of 'tck'.
 
 Sun Jul  2 10:47:12 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
@@ -530,28 +540,28 @@ Sun Jun 25 17:06:07 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 	* src/chron_strs.c (to_lower): Remove.
 
 	* R/chron.R: Comment lower.case().
-	Add as.data.frame() methods for classes `chron', `dates' and
-	`times'.
+	Add as.data.frame() methods for classes 'chron', 'dates' and
+	'times'.
 
 	* R/y2k.R: Get options via getOption().
   	Replace lower.case() by	tolower().
 	(year.expand): Only expand the 2-digit specifications, leaving
 	everything else intact.
 
-	* man/*.Rd: Add `\keyword{chron}'.
+	* man/*.Rd: Add '\keyword{chron}'.
 
 	* man/chron.Rd: Add aliases for methods for objects of class
-	`chron'.
+	'chron'.
 
 	* man/dates.Rd: Add aliases for methods for objects of class
-	`dates' or `times'.
+	'dates' or 'times'.
 
 Sun Jan 23 15:35:51 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.2-2.
 
-	* Rename `year.abb' and `year.expand' to `chron.year.abb' and
-	`chron.year.expand', respectively.
+	* Rename 'year.abb' and 'year.expand' to 'chron.year.abb' and
+	'chron.year.expand', respectively.
 
 Tue Jan  4 21:42:01 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
@@ -561,7 +571,7 @@ Tue Jan  4 21:42:01 2000  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* PORTING: Document Y2K improvements.
 
-	* R/zzz.R: Set new options `year.abb' and `year.expand' to allos
+	* R/zzz.R: Set new options 'year.abb' and 'year.expand' to allos
 	2-digit abbreviations and (kind of) guess the actual year.
 	* R/y2k.R: New file with replacements for the commented funs and
 	new functions year.expand() and year.strict().
@@ -581,15 +591,15 @@ Sat Apr 10 13:08:59 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.1-6.
 	* R/chron.R (leap.year): Fix typo.
-	(format<-, format<-.times, origin<-): Replace `val' by `value'.
+	(format<-, format<-.times, origin<-): Replace 'val' by 'value'.
 	* PORTING: Document this.
 
 Sun Mar 28 10:53:43 1999  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.1-5.
 
-	* R/chron.R (c.dates): Add `recursive = FALSE' argument.
-	* R/chron.R (c.times): Add `recursive = FALSE' argument.
+	* R/chron.R (c.dates): Add 'recursive = FALSE' argument.
+	* R/chron.R (c.times): Add 'recursive = FALSE' argument.
 	* PORTING: Document this.
 
 Sun Dec  6 11:43:51 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
@@ -605,7 +615,7 @@ Fri Nov 27 23:23:30 1998  Kurt Hornik  <Kurt.Hornik@ci.tuwien.ac.at>
 	* R/chron.R: Comment load.if.needed().
 	* man/load.if.needed.Rd: Removed.
 
-	* src/chron_strs.c: Add `#include <ctype.h>'.
+	* src/chron_strs.c: Add '#include <ctype.h>'.
 
 	* src-c: Removed.
 

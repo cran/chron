@@ -600,3 +600,7 @@ function (x, units = "days", eps = 1e-10, ...)
     units <- as.numeric(units)
     times(units * trunc((as.numeric(x) + eps) / units))
 }
+
+xtfrm.times <-
+function(x)
+    as.numeric(x)

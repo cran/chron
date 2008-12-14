@@ -319,3 +319,8 @@ function(x, digits = NULL, quote = FALSE, prefix = "", sep = " ",
     print.default(x, quote = quote)
     invisible(xo)
 }
+
+
+xtfrm.chron <-
+function(x)
+    as.numeric(x)
