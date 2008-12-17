@@ -2,9 +2,7 @@ useDynLib("chron")
 
 import("stats")
 
-if(getRversion() >= "2.3.0")
-    importFrom("graphics", "Axis")
-importFrom("graphics", "axis", "barplot", "hist", "par", "plot",
+importFrom("graphics", "Axis", "axis", "barplot", "hist", "par", "plot",
            "plot.default") 
 
 export(".Holidays",
@@ -37,7 +35,8 @@ S3method("weekdays", "default")
 S3method("as.data.frame", "chron")
 S3method("format", "chron")
 S3method("print", "chron")
-S3method("xtfrm", "chron")
+if(getRversion() >= "2.8.0")
+    S3method("xtfrm", "chron")
 
 S3method("Math", "dates")
 S3method("Ops", "dates")
@@ -49,10 +48,10 @@ S3method("c", "dates")
 S3method("cut", "dates")
 S3method("format", "dates")
 S3method("print", "dates")
-S3method("xtfrm", "dates")
+if(getRversion() >= "2.8.0")
+    S3method("xtfrm", "dates")
 
-if(getRversion() >= "2.3.0")
-    S3method("Axis", "times")
+S3method("Axis", "times")
 S3method("Math", "times")
 S3method("Ops", "times")
 S3method("Summary", "times")
@@ -77,4 +76,5 @@ S3method("print", "times")
 S3method("quantile", "times")
 S3method("summary", "times")
 S3method("trunc", "times")
-S3method("xtfrm", "times")
+if(getRversion() >= "2.8.0")
+    S3method("xtfrm", "times")

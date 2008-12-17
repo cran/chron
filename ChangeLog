@@ -1,3 +1,10 @@
+2008-12-17  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-27.
+
+	* NAMESPACE: Registration of xtfrm() methods only works for R
+	2.8.0 or later (spotted by Alex Kleeman <akleeman@gmail.com>).
+
 2008-12-14  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-26.
