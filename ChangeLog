@@ -1,3 +1,7 @@
+2009-01-05  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* man/chron.Rd: Rd fixes.
+
 2008-12-17  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-27.

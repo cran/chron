@@ -82,9 +82,9 @@ chron(dates., times., format = c(dates = "m/d/y", times = "h:m:s"),
   If \code{x} is \code{character} then it will be converted using 
   \code{as.POSIXct} (with the \code{format} argument, if any, passed to
   \code{as.POSIXct}) and \code{tz = "GMT"} and then converted
-  to \code{chron}.  If code{x} is \code{numeric} and \code{format}
+  to \code{chron}.  If \code{x} is \code{numeric} and \code{format}
   is not specified then it will be converted to \code{chron}
-  using \code{chron(x)}.  If code{x} is \code{numeric} and \code{format}
+  using \code{chron(x)}.  If \code{x} is \code{numeric} and \code{format}
   is \code{specified} then \code{x} will be converted to character and
   then processed using \code{as.POSIXct} as discussed above.  If the
   format is specified as \code{NULL} it will be treated the same as if
