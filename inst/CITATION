@@ -20,7 +20,7 @@ citEntry(entry = "Manual",
              paste(note,
                    "S original by David James, R port by Kurt Hornik.")
          },
-	 url = "http://CRAN.R-project.org/",
+	 url = "http://CRAN.R-project.org/package=chron",
 	 textVersion = {
              paste("David James and Kurt Hornik",
 	           sprintf("(%s).", year),
