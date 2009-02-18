@@ -1,3 +1,10 @@
+2009-02-18  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-30.
+
+	* R/chron.R (chron): Recycle dates/times if one is length one.
+	Suggested by Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2009-02-05  Kurt Hornik  <Kurt.Hornik@wu-wien.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-29.

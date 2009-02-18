@@ -85,9 +85,15 @@ function(dates. = NULL, times. = NULL,
         return(tms)
     }
     ## both dates and times 
-    if(length(times.) != length(dates.))
-        stop(paste(deparse(substitute(dates.)), "and",
-                   deparse(substitute(times.)), "must have equal lengths"))
+    if(length(times.) != length(dates.)) {
+        if(length(times.) == 1)
+            times. <- rep.int(times., length(dates.))
+        else if(length(dates.) == 1)
+            dates. <- rep.int(dates., length(times.))
+        else
+            stop(paste(deparse(substitute(dates.)), "and",
+                       deparse(substitute(times.)), "must have equal lengths"))
+    }
     if(missing(format)) {
         if(is.null(fmt.d <- attr(dates., "format")))
             fmt.d <- format[1]
