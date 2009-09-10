@@ -11,9 +11,9 @@ citEntry(entry = "Manual",
                    "Dates and Times")
          },
 	 author = personList(
-           person(first = "David", last = "James",
+           person("David", "James",
                   email = "dj@research.bell-labs.com"),
-           person(first = "Kurt", last = "Hornik",
+           person("Kurt", "Hornik",
                   email = "Kurt.Hornik@R-project.org")),
          year = year,
 	 note = {

@@ -13,7 +13,7 @@
   Create a Chronological Object 
 }
 \description{
-  Create chrononogical objects which represent dates and times of day.
+  Create chronological objects which represent dates and times of day.
 }
 \usage{
 chron(dates., times., format = c(dates = "m/d/y", times = "h:m:s"),
