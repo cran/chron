@@ -585,6 +585,7 @@ function(object, digits = 12, ...)
 trunc.times <-
 function (x, units = "days", eps = 1e-10, ...)
 {
+    att <- attributes(x)[c("format", "origin", "class")]
     if(is.character(units)) {
         idx <- pmatch(units, c("days", "hours", "minutes", "seconds"))
         if(!is.na(idx)) {
@@ -598,7 +599,9 @@ function (x, units = "days", eps = 1e-10, ...)
             stop("cannot coerce units to class: times")
     }
     units <- as.numeric(units)
-    times(units * trunc((as.numeric(x) + eps) / units))
+    out <- units * trunc((as.numeric(x) + eps) / units)
+    structure(out, format = att$format, origin = att$origin,
+              class = att$class)    
 }
 
 xtfrm.times <-
