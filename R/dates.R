@@ -544,6 +544,10 @@ seq.dates <- function(from, to, by = "days", length., ...)
         return(chron(x, format = fmt, origin. = org))
 }
 
+unique.dates <-
+function(x, incomparables = FALSE, ...) 
+    x[!duplicated(x, incomparables, ...)]
+
 xtfrm.dates <-
 function(x)
     as.numeric(x)

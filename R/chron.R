@@ -326,6 +326,9 @@ function(x, digits = NULL, quote = FALSE, prefix = "", sep = " ",
     invisible(xo)
 }
 
+unique.chron <-
+function(x, incomparables = FALSE, ...) 
+    x[!duplicated(x, incomparables, ...)]
 
 xtfrm.chron <-
 function(x)

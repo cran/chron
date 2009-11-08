@@ -604,6 +604,10 @@ function (x, units = "days", eps = 1e-10, ...)
               class = att$class)    
 }
 
+unique.times <-
+function(x, incomparables = FALSE, ...) 
+    x[!duplicated(x, incomparables, ...)]
+
 xtfrm.times <-
 function(x)
     as.numeric(x)

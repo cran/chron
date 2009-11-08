@@ -1,3 +1,14 @@
+2009-11-08  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-33.
+
+	* NAMESPACE:
+	* R/chron.R (unique.chron):
+	* R/dates.R (unique.dates):
+	* R/times.R (unique.times):
+	Add unique() methods to make factor() work on chron objects for R
+	2.10.0 or later.
+
 2009-10-04  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-32.
