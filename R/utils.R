@@ -136,8 +136,7 @@ function(str, sep = "")
 {
     n <- length(str)
     white.space <- missing(sep) || sep == ""
-    ## load.if.needed("chron_strs.o")
-    .C(NAME = "cnt_flds_str",
+    .C("cnt_flds_str",
        strings = as.character(str),
        nstrings = as.integer(n),
        sep = as.character(sep),
