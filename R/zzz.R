@@ -1,5 +1,5 @@
 ".onLoad" <-
-function (lib, pkg) {
+function(lib, pkg) {
 
     ## The following controls the behavior when faced w. 2-digit years.
     ##
@@ -14,6 +14,8 @@ function (lib, pkg) {
     ##    options(chron.year.abb = TRUE,
     ##            chron.year.expand = "year.expand")
 
-    options(chron.year.abb = TRUE,
-            chron.year.expand = "year.expand")
+    if(is.null(getOption("chron.year.abb")))
+        options(chron.year.abb = TRUE)
+    if(is.null(getOption("chron.year.expand")))
+        options(chron.year.expand = "year.expand")
 }
