@@ -1,8 +1,15 @@
+2010-08-31  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-36.
+
+	* R/chron.R (as.chron.POSIXt): Do not convert to dates if the time
+	component is 0.  By Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2010-04-05  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-35.
 
-	* R/zzz.R (".onLoad"): Do not overwrite global chron options.
+	* R/zzz.R (.onLoad): Do not overwrite global chron options.
 	Suggested by Gabor Grothendieck <ggrothendieck@gmail.com>.
 
 2010-03-17  Kurt Hornik  <Kurt.Hornik@wu.ac.at>

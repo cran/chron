@@ -159,10 +159,10 @@ as.chron.POSIXt <- function(x, offset = 0, tz = "GMT", ...)
     x <- as.numeric(as.POSIXct(as.character(x, tz = tz), tz = "GMT")) +
         60 * round(60 * offset)
     tm <- x %% 86400
-    if(any(tm != 0))
+    # if(any(tm != 0))
         chron(dates. = x %/% 86400, times. = tm / 86400, ...)
-    else
-        chron(dates. = x %/% 86400, ...)
+    # else
+    #   chron(dates. = x %/% 86400, ...)
 }
 as.chron.Date <- function(x, ...)
 {
