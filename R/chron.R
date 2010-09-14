@@ -333,3 +333,14 @@ function(x, incomparables = FALSE, ...)
 xtfrm.chron <-
 function(x)
     as.numeric(x)
+
+pretty.chron <-
+function(x, ...)
+{
+   if(!inherits(x, "times"))
+       x <- chron(x)
+   x <- as.POSIXct(x)
+   attr(x, "tzone") <- "GMT"
+   ans <- pretty(x, ...)
+   structure(as.chron(ans), labels = attr(ans, "labels"))
+}

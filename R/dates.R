@@ -551,3 +551,15 @@ function(x, incomparables = FALSE, ...)
 xtfrm.dates <-
 function(x)
     as.numeric(x)
+
+## chron 'dates' objects: only dates
+## (no times here because caught by 'chron' method)
+pretty.dates <-
+function(x, ...)
+{
+   if(!inherits(x, "times"))
+       x <- chron(x)
+   x <- as.Date(x)
+   ans <- pretty(x, ...)
+   structure(as.chron(ans), labels = attr(ans, "labels"))
+}

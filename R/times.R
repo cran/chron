@@ -611,3 +611,19 @@ function(x, incomparables = FALSE, ...)
 xtfrm.times <-
 function(x)
     as.numeric(x)
+
+## chron 'times' objects: only times
+## (no dates here because caught by 'dates' method)
+pretty.times <-
+function(x, ..., simplify = TRUE)
+{
+   ## call 'chron' method to get absolute times
+   ans <- pretty(chron(dates. = x), ...)
+   at <- chron(times. = as.vector(ans))
+   ## format.times will revert to numeric format if any > 1
+   labels <- if(max(abs(at)) <= 1)      # 'x' might exceed 1
+       format(at - floor(at), simplify = simplify)
+   else
+       format(at, simplify = simplify)
+   structure(at, labels = labels)
+}

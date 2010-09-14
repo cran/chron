@@ -1,3 +1,14 @@
+2010-09-14  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-37.
+
+	* NAMESPACE:
+	* R/chron.R (pretty.chron):
+	* R/times.R (pretty.times):
+	* R/dates.R (pretty.dates):
+	Add pretty() methods contributed by Felix Andrews
+	<felix@nfrac.org>, and use for R >= 2.12.0.
+
 2010-08-31  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-36.
