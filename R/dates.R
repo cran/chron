@@ -318,7 +318,7 @@ function(x, breaks, labels, start.on.monday = TRUE, ...)
                    years = chron(julian(1, 1, mdy$y, origin. = orig)))
     if(from == min(x))
         from <- from - .Machine$double.eps
-    breaks <- brk <- seq.int(from = from, to = max(x) + bump, by = by)
+    breaks <- brk <- seq(from = from, to = max(x) + bump, by = by)
     breaks <- as.numeric(breaks)
     n <- length(breaks)
     x <- as.numeric(x)
