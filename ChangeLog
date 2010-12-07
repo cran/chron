@@ -1,3 +1,9 @@
+2010-12-07  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-39.
+
+	* R/times.R ("hist.times"): Make work to some extent.
+
 2010-10-03  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-38.

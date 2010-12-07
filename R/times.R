@@ -320,8 +320,11 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
     if(plot) {
         old <- par("xaxt", "yaxt")
         on.exit(old)
-        out <- barplot(tt$counts, width = tt$breaks, histo = TRUE, ..., 
-                       xlab = xlab, axes = FALSE)
+        x <- tt$breaks
+        y <- if(probability) tt$density else tt$counts
+        plot.new()
+        plot.window(xlim = range(x), ylim = range(y, 0))
+        rect(x[-length(x)], 0, x[-1L], y)
         if(any(cl == "dates"))
             lbl <- format(chron(dates. = tt$breaks), simplify = simplify)
         else
@@ -338,7 +341,8 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
             lab <- par("lab")
         if(is.null(mgp <- dots$mgp))
             mgp <- par("mgp")
-        if(is.null(tcl <- dots$tcl)) tcl <- par("tcl")	
+        if(is.null(tcl <- dots$tcl))
+            tcl <- par("tcl")	
         ## do we plot x axis
         if(is.null(axes <- dots$axes))
             axes <- TRUE
@@ -351,12 +355,14 @@ function(x, nclass, breaks, plot = TRUE, probability = FALSE, ...,
         if(axes) {
             if(horiz) {
                 if(xaxt != "n")
-                    axis(1, adj = adj, cex = cex, font = font, 
-                         las = las, lab = lab, mgp = mgp, tcl = tcl)
+                    axis(1, adj = adj, labels = TRUE,
+                         cex = cex, font = font, las = las, lab = lab,
+                         mgp = mgp, tcl = tcl)
             }
             else if(yaxt != "n")
-                axis(2, adj = adj, cex = cex, font = font, las
-                     = las, lab = lab, mgp = mgp, tcl = tcl)
+                axis(2, adj = adj, labels = TRUE,
+                     cex = cex, font = font, las = las, lab = lab,
+                     mgp = mgp, tcl = tcl) 
             axis(horiz + 1, at = tt$breaks, labels = lbl, adj = adj,
                  cex = cex, font = font, las = las, lab = lab, 
                  mgp = mgp, tcl = tcl)
