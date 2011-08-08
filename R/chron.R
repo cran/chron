@@ -140,9 +140,13 @@ as.chron.default <- function (x, format, ...)
     if (is.character(x)) {
         if (missing(format) || is.null(format)) {
             out <- suppressWarnings(try(chron(x, ...), silent = TRUE))
-            if (inherits(out, "try-error")) {
+            ## If this fails, try Date or datetime.
+            if(inherits(out, "try-error")) {
                 xx <- sub("T", " ", x)
-                out <- as.chron(as.POSIXct(xx, tz = "GMT"), ...)
+                out <- if(!any(grepl(" ", x, fixed = TRUE)))
+                    as.chron(as.Date(xx), ...)
+                else
+                    as.chron(as.POSIXct(xx, tz = "GMT"), ...)
             }
         } else {
             out <- as.chron(as.POSIXct(x, format = format, tz = "GMT"),

@@ -1,5 +1,5 @@
-".onLoad" <-
-function(lib, pkg) {
+.onLoad <-
+function(libname, pkgname) {
 
     ## The following controls the behavior when faced w. 2-digit years.
     ##
