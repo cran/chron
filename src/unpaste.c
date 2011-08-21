@@ -34,7 +34,7 @@ unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
 	j = k = 0;
 	while(1) {
  	    if(j >= 4095) {
-		    fprintf(stderr, "Problems coming\n");fflush(stderr);
+		warning("Problems coming ...");
 	    }
 	    c = *s;
 	    if((c == '\0')
