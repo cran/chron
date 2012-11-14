@@ -1,9 +1,10 @@
-8986357f537ffac475bc1495c65a4965 *ChangeLog
-15e957eff01df7d2ea53ad5ac1c277b1 *DESCRIPTION
-a22771a64ad78521df8c67705c13b6ea *NAMESPACE
+4ef047553f0f346dfcfb037531e2e895 *ChangeLog
+5ff0d39284e140bf794f135d6cf1593b *DESCRIPTION
+1e705ed4be1f05212e9a99b0495f317e *NAMESPACE
 511477d4726a20de1217d4c1d04c2ba9 *PORTING
 05abac32bd1087e604c54ea6297b8c05 *R/chron.R
 4cfe85f3a8966bc4ad75ac4c6d2941f6 *R/dates.R
+4a7b2014cd423294adf54bf9bc3f644c *R/scale.R
 b063fff31c2f5e8d818e51de17dc215a *R/times.R
 7efdf195faf3ba2f02be01c2463c5f72 *R/utils.R
 d23e620c5efef86d7786e213d653c19c *R/y2k.R
@@ -20,7 +21,8 @@ cdec67319b7f47b4caa7baa7dc54fc2a *inst/CITATION
 0b8b3de1603f0ea048b86b415bc754ff *man/days.Rd
 d399b53e909032c4b0f24b43ff27790b *man/hours.Rd
 63720c9e7b8630b97500f0d6152cd4ad *man/is.holiday.Rd
-6ed517abaf2f627e40ee4bf0b2b7ef82 *man/seq.dates.Rd
+e605e7af69e9d629d9866d17fdac94a0 *man/scale.Rd
+fe039f8fb549a97380513186a76bc8ad *man/seq.dates.Rd
 0cc3a2e51b39db39ebd351896cae3b41 *man/trunc.times.Rd
 26a923baa28b8d1f648d5de066eeec43 *man/yearmon.Rd
 b330845ce9ba19da775ef91aa033db8d *src/Rchron.h

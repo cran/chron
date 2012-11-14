@@ -1,4 +1,16 @@
+2012-11-14  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-43.
+
+	* NAMESPACE:
+	* R/scale.R:
+	* man/scale.Rd:
+	Add scale/ggplot2 functionality contributed by Gabor Grothendieck
+	<ggrothendieck@gmail.com>.
+
 2011-08-21  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-42.
 
 	* src/unpaste.c (unpaste): Do not write to stderr directly.
 
