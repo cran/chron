@@ -404,6 +404,8 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
                       as.logical(white.space),
                       as.integer(nfields),
                       PACKAGE = "chron")
+        for(i in seq_along(out))
+            out[[i]][nas] <- as.character(NA)
     }
     else {
         last <- first + width - 1

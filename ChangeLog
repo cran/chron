@@ -1,3 +1,16 @@
+2013-09-01  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-44.
+
+	* R/utils.R (unpaste):
+	Have unpaste() consistently return NA_character_ and not the
+	string "NA" for missing pieces.
+	Spotted by Kodi Arfer <kodi@arfer.net>.
+
+	* README:
+	* Y2K:
+	Remove 'Y2K' and no longer refer to it.
+
 2012-11-14  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-43.
