@@ -258,6 +258,11 @@ function(x, format = att$format, origin. = att$origin, sep = " ",
          simplify, enclosed = c("(", ")"), ...)
 {
     att <- attributes(x)
+    if(length(format) == 1L) {
+        if(!nzchar(format))
+            format <- "%Y-%m-%d %H:%M:%S"
+        return(format(as.POSIXct(x), format = format, tz = "GMT"))
+    }
     if(missing(simplify))
         if(is.null(simplify <- getOption("chron.simplify")))
             simplify <- FALSE

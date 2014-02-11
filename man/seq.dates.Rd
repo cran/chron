@@ -7,7 +7,7 @@
   Generate a regular sequence of dates.
 }
 \usage{
-seq.dates(from, to, by = "days", length., \dots)
+\method{seq}{dates}(from, to, by = "days", length., \dots)
 }
 \arguments{
   \item{from}{starting date; it can be a chron or dates object, a

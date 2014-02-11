@@ -7,7 +7,6 @@
 \alias{as.chron.factor}
 \alias{is.chron}
 \alias{as.data.frame.chron}
-\alias{format.chron}
 \alias{print.chron}
 \title{
   Create a Chronological Object 

@@ -1,3 +1,17 @@
+2014-02-11  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-45.
+
+2014-01-29  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* man/format.chron.Rd: Added.
+
+2014-01-08  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* R/chron.R ("format.chron"): Allow formatting chron objects using
+	percent codes.  Suggestion by  Gabor Grothendieck
+	<ggrothendieck@gmail.com>.
+
 2013-09-01  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-44.
