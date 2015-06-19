@@ -1,4 +1,5 @@
 \name{trunc.times}
+\alias{round.times}
 \alias{trunc.times}
 \title{Truncate times Objects}
 \description{
@@ -19,6 +20,9 @@
 \details{
   The time is truncated to the second, minute, hour or day or to the
   value specified.
+
+  There is also a \code{round} method which has the same arguments as
+  the \code{trunc} method, and performs rounding instead of truncation.
 }
 \value{
   An object of class \code{"times"}.

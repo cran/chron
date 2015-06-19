@@ -9,6 +9,8 @@ function(x = NULL, at = NULL, ..., side, labels = NULL)
 "Math.times" <-
 function(x, ...)
 {
+    if(.Generic == "round")
+        return(round_times(x, ...))
     cl <- class(x)
     class(x) <- NULL
     out <- NextMethod(.Generic)
@@ -561,6 +563,28 @@ quantile.times <- function(x, ...)
     out <- structure(NextMethod("quantile"), format = fmt, origin = orig, 
                      class = cl)
     out
+}
+
+round_times <-
+function(x, units = "days", eps = 1e-10, ...)
+{
+    att <- attributes(x)[c("format", "origin", "class")]
+    if(is.character(units)) {
+        idx <- pmatch(units, c("days", "hours", "minutes", "seconds"))
+        if(!is.na(idx)) {
+            values <- c(1, as.numeric(times(c("01:00:00","00:01:00","00:00:01"))))
+            units <- values[idx]
+        }
+    } 
+    if(!inherits(units, "times")) { 
+        units <- try(times(units))
+        if(inherits(units, "try-error")) 
+            stop("cannot coerce units to class: times")
+    }
+    units <- as.numeric(units)
+    out <- units * trunc((as.numeric(x) + units / 2 + eps) / units)
+    structure(out, format = att$format, origin = att$origin,
+              class = att$class)    
 }
 
 "summary.times"<-

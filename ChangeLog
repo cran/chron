@@ -1,3 +1,14 @@
+2015-02-11  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-46.
+
+	* R/times.R:
+	* man/trunc.times.Rd:
+	Add round method for times objects via Math.times (to
+	be able to use the same arguments as the trunc methods,
+	differently from the generic).
+	Suggestion by Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2014-02-11  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-45.
