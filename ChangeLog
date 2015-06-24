@@ -1,3 +1,9 @@
+2015-06-24  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION (Version): New version is 2.3-47.
+
+	* NAMESPACE: Add missing imports.
+
 2015-02-11  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION (Version): New version is 2.3-46.

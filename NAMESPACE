@@ -2,8 +2,8 @@ useDynLib("chron")
 
 import("stats")
 
-importFrom("graphics", "Axis", "axis", "barplot", "hist", "par", "plot",
-           "plot.default") 
+importFrom("graphics", "Axis", "axis", "barplot", "hist", "par",
+           "plot", "plot.default", "plot.new", "plot.window", "rect")
 
 export(".Holidays",
        "as.chron",
