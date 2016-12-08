@@ -10,7 +10,7 @@ citEntry(entry = "Manual",
              paste("chron: Chronological Objects which Can Handle",
                    "Dates and Times")
          },
-	 author = personList(
+	 author = c(
            person("David", "James",
                   email = "dj@research.bell-labs.com"),
            person("Kurt", "Hornik",
@@ -20,7 +20,7 @@ citEntry(entry = "Manual",
              paste(note,
                    "S original by David James, R port by Kurt Hornik.")
          },
-	 url = "http://CRAN.R-project.org/package=chron",
+	 url = "https://CRAN.R-project.org/package=chron",
 	 textVersion = {
              paste("David James and Kurt Hornik",
 	           sprintf("(%s).", year),
