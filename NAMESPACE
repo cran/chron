@@ -1,4 +1,4 @@
-useDynLib("chron")
+useDynLib("chron", .registration = TRUE)
 
 import("stats")
 

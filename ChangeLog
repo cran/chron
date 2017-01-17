@@ -1,3 +1,12 @@
+2017-01-17  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-49.
+
+	* NAMESPACE:
+	* R/utils.R:
+	* src/init.c:
+	Improve registration of native routines.
+
 2016-12-08  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-48.

@@ -136,13 +136,12 @@ function(str, sep = "")
 {
     n <- length(str)
     white.space <- missing(sep) || sep == ""
-    .C("cnt_flds_str",
+    .C(R_cnt_flds_str,
        strings = as.character(str),
        nstrings = as.integer(n),
        sep = as.character(sep),
        white.space = as.integer(white.space),
-       counts = integer(n),
-       PACKAGE = "chron")$counts
+       counts = integer(n))$counts
 }
 
 "day.of.week" <-
@@ -398,12 +397,11 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         }
         n <- length(str)
         white.space <- FALSE
-        out <- .Call("unpaste",
-                      as.character(str),
-                      as.character(sep),
-                      as.logical(white.space),
-                      as.integer(nfields),
-                      PACKAGE = "chron")
+        out <- .Call(R_unpaste,
+                     as.character(str),
+                     as.character(sep),
+                     as.logical(white.space),
+                     as.integer(nfields))
         for(i in seq_along(out))
             out[[i]][nas] <- as.character(NA)
     }

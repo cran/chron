@@ -5,8 +5,8 @@
 #define BUF_SIZ 4096
 
 SEXP
-unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
-	SEXP s_nfields)
+R_unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
+	  SEXP s_nfields)
 {
     Sint i, j, k;
     char buffer[BUF_SIZ];
