@@ -4,8 +4,8 @@
 /* count fields in vector of strings */
 
 void
-R_cnt_flds_str(char **strings, Sint *nstrings, char **sep, Sint
-	       *white_space, Sint *counts)
+C_cnt_flds_str(char **strings, Sint *nstrings, char **sep, 
+	       Sint *white_space, Sint *counts)
 {
     Sint n = *nstrings, whitespace = *white_space;
     Sint i, nsep;

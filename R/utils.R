@@ -136,7 +136,7 @@ function(str, sep = "")
 {
     n <- length(str)
     white.space <- missing(sep) || sep == ""
-    .C(R_cnt_flds_str,
+    .C(C_cnt_flds_str,
        strings = as.character(str),
        nstrings = as.integer(n),
        sep = as.character(sep),
@@ -397,7 +397,7 @@ function(str, sep = "/", fnames = NULL, nfields = NULL,
         }
         n <- length(str)
         white.space <- FALSE
-        out <- .Call(R_unpaste,
+        out <- .Call(C_unpaste,
                      as.character(str),
                      as.character(sep),
                      as.logical(white.space),

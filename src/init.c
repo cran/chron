@@ -6,12 +6,12 @@ R_NativePrimitiveArgType cnt_flds_t[] =
 {STRSXP, INTSXP, STRSXP, INTSXP, INTSXP};
 
 static const R_CMethodDef CEntries[] = {
-    {"R_cnt_flds_str", (DL_FUNC) &R_cnt_flds_str, 5, cnt_flds_t},
+    {"C_cnt_flds_str", (DL_FUNC) &C_cnt_flds_str, 5, cnt_flds_t},
     {NULL, NULL, 0}
 };
 
 static const R_CallMethodDef CallEntries[] = {
-    {"R_unpaste", (DL_FUNC) &R_unpaste, 4},
+    {"C_unpaste", (DL_FUNC) &C_unpaste, 4},
     {NULL, NULL, 0}
 };
 

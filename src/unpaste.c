@@ -5,7 +5,7 @@
 #define BUF_SIZ 4096
 
 SEXP
-R_unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
+C_unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
 	  SEXP s_nfields)
 {
     Sint i, j, k;

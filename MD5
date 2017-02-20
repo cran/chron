@@ -1,12 +1,12 @@
-9352a0e4ce7e05773af5ae872cf6064b *ChangeLog
-d70b193153d459b3f25ed3a8f81729de *DESCRIPTION
+cb7376e9a42f3666afb47876e31b29fa *ChangeLog
+b7f2827deb459d7d8fe99f39e4ac0a28 *DESCRIPTION
 cbc899a0054a4286615159b2e9909107 *NAMESPACE
 511477d4726a20de1217d4c1d04c2ba9 *PORTING
 5aab81d06d80d3dc85bc1e6128218282 *R/chron.R
 4cfe85f3a8966bc4ad75ac4c6d2941f6 *R/dates.R
 4a7b2014cd423294adf54bf9bc3f644c *R/scale.R
 23b838b6ec69eba4c097d83324d38ee0 *R/times.R
-22369413f45f1e0cfbc8db931c429741 *R/utils.R
+f72b672b6f247cf5182b4b3adb570b1c *R/utils.R
 d23e620c5efef86d7786e213d653c19c *R/y2k.R
 197aae00b4c1a6d10ae20e316278c109 *R/zzz.R
 c21bddb925efb5bf2f60312ee5633817 *README
@@ -25,7 +25,7 @@ e605e7af69e9d629d9866d17fdac94a0 *man/scale.Rd
 69af9d3b3955fea1e7b1013237c40df1 *man/seq.dates.Rd
 d6c49f63dc886eae91aa5fe3e625572f *man/trunc.times.Rd
 26a923baa28b8d1f648d5de066eeec43 *man/yearmon.Rd
-abad37c729932726064adfe766aa153a *src/Rchron.h
-a287e7cbcdd6cf496c13eb7119b0b0e9 *src/chron_strs.c
-c5f9394d39c944ee482b5132aedfb96c *src/init.c
-c023e10a7964bc575ad253819e449bdb *src/unpaste.c
+9730582ab7786af2f1d2a34ca9e9c909 *src/Rchron.h
+e65fd24b5aef2cfb96c60668c23a9900 *src/chron_strs.c
+19489d0427b2a1dd5555d713470c8b31 *src/init.c
+b088bc9d159d1b2bfa4dea777e4f125d *src/unpaste.c
