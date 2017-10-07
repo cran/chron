@@ -1,6 +1,6 @@
-cb7376e9a42f3666afb47876e31b29fa *ChangeLog
-b7f2827deb459d7d8fe99f39e4ac0a28 *DESCRIPTION
-cbc899a0054a4286615159b2e9909107 *NAMESPACE
+fa399bfc2bc1de04da52395a73db2e9c *ChangeLog
+1ea08ee6316d507142eebaeb7d17a19f *DESCRIPTION
+c0877c5366f3546434315fc7b08cff46 *NAMESPACE
 511477d4726a20de1217d4c1d04c2ba9 *PORTING
 5aab81d06d80d3dc85bc1e6128218282 *R/chron.R
 4cfe85f3a8966bc4ad75ac4c6d2941f6 *R/dates.R
@@ -12,7 +12,7 @@ d23e620c5efef86d7786e213d653c19c *R/y2k.R
 c21bddb925efb5bf2f60312ee5633817 *README
 eb8e6e1933c473bfb701fa6fa5900962 *TODO
 fe8a4bada67008bd64bd6cb052719f92 *inst/CITATION
-63341c059709b9b6011ac17a4da82fda *man/chron-internal.Rd
+5063f415ddaf94601eaf80163efb06cb *man/chron-internal.Rd
 d2dff041ed1b133b4064bababa41d51e *man/chron.Rd
 04c67aba25f5decc6da3b03b1b72d319 *man/cut.dates.Rd
 52f83aa2d54f74d294a9eac5b367bda6 *man/dates.Rd
@@ -21,6 +21,7 @@ d2dff041ed1b133b4064bababa41d51e *man/chron.Rd
 44a3d53c960f3ba2a592bde7530ae6cf *man/format.chron.Rd
 d399b53e909032c4b0f24b43ff27790b *man/hours.Rd
 63720c9e7b8630b97500f0d6152cd4ad *man/is.holiday.Rd
+ca943161be619a9f943ed1b73cafeac0 *man/origin.Rd
 e605e7af69e9d629d9866d17fdac94a0 *man/scale.Rd
 69af9d3b3955fea1e7b1013237c40df1 *man/seq.dates.Rd
 d6c49f63dc886eae91aa5fe3e625572f *man/trunc.times.Rd

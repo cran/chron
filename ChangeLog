@@ -1,3 +1,13 @@
+2017-10-07  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-51.
+
+	* NAMESPACE:
+	* man/chron-internal.Rd:
+	* man/origin.Rd:
+	Document and export origin getter and setter.
+	Contributed by Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2017-02-20  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-50.

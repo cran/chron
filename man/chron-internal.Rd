@@ -15,8 +15,6 @@
 %\alias{month.length}
 %\alias{my.axis}
 %\alias{new.chron}
-%\alias{origin}
-%\alias{origin<-}
 %\alias{parse.format}
 %\alias{unpaste}
 \alias{year.expand}
@@ -42,7 +40,6 @@
 %my.axis(x, simplify = TRUE, \dots)
 %new.chron(x, new.origin = c(1, 1, 1970), shift = julian(new.origin[1], 
 %          new.origin[2], new.origin[3], c(0, 0, 0)))
-%origin(x)
 %parse.format(format, year.abb = getOption("chron.year.abb"), \dots)
 %unpaste(str, sep = "/", fnames = NULL, nfields = NULL,
 %        first = c(1, 3, 5), width = 2)
