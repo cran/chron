@@ -563,3 +563,33 @@ function(x, ...)
    ans <- pretty(x, ...)
    structure(as.chron(ans), labels = attr(ans, "labels"))
 }
+
+as.Date.dates <-
+function(x, ...)
+{
+    if(inherits(x, "dates")) {
+        z <- attr(x, "origin")
+        x <- trunc(as.numeric(x))
+        if(length(z) == 3L && is.numeric(z))
+            x  <- x + as.numeric(as.Date(paste(z[3L], z[1L], z[2L], sep="/")))
+        return(structure(x, class = "Date"))
+    } else stop(gettextf("'%s' is not a \"dates\" object",
+                         deparse(substitute(x)) ))
+}
+
+as.POSIXct.dates <-
+function(x, ...)
+{
+    if(inherits(x, "dates")) {
+        z <- attr(x, "origin")
+        x <- as.numeric(x) * 86400
+        if(length(z) == 3L && is.numeric(z))
+            x  <- x + as.numeric(ISOdate(z[3L], z[1L], z[2L], 0))
+        return(structure(x, class = c("POSIXct", "POSIXt")))
+    } else stop(gettextf("'%s' is not a \"dates\" object",
+                         deparse(substitute(x)) ))
+}
+
+as.POSIXlt.dates <-
+function(x, ...)
+    as.POSIXlt(as.POSIXct(x), ...)
