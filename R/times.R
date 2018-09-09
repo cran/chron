@@ -657,3 +657,13 @@ function(x, ..., simplify = TRUE)
        format(at, simplify = simplify)
    structure(at, labels = labels)
 }
+
+rep.times <-
+function(x, ...)
+{
+    att <- attributes(x)[c("format", "origin", "class")]
+    structure(NextMethod("rep"),
+              format = att$format,
+              origin = att$origin,
+              class = att$class)
+}
