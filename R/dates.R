@@ -593,3 +593,8 @@ function(x, ...)
 as.POSIXlt.dates <-
 function(x, ...)
     as.POSIXlt(as.POSIXct(x), ...)
+
+as.dates <-
+function(x, ...)
+    UseMethod("as.dates")
+as.dates.default <- dates

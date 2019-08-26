@@ -667,3 +667,8 @@ function(x, ...)
               origin = att$origin,
               class = att$class)
 }
+
+as.times <-
+function(x, ...)
+    UseMethod("as.times")
+as.times.default <- times

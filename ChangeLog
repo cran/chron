@@ -1,3 +1,18 @@
+2019-08-13  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-54.
+
+	* R/dates.R:
+	Add as.dates().
+	Suggestion by Gabor Grothendieck <ggrothendieck@gmail.com>.
+
+2019-08-12  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* NAMESPACE:
+	* R/times.R:
+	Add as.times().
+	Suggestion by Gabor Grothendieck <ggrothendieck@gmail.com>.
+
 2018-09-09  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-53.

@@ -7,6 +7,7 @@
 \alias{[<-.dates}
 \alias{all.equal.dates}
 \alias{as.data.frame.dates}
+\alias{as.dates}
 \alias{c.dates}
 \alias{floor.dates}
 \alias{format.dates}
@@ -20,6 +21,7 @@
 \alias{[[.times}
 \alias{as.character.times}
 \alias{as.data.frame.times}
+\alias{as.times}
 \alias{axis.times}
 \alias{c.times}
 \alias{diff.times}
