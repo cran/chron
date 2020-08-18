@@ -19,12 +19,3 @@ function(libname, pkgname) {
     if(is.null(getOption("chron.year.expand")))
         options(chron.year.expand = "year.expand")
 }
-
-.onAttach <-
-function(libname, pkgname) {
-    msg <- c("NOTE: The default cutoff when expanding a 2-digit year",
-             "to a 4-digit year will change from 30 to 69 by Aug 2020",
-             "(as for Date and POSIXct in base R.)")
-    packageStartupMessage(paste(msg, collapse = "\n"))
-}
-        

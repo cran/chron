@@ -2,7 +2,7 @@
     stop("you must expand 2-digit year abbreviations")
 
 "year.expand" <-
-function(y, cut.off = 30, century = c(1900, 2000), ...)
+function(y, cut.off = 69, century = c(1900, 2000), ...)
 {
     ## cut.off specifies year for rounding up/down
     if(!is.numeric(y))

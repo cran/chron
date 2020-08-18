@@ -1,3 +1,14 @@
+2020-08-18  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-56.
+
+	* R/zzz.R: Drop .onAttach().
+
+	* R/y2k.R:
+	* man/chron-internal.Rd:
+	Changed the default cutoff when expanding a 2-digit year to a
+	4-digit year from 30 to 69 (as for Date and POSIXct in base R.)
+
 2020-02-02  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-55.

@@ -43,7 +43,7 @@
 %parse.format(format, year.abb = getOption("chron.year.abb"), \dots)
 %unpaste(str, sep = "/", fnames = NULL, nfields = NULL,
 %        first = c(1, 3, 5), width = 2)
-year.expand(y, cut.off = 30, century = c(1900, 2000), \dots)
+year.expand(y, cut.off = 69, century = c(1900, 2000), \dots)
 year.strict(\dots)
 }
 \details{
