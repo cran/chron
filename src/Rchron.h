@@ -6,6 +6,8 @@
 
 #include <ctype.h>
 
+typedef int Sint;
+
 SEXP C_unpaste(SEXP s_strings, SEXP s_sep, SEXP s_whitespace,
 	       SEXP s_nfields);
 void C_cnt_flds_str(char **strings, Sint *nstrings, char **sep,

@@ -1,3 +1,18 @@
+2022-05-30  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-57.
+
+	* src/Rchron.h: Add typedef for legacy 'Sint' type.
+
+2021-03-08  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* man/chron.Rd:
+	* man/dates.Rd:
+	* man/format.chron.Rd:
+	* man/hours.Rd:
+	* man/seq.dates.Rd:
+	Avoid partial matching.
+
 2020-08-18  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-56.

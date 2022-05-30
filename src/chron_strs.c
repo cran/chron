@@ -1,5 +1,4 @@
-#include <ctype.h>
-#include <R.h>
+#include "Rchron.h"
 
 /* count fields in vector of strings */
 
