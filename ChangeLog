@@ -1,3 +1,10 @@
+2022-10-04  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-58.
+
+	* R/chron.R (as.chron.POSIXt): Update for recent
+	as.character.POSIXt() changes in base R.
+
 2022-05-30  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-57.

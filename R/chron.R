@@ -160,7 +160,7 @@ as.chron.POSIXt <- function(x, offset = 0, tz = "GMT", ...)
 {
     ## offset is in hours relative to GMT
     if(!inherits(x, "POSIXt")) stop("wrong method")
-    x <- as.numeric(as.POSIXct(as.character(x, tz = tz), tz = "GMT")) +
+    x <- as.numeric(as.POSIXct(format(x, tz = tz), tz = "GMT")) +
         60 * round(60 * offset)
     tm <- x %% 86400
     # if(any(tm != 0))
