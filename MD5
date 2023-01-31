@@ -1,5 +1,5 @@
-820ea65f07932fef572b9800e1ae05c1 *ChangeLog
-2479b7afdcac4bec0b4dd3e28f3bd165 *DESCRIPTION
+54a5847e57ce3a1fd05cd4ebcb9ea976 *ChangeLog
+4ac1517e70bc70834acf378c4dbacfe0 *DESCRIPTION
 06750ae295787ed50bbad3213802bee9 *NAMESPACE
 511477d4726a20de1217d4c1d04c2ba9 *PORTING
 4450c7915f2c9ed3acfdc26e3449284f *R/chron.R
@@ -11,7 +11,6 @@ f402e63e9ffa0ab4b5b1daaace06515f *R/y2k.R
 197aae00b4c1a6d10ae20e316278c109 *R/zzz.R
 c21bddb925efb5bf2f60312ee5633817 *README
 eb8e6e1933c473bfb701fa6fa5900962 *TODO
-fe8a4bada67008bd64bd6cb052719f92 *inst/CITATION
 fb530644fa0e6bce4e323e8b05ee8ef3 *man/chron-internal.Rd
 b72ec1625f60b3827114c8cf05d2eefe *man/chron.Rd
 04c67aba25f5decc6da3b03b1b72d319 *man/cut.dates.Rd
