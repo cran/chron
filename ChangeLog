@@ -1,3 +1,9 @@
+2023-03-02  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
+
+	* DESCRIPTION: New version is 2.3-60.
+
+	* NAMESPACE: Drop axis.times(), add as.chron.factor().
+
 2023-01-31  Kurt Hornik  <Kurt.Hornik@wu.ac.at>
 
 	* DESCRIPTION: New version is 2.3-59.
