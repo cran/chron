@@ -312,10 +312,10 @@ function(x, breaks, labels, start.on.monday = TRUE, ...)
     mdy <- month.day.year(as.numeric(from), origin. = orig)
     from <- switch(by,
                    days = from,
-                   weeks = (from - day.of.week(mdy$m, mdy$d, mdy$y)
+                   weeks = (from - day.of.week(mdy$month, mdy$day, mdy$year)
                             + as.numeric(start.on.monday)),
-                   months = chron(julian(mdy$m, 1, mdy$y, origin. = orig)),
-                   years = chron(julian(1, 1, mdy$y, origin. = orig)))
+                   months = chron(julian(mdy$month, 1, mdy$year, origin. = orig)),
+                   years = chron(julian(1, 1, mdy$year, origin. = orig)))
     if(from == min(x))
         from <- from - .Machine$double.eps
     breaks <- brk <- seq(from = from, to = max(x) + bump, by = by)
