@@ -4,7 +4,7 @@ function(format = "%Y-%m-%d", n = 5)
     breaks. <- function(x)
         chron(scales::pretty_breaks(n)(x))
     format. <- function(x)
-        format(as.POSIXct(x, tz = "GMT"), format = format)
+        format(as.POSIXlt(x, tz = "GMT"), format = format)
     scales::trans_new("chron",
                       transform = as.numeric, inverse = chron,
                       breaks = breaks., format = format.)
